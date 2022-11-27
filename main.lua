@@ -8,8 +8,8 @@ MainFrame:NewTextBox("Spawn Eyes", "NOTE:Type here a number for eyes damage(IMPO
 local EntitySpawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Spawner_V2.lua"))()
 local Configuration = {
     Damage = txt , -- change to "Damage = 10," for eyes, doesnt work on other entities
-    Speed = 160, -- 60 for rush, doesnt work on other entities
-    Time = 3 -- 5 for rush, doesnt work on other entities
+    Speed = 160,
+    Time = 3,
 }
 
 EntitySpawner:Spawn("Eyes", Configuration)
