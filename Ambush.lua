@@ -27,8 +27,8 @@ local function setRooms()
     end)
 end
 setRooms()
-require(game.ReplicatedStorage.ClientModules.Module_Events).flickerLights(tonumber(currentLoadedRoom.Name), 1.35)
-wait(1.35)
+require(game.ReplicatedStorage.ClientModules.Module_Events).flickerLights(tonumber(currentLoadedRoom.Name), 2)
+wait(2)
 workspace.Ambience_Ambush:Play()
 wait(workspace.Ambience_Ambush.TimeLength)
 rush.Parent = workspace
