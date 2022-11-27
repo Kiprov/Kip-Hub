@@ -1,6 +1,6 @@
 local speed = 100
 local rush = Instance.new("Model", game:GetService("Teams"))
-rush.Name = "RushMoving"
+rush.Name = "AmbushMoving"
 game:GetService("ReplicatedStorage").JumpscareModels.RushNew:Clone().Parent = rush
 rush.RushNew.CanCollide = false
 local tweensv = game:GetService("TweenService")
