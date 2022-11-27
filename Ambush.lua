@@ -27,10 +27,12 @@ local function setRooms()
     end)
 end
 setRooms()
-
+require(game.ReplicatedStorage.ClientModules.Module_Events).flickerLights(tonumber(currentLoadedRoom.Name), 1.35)
+wait(1.35)
+workspace.Ambience_Ambush:Play()
+wait(workspace.Ambience_Ambush.TimeLength)
 rush.Parent = workspace
 rush:MoveTo(firstLoadedRoom.Base.Position + Vector3.new(0, 5.2, 0))
-require(game.ReplicatedStorage.ClientModules.Module_Events).flickerLights(tonumber(currentLoadedRoom.Name), 1)
 require(game.ReplicatedStorage.ClientModules.Module_Events).breakLights(firstLoadedRoom)
 
 rush.RushNew.Attachment.BlackTrail.Enabled = false
@@ -80,7 +82,7 @@ Effect5.Duty=0.94
 Effect5.Frequency=20
 rush.RushNew.Footsteps.SoundId="rbxassetid://8880765497"
 rush.RushNew.Footsteps.Pitch=0.55
-wait(5)
+wait(2)
 for _, room in pairs(workspace.CurrentRooms:GetChildren()) do
     if not room:FindFirstChild("Nodes") then
         continue
