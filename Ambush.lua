@@ -38,6 +38,16 @@ require(game.ReplicatedStorage.ClientModules.Module_Events).breakLights(firstLoa
 rush.RushNew.Attachment.BlackTrail.Enabled = false
 rush.RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://10110576663"
 rush.RushNew.Attachment.ParticleEmitter.Size = NumberSequence.new(8)
+local aura = rush.RushNew.Attachment.PointLight:Clone()
+aura.Name="PointLight2"
+aura.Enabled=true
+aura.Color = Color3.new(0, 255, 0)
+aura.Range=30
+aura.Brightness=10
+aura.Parent = rush.RushNew.Attachment
+rush.RushNew.Attachment.PointLight.Color = Color3.new(255, 0, 144)
+rush.RushNew.Attachment.PointLight.Range=10
+rush.RushNew.Attachment.PointLight.Brightness=1000
 rush.RushNew.PlaySound:Play()
 rush.RushNew.PlaySound:ClearAllChildren()
 local Effect1 = Instance.new("DistortionSoundEffect",rush.RushNew.PlaySound)
