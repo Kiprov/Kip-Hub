@@ -48,6 +48,7 @@ aura.Parent = rush.RushNew.Attachment
 rush.RushNew.Attachment.PointLight.Color = Color3.new(255, 0, 144)
 rush.RushNew.Attachment.PointLight.Range=10
 rush.RushNew.Attachment.PointLight.Brightness=1000
+rush.RushNew.Attachment.PointLight.Enabled=true
 rush.RushNew.PlaySound:Play()
 rush.RushNew.PlaySound:ClearAllChildren()
 local Effect1 = Instance.new("DistortionSoundEffect",rush.RushNew.PlaySound)
