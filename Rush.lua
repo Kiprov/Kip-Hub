@@ -34,6 +34,9 @@ require(game.ReplicatedStorage.ClientModules.Module_Events).flickerLights(tonumb
 require(game.ReplicatedStorage.ClientModules.Module_Events).breakLights(firstLoadedRoom)
 
 rush.RushNew.Attachment.BlackTrail.Enabled = true
+rush.RushNew.PlaySound.DistortionSoundEffect.Enabled=true
+rush.RushNew.PlaySound.DistortionSoundEffect.Priority=1
+rush.RushNew.PlaySound.DistortionSoundEffect.Level=0.5
 rush.RushNew.PlaySound:Play()
 rush.RushNew.Footsteps:Play()
 wait(5)
