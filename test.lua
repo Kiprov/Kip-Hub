@@ -1,6 +1,6 @@
 getgenv().SecureMode = true 
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
-local Main = Rayfield:CreateWindow({
+local Window = Rayfield:CreateWindow({
 	Name = "Doors Hub",
 	LoadingTitle = "Doors Epic Hub",
 	LoadingSubtitle = "by kiprovka26",
