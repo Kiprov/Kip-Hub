@@ -29,9 +29,9 @@ end
 setRooms()
 require(game.ReplicatedStorage.ClientModules.Module_Events).flickerLights(tonumber(currentLoadedRoom.Name), 2)
 wait(2)
+rush.Parent = workspace
 workspace.Ambience_Ambush:Play()
 wait(workspace.Ambience_Ambush.TimeLength)
-rush.Parent = workspace
 rush:MoveTo(firstLoadedRoom.Base.Position + Vector3.new(0, 5.2, 0))
 require(game.ReplicatedStorage.ClientModules.Module_Events).breakLights(firstLoadedRoom)
 
