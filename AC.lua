@@ -1,0 +1,2 @@
+firesignal(game.ReplicatedStorage.Bricks.DeathHint.OnClientEvent, {"bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "Bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "bruh", "just letting you know ambush killed you infinite times so all your revives are gone sorry", "bruh", "bruh"})
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
