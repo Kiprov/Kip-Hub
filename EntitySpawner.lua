@@ -195,7 +195,7 @@ if Randomizer == 1 then
 elseif Randomizer == 2 then
 SpawnerLibrary.Prepare({"You died to Rush again...","Pay attention to the lights. They are related to its arrival."}, "Rush")
 elseif Randomizer == 3 then
--- Code here
+SpawnerLibrary.Prepare({"It seems you are having trouble with Rush...","The lights will always flicker when it is near.","Whenever this happens, find a hiding spot!"}, "Rush")
 end
 Jumpscare()
 	end,
