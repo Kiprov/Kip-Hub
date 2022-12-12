@@ -262,8 +262,9 @@ A60 = function()
 			u2.deathtick = tick() + 10;
 			game.SoundService.Main.Volume = 0;
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush:Play();
-game.Players.LocalPpayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://0"
+game.Players.LocalPpayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://4903742660";
 			v1.Jumpscare_Rush.Visible = true;
+v1.Jumpscare_Rush.Image = "rbxassetid://0"
 			local v64 = tick();
 			local v65 = math.random(5, 30) / 10;
 			local v66 = v65 + math.random(10, 60) / 10;
