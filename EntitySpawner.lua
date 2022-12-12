@@ -792,9 +792,10 @@ end
 				
 				for i,v in ipairs(Nodes) do
 					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
-				end
-				Ambush:SetAttribute("FaceChanger", true)
+			Ambush:SetAttribute("FaceChanger", true)
 Face()
+				end
+	
 				task.wait(math.random(1,3))
 			end
 
