@@ -694,6 +694,7 @@ light1.Brightness=12212121
 light1.Enabled=true
 light1.Color = Color3.new(255, 0, 0)
 light1.Range=6
+Ambush:SetAttribute("FaceChanger", false)
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
 			
@@ -762,7 +763,7 @@ light1.Range=6
 				for i,v in ipairs(Nodes) do
 					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
 				end
-				
+				Ambush:SetAttribute("FaceChanger", true)
 				task.wait(math.random(1,3))
 			end
 
