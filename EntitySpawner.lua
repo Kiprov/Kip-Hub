@@ -635,18 +635,6 @@ Rush:Destroy()
 	},
 A60 = {
 		Func = function(Args)
-local face1 = "rbxassetid://3354536350"
-local face2 = "rbxassetid://1822114127"
-local face3 = "rbxassetid://3413871766"
-local face4 = "rbxassetid://1972219024"
-local face5 = "rbxassetid://17865063"
-local face6 = "rbxassetid://192267375"
-local face7 = "rbxassetid://4508624823"
-local face8 = "rbxassetid://6309704436"
-local face9 = "rbxassetid://7000842409"
-local face10 = "rbxassetid://1857893092"
-local face11 = "rbxassetid://4749623118"
-local face12 = "rbxassetid://11287256498"
 			local AmbushSpeed = (Args.Speed and Args.Speed) or 200
 			local CanKill = (Args.Kill and Args.Kill) or false
 			local WaitTime = (Args.Time and Args.Time) or 3
@@ -694,37 +682,6 @@ light1.Brightness=12212121
 light1.Enabled=true
 light1.Color = Color3.new(255, 0, 0)
 light1.Range=6
-Ambush:SetAttribute("FaceChanger", false)
-function Face()
-RushNew.Attachment.ParticleEmitter.Texture = face1
-task.wait(1)
-RushNew.Attachment.ParticleEmitter.Texture = face2
-task.wait(1)
-RushNew.Attachment.ParticleEmitter.Texture = face3
-task.wait(1)
-RushNew.Attachment.ParticleEmitter.Texture = face4
-task.wait(1)
-
-RushNew.Attachment.ParticleEmitter.Texture = face5
-task.wait(1)
-RushNew.Attachment.ParticleEmitter.Texture = face6
-task.wait(1)
-
-RushNew.Attachment.ParticleEmitter.Texture = face7
-task.wait(1)
-RushNew.Attachment.ParticleEmitter.Texture = face8
-task.wait(1)
-
-RushNew.Attachment.ParticleEmitter.Texture = face9
-task.wait(1)
-RushNew.Attachment.ParticleEmitter.Texture = face10
-task.wait(1)
-
-RushNew.Attachment.ParticleEmitter.Texture = face11
-task.wait(1)
-RushNew.Attachment.ParticleEmitter.Texture = face12
-task.wait(1)
-end
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
 			
@@ -792,8 +749,6 @@ end
 				
 				for i,v in ipairs(Nodes) do
 					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
-			Ambush:SetAttribute("FaceChanger", true)
-Face()
 				end
 	
 				task.wait(math.random(1,3))
