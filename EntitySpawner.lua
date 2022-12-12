@@ -654,6 +654,7 @@ workspace.Ambience_Ambush.Pitch = 0.8
 			Ambush.Parent = workspace
 			Ambush.PrimaryPart = RushNew
 RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://11287256498"
+RushNew.Attachment.ParticleEmitter.Color = ColorSequence.new(Color3.new(255, 0, 0))
 RushNew.PlaySound:ClearAllChildren()
 RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.SoundId = "rbxassetid://4903742660"
