@@ -249,7 +249,9 @@ local Randomizer = math.random(1, 3)
 if Randomizer == 1 then
 		SpawnerLibrary.Prepare({"You died to who you call Ambush...","It is a tricky one.","Use what you have learned from Rush!"}, "Ambush")
 elseif Randomizer == 2 then
-SpawnerLibrary.Prepare({"You died to Ambush again..."}, "Ambush")
+SpawnerLibrary.Prepare({"You died to Ambush again...","It gets you when you least suspect it!","It has a unique scream. Once you hear it, be prepared!"}, "Ambush")
+elseif Randomizer == 3 then
+SpawnerLibrary.Prepare({"You died to Ambush."}, "Ambush")
 	end,
 }
 
