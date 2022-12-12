@@ -251,7 +251,9 @@ if Randomizer == 1 then
 elseif Randomizer == 2 then
 SpawnerLibrary.Prepare({"You died to Ambush again...","It gets you when you least suspect it!","It has a unique scream. Once you hear it, be prepared!"}, "Ambush")
 elseif Randomizer == 3 then
-SpawnerLibrary.Prepare({"You died to Ambush."}, "Ambush")
+SpawnerLibrary.Prepare({"You died to Ambush.","You might need to hop in and out of your hiding spot a couple times."}, "Ambush")
+end
+Jumpscare()
 	end,
 }
 
