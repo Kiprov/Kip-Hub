@@ -802,6 +802,7 @@ Face()
 
 			CanKill = false
 			Rushing = false
+Ambush:SetAttribute("FaceChanger", false)
 
 			Ambush:Destroy()
 			
