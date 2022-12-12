@@ -263,7 +263,7 @@ A60 = function()
 			game.SoundService.Main.Volume = 0;
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush:Play();
 game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://4903742660";
-game.Players.LocalPlayer.PlayerGui.MainUI.Initiatlr.Main_Gams.RemoteListener.Jumpscare_Rush.Volume = 3
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.Volume = 3
 			v1.Jumpscare_Rush.Visible = true;
 v1.Jumpscare_Rush.ImageLabel.Image = "rbxassetid://3354536350";
 			local v64 = tick();
