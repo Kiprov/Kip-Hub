@@ -246,8 +246,10 @@ Jumpscare()
 			return;
 		end
 local Randomizer = math.random(1, 3)
-		SpawnerLibrary.Prepare({"You died to who you call Ambush..."}, "Ambush")
-		Jumpscare()
+if Randomizer == 1 then
+		SpawnerLibrary.Prepare({"You died to who you call Ambush...","It is a tricky one.","Use what you have learned from Rush!"}, "Ambush")
+elseif Randomizer == 2 then
+SpawnerLibrary.Prepare({"You died to Ambush again..."}, "Ambush")
 	end,
 }
 
