@@ -757,7 +757,6 @@ light1.Range=6
 
 			CanKill = false
 			Rushing = false
-Ambush:SetAttribute("FaceChanger", false)
 
 			Ambush:Destroy()
 			
@@ -766,6 +765,7 @@ Ambush:SetAttribute("FaceChanger", false)
 			end
 			
 			con:Disconnect()
+workspace.Ambience_Ambush.Pitch = 1
 		end,
 	},
 	Screech = {
