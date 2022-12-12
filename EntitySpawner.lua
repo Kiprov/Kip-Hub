@@ -245,7 +245,7 @@ Jumpscare()
 			u2.deathtick = tick();
 			return;
 		end
-
+local Randomizer = math.random(1, 3)
 		SpawnerLibrary.Prepare({"You died to who you call Ambush..."}, "Ambush")
 		Jumpscare()
 	end,
