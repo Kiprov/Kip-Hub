@@ -657,7 +657,27 @@ RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.SoundId = "rbxassetid://4903742660"
 RushNew.Footsteps.SoundId = "rbxassetid://4903742660"
 RushNew.PlaySound.Pitch = 1
-RushNew.Footsteps.Pitch = 1
+RushNew.Footsteps.Pitch = 0
+local distort = Instance.new("DistortionSoundEffect", RushNew.PlaySound)
+local echo = Instance.new("ReverbSoundEffect", RushNew.PlaySound)
+distort.Level = 0.75
+echo.DecayTime = 1.5
+echo.Density = 1
+echo.Diffusion = 1
+echo.DryLevel = -80
+distort.Enabled=true
+echo.Enabled=true
+RushNew.Attachment.PointLight:Destroy()
+task.wait(1)
+RushNew.Attachment.PointLight:Destroy()
+task.wait(1)
+RushNew.Attachment.PointLight:Destroy()
+local light1 = Instance.new("PointLight",RushNew.Attachment)
+light1.Name="Main"
+light1.Brightness=12212121
+light1.Enabled=true
+light1.Color = Color3.new(255, 0, 0)
+light1.Range=6
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
 			
