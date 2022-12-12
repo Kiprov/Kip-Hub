@@ -696,7 +696,6 @@ light1.Color = Color3.new(255, 0, 0)
 light1.Range=6
 Ambush:SetAttribute("FaceChanger", false)
 function Face()
-repeat
 RushNew.Attachment.ParticleEmitter.Texture = face1
 task.wait(1)
 RushNew.Attachment.ParticleEmitter.Texture = face2
@@ -725,7 +724,6 @@ RushNew.Attachment.ParticleEmitter.Texture = face11
 task.wait(1)
 RushNew.Attachment.ParticleEmitter.Texture = face12
 task.wait(1)
-until Ambush:GetAttribute("FaceChanger") == false
 end
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
