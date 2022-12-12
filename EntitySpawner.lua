@@ -651,9 +651,10 @@ A60 = {
 
 			Ambush.Parent = workspace
 			Ambush.PrimaryPart = RushNew
-RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://0"
+RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://11287256498"
 RushNew.PlaySound:ClearAllChildren()
 RushNew.Footsteps:ClearAllChildren()
+RushNew.PlaySound.SoundId = " "
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
 			
