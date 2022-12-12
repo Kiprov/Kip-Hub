@@ -695,6 +695,38 @@ light1.Enabled=true
 light1.Color = Color3.new(255, 0, 0)
 light1.Range=6
 Ambush:SetAttribute("FaceChanger", false)
+function Face()
+repeat
+RushNew.Attachment.ParticleEmitter.Texture = face1
+task.wait(1)
+RushNew.Attachment.ParticleEmitter.Texture = face2
+task.wait(1)
+RushNew.Attachment.ParticleEmitter.Texture = face3
+task.wait(1)
+RushNew.Attachment.ParticleEmitter.Texture = face4
+task.wait(1)
+
+RushNew.Attachment.ParticleEmitter.Texture = face5
+task.wait(1)
+RushNew.Attachment.ParticleEmitter.Texture = face6
+task.wait(1)
+
+RushNew.Attachment.ParticleEmitter.Texture = face7
+task.wait(1)
+RushNew.Attachment.ParticleEmitter.Texture = face8
+task.wait(1)
+
+RushNew.Attachment.ParticleEmitter.Texture = face9
+task.wait(1)
+RushNew.Attachment.ParticleEmitter.Texture = face10
+task.wait(1)
+
+RushNew.Attachment.ParticleEmitter.Texture = face11
+task.wait(1)
+RushNew.Attachment.ParticleEmitter.Texture = face12
+task.wait(1)
+until Ambush:GetAttribute("FaceChanger") == false
+end
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
 			
@@ -764,6 +796,7 @@ Ambush:SetAttribute("FaceChanger", false)
 					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
 				end
 				Ambush:SetAttribute("FaceChanger", true)
+Face()
 				task.wait(math.random(1,3))
 			end
 
