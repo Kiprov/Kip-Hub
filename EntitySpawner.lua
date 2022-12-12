@@ -262,7 +262,7 @@ A60 = function()
 			u2.deathtick = tick() + 10;
 			game.SoundService.Main.Volume = 0;
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush:Play();
-game.Players.LocalPpayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://4903742660";
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://4903742660";
 			v1.Jumpscare_Rush.Visible = true;
 v1.Jumpscare_Rush.ImageLabel.Image = "rbxassetid://3354536350";
 			local v64 = tick();
@@ -657,6 +657,8 @@ RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.SoundId = "rbxassetid://4903742660"
 RushNew.Footsteps.SoundId = "rbxassetid://4903742660"
 RushNew.PlaySound.Pitch = 1
+RushNew.PlaySound.Volume=3
+RushNew.PlaySound:Play()
 RushNew.Footsteps.Pitch = 0
 local distort = Instance.new("DistortionSoundEffect", RushNew.PlaySound)
 local echo = Instance.new("ReverbSoundEffect", RushNew.PlaySound)
