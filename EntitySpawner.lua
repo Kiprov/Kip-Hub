@@ -654,7 +654,10 @@ A60 = {
 RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://11287256498"
 RushNew.PlaySound:ClearAllChildren()
 RushNew.Footsteps:ClearAllChildren()
-RushNew.PlaySound.SoundId = " "
+RushNew.PlaySound.SoundId = "rbxassetid://4903742660"
+RushNew.Footsteps.SoundId = "rbxassetid://4903742660"
+RushNew.PlaySound.Pitch = 1
+RushNew.Footsteps.Pitch = 1
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
 			
@@ -679,7 +682,7 @@ RushNew.PlaySound.SoundId = " "
 					firesignal(game.ReplicatedStorage.Bricks.CamShakeRelative.OnClientEvent, RushNew.Position, 2, 15, 0.1, .5, Vector3.new(0,0,0))
 					if CanKill then
 						for i,v in pairs(game.Players:GetPlayers()) do
-							SpawnerLibrary.Raycast(v, RushNew, "A60", 150)
+							SpawnerLibrary.Raycast(v, RushNew, "A60", 200)
 						end
 					end
 					task.wait()
