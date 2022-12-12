@@ -642,6 +642,7 @@ A60 = {
 			Event("flickerLights", game.ReplicatedStorage.GameData.LatestRoom.Value, .75)
 			
 			task.wait(math.random(1,3))
+workspace.Ambience_Ambush.Pitch = 0.8
 			workspace["Ambience_Ambush"]:Play()
 			
 			local Ambush = Instance.new("Model")
