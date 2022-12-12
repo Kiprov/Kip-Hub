@@ -189,9 +189,15 @@ Death = {
 			v1.Jumpscare_Rush.Visible = false;
 			u2.deathtick = tick();
 		end
-
-		SpawnerLibrary.Prepare({"You died to Rush..."}, "Rush")
-		Jumpscare()
+local Randomizer = math.random(1,3)
+if Randomizer == 1 then
+		SpawnerLibrary.Prepare({"You died to Rush...","Pay attention to any cues that might hint at its arrival."}, "Rush")
+elseif Randomizer == 2 then
+SpawnerLibrary.Prepare({"You died to Rush again...","Pay attention to the lights. They are related to its arrival."}, "Rush")
+elseif Randomizer == 3 then
+-- Code here
+end
+Jumpscare()
 	end,
 	Ambush = function()
 		local function Jumpscare()
