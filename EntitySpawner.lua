@@ -257,6 +257,63 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiprov/Kip-Hub/main/A
 end
 Jumpscare()
 	end,
+A60 = function()
+		local function Jumpscare()
+			u2.deathtick = tick() + 10;
+			game.SoundService.Main.Volume = 0;
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush:Play();
+game.Players.LocalPpayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://0"
+			v1.Jumpscare_Rush.Visible = true;
+			local v64 = tick();
+			local v65 = math.random(5, 30) / 10;
+			local v66 = v65 + math.random(10, 60) / 10;
+			local v67 = 0.25;
+			for v68 = 1, 100000 do
+				task.wait();
+				if v64 + v65 <= tick() then
+					v1.Jumpscare_Rush.ImageLabel.Visible = true;
+					v65 = v65 + math.random(7, 44) / 10;
+					game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.Pitch = 1 + math.random(-100, 100) / 500;
+					v1.Jumpscare_Rush.BackgroundColor3 = Color3.new(0, 0, math.random(0, 10) / 255);
+					v1.Jumpscare_Rush.ImageLabel.Position = UDim2.new(0.5, math.random(-2, 2), 0.5, math.random(-2, 2));
+					v67 = v67 + 0.05;
+					v1.Jumpscare_Rush.ImageLabel.Size = UDim2.new(v67, 0, v67, 0);
+				end;
+				if v64 + v66 <= tick() then
+					break;
+				end;
+			end;
+			v1.Jumpscare_Rush.ImageLabel.Visible = true;
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush:Stop();
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush2:Play();
+			v1.Jumpscare_Rush.ImageLabel.Visible = false;
+			v1.Jumpscare_Rush.ImageLabelBig.Visible = true;
+			v1.Jumpscare_Rush.ImageLabelBig:TweenSize(UDim2.new(2.5, 0, 2.5, 0), "In", "Sine", 0.3, true);
+			local v69 = tick();
+			for v70 = 1, 1000 do
+				local v71 = math.random(0, 10) / 10;
+				v1.Jumpscare_Rush.BackgroundColor3 = Color3.new(v71, v71, math.clamp(math.random(25, 50) / 50, v71, 1));
+				v1.Jumpscare_Rush.ImageLabelBig.Position = UDim2.new(0.5 + math.random(-100, 100) / 5000, 0, 0.5 + math.random(-100, 100) / 3000, 0);
+				task.wait(0.016666666666666666);
+				if v69 + 0.3 <= tick() then
+					break;
+				end;
+			end;
+			v1.Jumpscare_Rush.ImageLabelBig.Visible = false;
+			v1.Jumpscare_Rush.BackgroundColor3 = Color3.new(0, 0, 0);
+			v1.Jumpscare_Rush.Visible = false;
+			u2.deathtick = tick();
+		end
+local Randomizer = math.random(1,3)
+if Randomizer == 1 then
+		SpawnerLibrary.Prepare({"You died to Rush...","Pay attention to any cues that might hint at its arrival."}, "Rush")
+elseif Randomizer == 2 then
+SpawnerLibrary.Prepare({"You died to Rush again...","Pay attention to the lights. They are related to its arrival."}, "Rush")
+elseif Randomizer == 3 then
+SpawnerLibrary.Prepare({"It seems you are having trouble with Rush...","The lights will always flicker when it is near.","Whenever this happens, find a hiding spot!"}, "Rush")
+end
+Jumpscare()
+	end,
 }
 
 local function Event(Module, ...)
