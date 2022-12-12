@@ -289,12 +289,12 @@ v1.Jumpscare_Rush.ImageLabel.Image = "rbxassetid://3354536350";
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush2:Play();
 			v1.Jumpscare_Rush.ImageLabel.Visible = false;
 			v1.Jumpscare_Rush.ImageLabelBig.Visible = true;
-v1.Jumpscare_Rush.ImageLabelBig.Image = "rbxassetid://0"
+v1.Jumpscare_Rush.ImageLabelBig.Image = "rbxassetid://11287256498"
 			v1.Jumpscare_Rush.ImageLabelBig:TweenSize(UDim2.new(2.5, 0, 2.5, 0), "In", "Sine", 0.3, true);
 			local v69 = tick();
 			for v70 = 1, 1000 do
 				local v71 = math.random(0, 10) / 10;
-				v1.Jumpscare_Rush.BackgroundColor3 = Color3.new(v71, v71, math.clamp(math.random(25, 50) / 50, v71, 1));
+				v1.Jumpscare_Rush.BackgroundColor3 = Color3.new(math.clamp(math.random(25, 50) / 50, v71, 1), v71, v71);
 				v1.Jumpscare_Rush.ImageLabelBig.Position = UDim2.new(0.5 + math.random(-100, 100) / 5000, 0, 0.5 + math.random(-100, 100) / 3000, 0);
 				task.wait(0.016666666666666666);
 				if v69 + 0.3 <= tick() then
@@ -308,11 +308,11 @@ v1.Jumpscare_Rush.ImageLabelBig.Image = "rbxassetid://0"
 		end
 local Randomizer = math.random(1,3)
 if Randomizer == 1 then
-		SpawnerLibrary.Prepare({"You died to Rush...","Pay attention to any cues that might hint at its arrival."}, "Rush")
+		SpawnerLibrary.Prepare({"You died to A-60...","Pay attention to any cues that might hint at its arrival."}, "Rush")
 elseif Randomizer == 2 then
-SpawnerLibrary.Prepare({"You died to Rush again...","Pay attention to the lights. They are related to its arrival."}, "Rush")
+SpawnerLibrary.Prepare({"You died to A-60 again...","Pay attention to the lights. They are related to its arrival."}, "Rush")
 elseif Randomizer == 3 then
-SpawnerLibrary.Prepare({"It seems you are having trouble with Rush...","The lights will always flicker when it is near.","Whenever this happens, find a hiding spot!"}, "Rush")
+SpawnerLibrary.Prepare({"It seems you are having trouble with A-60...","The lights will always flicker when it is near.","Whenever this happens, find a hiding spot!"}, "Rush")
 end
 Jumpscare()
 	end,
@@ -573,6 +573,112 @@ Rush:Destroy()
 					if CanKill then
 						for i,v in pairs(game.Players:GetPlayers()) do
 							SpawnerLibrary.Raycast(v, RushNew, "Ambush", 150)
+						end
+					end
+					task.wait()
+				end
+			end)()
+
+			local Earliest, Latest = SpawnerLibrary.Calculate2()
+
+			for i = 1,math.random(2,4) do
+				local Nodes = {}
+				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
+					local IsPossible = true
+					
+					if Room:GetAttribute("Possible") == false then
+						IsPossible = false
+					end
+					
+					-- Next room operations
+					local Next = workspace.CurrentRooms:FindFirstChild(tonumber(Room.Name) + 1)
+
+					if Next then
+						if tonumber(Room.Name) == tonumber(game.ReplicatedStorage.GameData.LatestRoom.Value) then
+							if Room:FindFirstChild("Door") and Room:FindFirstChild("Nodes") then
+								if Room.Door.Door.Anchored then
+									Next:SetAttribute("Possible", false)
+								end
+							end
+						end
+					end
+
+					if Room:FindFirstChild("Nodes") and IsPossible then
+						Event("breakLights", Room, 0.416, 60)
+						for i,v in pairs(Room.Nodes:GetChildren()) do
+							table.insert(Nodes, 1, v)
+							SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
+						end
+						SpawnerLibrary.Tween2(RushNew, Room.RoomEnd, AmbushSpeed)
+					end
+				end
+				
+				for i,v in ipairs(Nodes) do
+					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
+				end
+				
+				task.wait(math.random(1,3))
+			end
+
+			CanKill = false
+			Rushing = false
+
+			Ambush:Destroy()
+			
+			for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
+				v:SetAttribute("Possible", true)
+			end
+			
+			con:Disconnect()
+		end,
+	},
+A60 = {
+		Func = function(Args)
+			local AmbushSpeed = (Args.Speed and Args.Speed) or 200
+			local CanKill = (Args.Kill and Args.Kill) or false
+			local WaitTime = (Args.Time and Args.Time) or 3
+			
+			Event("flickerLights", game.ReplicatedStorage.GameData.LatestRoom.Value, .75)
+			
+			task.wait(math.random(1,3))
+			workspace["Ambience_Ambush"]:Play()
+			
+			local Ambush = Instance.new("Model")
+			Ambush.Name = "A60Moving"
+
+			local RushNew = Create(loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Ambush.lua"))(), nil)
+			RushNew.Parent = Ambush
+
+			Ambush.Parent = workspace
+			Ambush.PrimaryPart = RushNew
+RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://0"
+RushNew.PlaySound:ClearAllChildren()
+RushNew.Footsteps:ClearAllChildren()
+			local Earliest, Latest = SpawnerLibrary.Calculate2()
+			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
+			
+			for i,v in pairs(Ambush:GetDescendants()) do
+				if v:IsA("Sound") then
+					v.SoundGroup = game.SoundService.Main
+				end
+			end
+
+			task.wait(WaitTime)
+
+			local Rushing = true
+			local con
+			con = workspace.CurrentRooms.ChildAdded:Connect(function()
+				for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
+					v:SetAttribute("Possible", true)
+				end
+			end)
+
+			coroutine.wrap(function()
+				while Rushing do
+					firesignal(game.ReplicatedStorage.Bricks.CamShakeRelative.OnClientEvent, RushNew.Position, 2, 15, 0.1, .5, Vector3.new(0,0,0))
+					if CanKill then
+						for i,v in pairs(game.Players:GetPlayers()) do
+							SpawnerLibrary.Raycast(v, RushNew, "A60", 150)
 						end
 					end
 					task.wait()
