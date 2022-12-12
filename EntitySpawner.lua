@@ -635,6 +635,18 @@ Rush:Destroy()
 	},
 A60 = {
 		Func = function(Args)
+local face1 = "rbxassetid://3354536350"
+local face2 = "rbxassetid://1822114127"
+local face3 = "rbxassetid://3413871766"
+local face4 = "rbxassetid://1972219024"
+local face5 = "rbxassetid://17865063"
+local face6 = "rbxassetid://192267375"
+local face7 = "rbxassetid://4508624823"
+local face8 = "rbxassetid://6309704436"
+local face9 = "rbxassetid://7000842409"
+local face10 = "rbxassetid://1857893092"
+local face11 = "rbxassetid://4749623118"
+local face12 = "rbxassetid://11287256498"
 			local AmbushSpeed = (Args.Speed and Args.Speed) or 200
 			local CanKill = (Args.Kill and Args.Kill) or false
 			local WaitTime = (Args.Time and Args.Time) or 3
