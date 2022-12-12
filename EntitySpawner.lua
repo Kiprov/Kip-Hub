@@ -264,7 +264,7 @@ A60 = function()
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush:Play();
 game.Players.LocalPpayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://4903742660";
 			v1.Jumpscare_Rush.Visible = true;
-v1.Jumpscare_Rush.Image = "rbxassetid://0"
+v1.Jumpscare_Rush.ImageLabel.Image = "rbxassetid://3354536350";
 			local v64 = tick();
 			local v65 = math.random(5, 30) / 10;
 			local v66 = v65 + math.random(10, 60) / 10;
@@ -289,6 +289,7 @@ v1.Jumpscare_Rush.Image = "rbxassetid://0"
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Rush2:Play();
 			v1.Jumpscare_Rush.ImageLabel.Visible = false;
 			v1.Jumpscare_Rush.ImageLabelBig.Visible = true;
+v1.Jumpscare_Rush.ImageLabelBig.Image = "rbxassetid://0"
 			v1.Jumpscare_Rush.ImageLabelBig:TweenSize(UDim2.new(2.5, 0, 2.5, 0), "In", "Sine", 0.3, true);
 			local v69 = tick();
 			for v70 = 1, 1000 do
