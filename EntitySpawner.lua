@@ -451,7 +451,7 @@ Rush.RushNew.PlaySound.DistortionSoundEffect.Priority = 1
 			end
 			
 			con:Disconnect()
-task.wait(15)
+task.wait(10)
 Rush:Destroy()
 		end,
 	},
