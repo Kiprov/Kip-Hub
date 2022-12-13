@@ -84,16 +84,18 @@ end
 
 -- Scripts
 
-local CrucifixTool = game:GetObjects("rbxassetid://11656343590")[1]
+local CrucifixTool = game:GetObjects("rbxassetid://11712848097")[1]
 CrucifixTool.Name = "Crucifix"
+CrucifixTool.Handle.CanCollide=false
 CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
 
 -- game.UserInputService.InputBegan:Connect(function(input, proc)
 --     if proc then return end
 
 --     if input.KeyCode == input.KeyCode[getgenv().spawnKey] then
---         local CrucifixTool = game:GetObjects("rbxassetid://11656343590")[1]
+--         local CrucifixTool = game:GetObjects("rbxassetid://11712848097")[1]
 --         CrucifixTool.Name = "Crucifix"
+--         CrucifixTool.Handle.CanCollide=false
 --         CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
 --     end
 -- end)
