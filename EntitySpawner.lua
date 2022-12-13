@@ -939,16 +939,8 @@ Angry.Lifetime = NumberRange.new(0.2, 0.4)
 Angry.Speed = NumberRange.new(5, 7)
 Angry.Rate = 2332
 Angry.Rotation = NumberRange.new(-360, 360)
-Angry.Size = NumberSequence.new{
-NumberSequenceKeypoint.new(0, 7.375),
-NumberSequenceKeypoint.new(0, 1),
-NumberSequenceKeypoint.new(1, 1),
-}
-Angry.Transparency = NumberSequence.new{
-NumberSequenceKeypoint.new(0, 0),
-NumberSequenceKeypoint.new(0, 0.468427),
-NumberSequenceKeypoint.new(1, 1),
-}
+Angry.Size = NumberSequence.new(0, 7.375)
+Angry.Transparency = NumberSequence.new(0.468427, 0.31875)
 Angry.Enabled = false
 Angry.Parent = Attachment
 
