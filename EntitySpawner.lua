@@ -864,6 +864,7 @@ EyesModel.PrimaryPart = Eyes
 			local Attachment = Instance.new("Attachment", Eyes)
 
 			local Spark = Instance.new("ParticleEmitter", Attachment)
+Spark.Name = "Spark"
 			Spark.Texture = "rbxassetid://2581223252"
 			Spark.Color = ColorSequence.new{
 				ColorSequenceKeypoint.new(0, Color3.fromRGB(25, 11, 39)),
@@ -896,6 +897,7 @@ EyesModel.PrimaryPart = Eyes
 			Spark.Enabled = true
 
 			local EyesParticle = Instance.new("ParticleEmitter", Attachment)
+EyesParticle.Name = "Eyes"
 			EyesParticle.LightInfluence = 0
 			EyesParticle.Brightness = 1.26
 			EyesParticle.Size = NumberSequence.new(4)
@@ -931,6 +933,8 @@ EyesModel.PrimaryPart = Eyes
 				NumberSequenceKeypoint.new(0.496, .637),
 				NumberSequenceKeypoint.new(1, 1),
 			}
+local Angry = Spark:Clone()
+Angry.Name = "Angry"
 
 			Sound.SoundId = "rbxassetid://1168009240"
 			Sound.PlaybackSpeed = 0.3
