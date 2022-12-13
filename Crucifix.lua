@@ -84,7 +84,7 @@ end
 
 -- Scripts
 
-local CrucifixTool = game:GetObjects("rbxassetid://11712848097")[1]
+local CrucifixTool = game:GetObjects("rbxassetid://11656343590")[1]
 CrucifixTool.Name = "Crucifix"
 CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
 
@@ -92,7 +92,7 @@ CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
 --     if proc then return end
 
 --     if input.KeyCode == input.KeyCode[getgenv().spawnKey] then
---         local CrucifixTool = game:GetObjects("rbxassetid://11712848097")[1]
+--         local CrucifixTool = game:GetObjects("rbxassetid://11656343590")[1]
 --         CrucifixTool.Name = "Crucifix"
 --         CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
 --     end
