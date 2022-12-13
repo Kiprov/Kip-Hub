@@ -935,7 +935,7 @@ EyesParticle.Name = "Eyes"
 			}
 local Angry = Spark:Clone()
 Angry.Name = "Angry"
-Angry.LifeTime = NumberRange.new(0.2, 0.4)
+Angry.Lifetime = NumberRange.new(0.2, 0.4)
 Angry.Speed = NumberRange.new(5, 7)
 Angry.Rate = 2332
 Angry.Rotation = NumberRange.new(-360, 360)
