@@ -947,6 +947,15 @@ NumberSequenceKeypoint.new(1),
 NumberSequenceKeypoint.new(10),
 NumberSequenceKeypoint.new(0),
 }
+Angry.Transparency = NumberSequence.new{
+NumberSequenceKeypoint.new(0),
+NumberSequenceKeypoint.new(0),
+NumberSequenceKeypoint.new(0),
+NumberSequenceKeypoint.new(0.468427),
+NumberSequenceKeypoint.new(0.31875),
+}
+Angry.Enabled = false
+Angry.Parent = Attachment
 
 			Sound.SoundId = "rbxassetid://1168009240"
 			Sound.PlaybackSpeed = 0.3
