@@ -324,7 +324,7 @@ Trollface = function()
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Play();
 game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://8389041427";
 			v1.Jumpscare_Ambush.Visible = true;
-v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://0";
+v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://6732849355";
 			local v72 = tick();
 			local v73 = math.random(5, 30) / 100;
 			local v74 = v73 + math.random(10, 60) / 100;
