@@ -942,12 +942,12 @@ Angry.Rotation = NumberRange.new(-360, 360)
 Angry.Size = NumberSequence.new{
 NumberSequenceKeypoint.new(0, 7.375),
 NumberSequenceKeypoint.new(0, 1),
-NumberSequenceKeypoint.new(10, 0),
+NumberSequenceKeypoint.new(1, 1),
 }
 Angry.Transparency = NumberSequence.new{
 NumberSequenceKeypoint.new(0, 0),
 NumberSequenceKeypoint.new(0, 0.468427),
-NumberSequenceKeypoint.new(0.31875, 0),
+NumberSequenceKeypoint.new(1, 1),
 }
 Angry.Enabled = false
 Angry.Parent = Attachment
