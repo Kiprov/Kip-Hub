@@ -940,19 +940,14 @@ Angry.Speed = NumberRange.new(5, 7)
 Angry.Rate = 2332
 Angry.Rotation = NumberRange.new(-360, 360)
 Angry.Size = NumberSequence.new{
-NumberSequenceKeypoint.new(0),
-NumberSequenceKeypoint.new(7.375),
-NumberSequenceKeypoint.new(0),
-NumberSequenceKeypoint.new(1),
-NumberSequenceKeypoint.new(10),
-NumberSequenceKeypoint.new(0),
+NumberSequenceKeypoint.new(0, 7.375),
+NumberSequenceKeypoint.new(0, 1),
+NumberSequenceKeypoint.new(10, 0),
 }
 Angry.Transparency = NumberSequence.new{
-NumberSequenceKeypoint.new(0),
-NumberSequenceKeypoint.new(0),
-NumberSequenceKeypoint.new(0),
-NumberSequenceKeypoint.new(0.468427),
-NumberSequenceKeypoint.new(0.31875),
+NumberSequenceKeypoint.new(0, 0),
+NumberSequenceKeypoint.new(0, 0.468427),
+NumberSequenceKeypoint.new(0.31875, 0),
 }
 Angry.Enabled = false
 Angry.Parent = Attachment
