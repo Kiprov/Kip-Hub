@@ -829,6 +829,120 @@ light1.Range=6
 workspace.Ambience_Ambush.Pitch = 1
 		end,
 	},
+Trollface = {
+		Func = function(Args)
+			local AmbushSpeed = (Args.Speed and Args.Speed) or 300
+			local CanKill = (Args.Kill and Args.Kill) or false
+			local WaitTime = (Args.Time and Args.Time) or 3
+			
+			Event("flickerLights", game.ReplicatedStorage.GameData.LatestRoom.Value, 2)
+			
+			task.wait(math.random(1,3))
+workspace.Ambience_Ambush.Pitch=1.3
+			workspace["Ambience_Ambush"]:Play()
+			
+			local Ambush = Instance.new("Model")
+			Ambush.Name = "TrollFace"
+
+			local RushNew = Create(loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Ambush.lua"))(), nil)
+			RushNew.Parent = Ambush
+
+			Ambush.Parent = workspace
+			Ambush.PrimaryPart = RushNew
+RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://5962561107"
+RushNew.Attachment.ParticleEmitter.Color = ColorSequence.new(Color3.new(255, 255, 255))
+RushNew.PlaySound.Volume = 1.5
+RushNew.Footsteps.Volume = 1.5
+RushNew.PlaySound.SoundId = "rbxassetid://8389041427"
+RushNew.Footsteps.SoundId = "rbxassetid://8389041427"
+RushNew.PlaySound:ClearAllChildren()
+RushNew.Footsteps:ClearAllChildren()
+RushNew.PlaySound.Pitch = 1
+RushNee.Footsteps.Pitch = 1
+			local Earliest, Latest = SpawnerLibrary.Calculate2()
+			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
+			
+			for i,v in pairs(Ambush:GetDescendants()) do
+				if v:IsA("Sound") then
+					v.SoundGroup = game.SoundService.Main
+				end
+			end
+
+			task.wait(WaitTime)
+
+			local Rushing = true
+			local con
+			con = workspace.CurrentRooms.ChildAdded:Connect(function()
+				for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
+					v:SetAttribute("Possible", true)
+				end
+			end)
+
+			coroutine.wrap(function()
+				while Rushing do
+					firesignal(game.ReplicatedStorage.Bricks.CamShakeRelative.OnClientEvent, RushNew.Position, 2, 15, 0.1, .5, Vector3.new(0,0,0))
+					if CanKill then
+						for i,v in pairs(game.Players:GetPlayers()) do
+							SpawnerLibrary.Raycast(v, RushNew, "Trollface", 200)
+						end
+					end
+					task.wait()
+				end
+			end)()
+
+			local Earliest, Latest = SpawnerLibrary.Calculate2()
+
+			for i = 1,math.random(2,4) do
+				local Nodes = {}
+				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
+					local IsPossible = true
+					
+					if Room:GetAttribute("Possible") == false then
+						IsPossible = false
+					end
+					
+					-- Next room operations
+					local Next = workspace.CurrentRooms:FindFirstChild(tonumber(Room.Name) + 1)
+
+					if Next then
+						if tonumber(Room.Name) == tonumber(game.ReplicatedStorage.GameData.LatestRoom.Value) then
+							if Room:FindFirstChild("Door") and Room:FindFirstChild("Nodes") then
+								if Room.Door.Door.Anchored then
+									Next:SetAttribute("Possible", false)
+								end
+							end
+						end
+					end
+
+					if Room:FindFirstChild("Nodes") and IsPossible then
+						Event("breakLights", Room, 0.416, 60)
+						for i,v in pairs(Room.Nodes:GetChildren()) do
+							table.insert(Nodes, 1, v)
+							SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
+						end
+						SpawnerLibrary.Tween2(RushNew, Room.RoomEnd, AmbushSpeed)
+					end
+				end
+				
+				for i,v in ipairs(Nodes) do
+					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
+				end
+				
+				task.wait(math.random(1,3))
+			end
+
+			CanKill = false
+			Rushing = false
+
+			Ambush:Destroy()
+			
+			for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
+				v:SetAttribute("Possible", true)
+			end
+			
+			con:Disconnect()
+		end,
+	},
 	Screech = {
 		Func = function()
 			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech)(u2)
