@@ -860,6 +860,7 @@ EyesModel.Name = "Lookman"
 			Eyes.Transparency = 1
 EyesModel.PrimaryPart = Eyes
 			local Sound = Instance.new("Sound", Eyes)
+Sound.Name = "Initiate"
 
 			local Attachment = Instance.new("Attachment", Eyes)
 
@@ -955,14 +956,25 @@ Angry.Parent = Attachment
 
 			local Sound2 = Instance.new("Sound", Eyes)
 			Sound2.SoundId = "rbxassetid://1228230799"
+Sound2.Name = "Ambience"
 			Sound2.PlaybackSpeed = 1
 			Sound2.Looped = true
 			Sound2:Play()
 
 			local Sound3 = Instance.new("Sound", Eyes)
 			Sound3.SoundId = "rbxassetid://9126213993"
+Sound3.Name = "Attack"
 			Sound3.PlaybackSpeed = 1.05
-
+local Sound4 = Instance.new("Sound", Eyes)
+Sound4.Name = "Repent"
+Sound4.SoundId = "rbxassetid://6305809364"
+Sound4.Pitch=1.1
+Sound4.Volume = 0.8
+local Sound5 = Instance.new("Sound", Eyes)
+Sound5.Name = "Scream"
+Sound5.SoundId = "rbxassetid://6305809364"
+Sound5.Pitch = 0.27
+Sound5.Volume = 0.8
 			Eyes.Name = "Core"
 
 			Eyes.Anchored = true
