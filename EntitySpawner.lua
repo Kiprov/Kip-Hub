@@ -937,6 +937,9 @@ local Angry = Spark:Clone()
 Angry.Name = "Angry"
 Angry.LifeTime = NumberRange.new(0.2, 0.4)
 Angry.Speed = NumberRange.new(5, 7)
+Angry.Rate = 2332
+Angry.Rotation = NumberRange.new(-360, 360)
+
 			Sound.SoundId = "rbxassetid://1168009240"
 			Sound.PlaybackSpeed = 0.3
 			Sound:Play()
