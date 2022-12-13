@@ -854,9 +854,11 @@ workspace.Ambience_Ambush.Pitch = 1
 		Func = function(Args)
 			local Damage = Args.Damage or 10
 			local Room = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
-
-			local Eyes = Instance.new("Part", workspace)
+local EyesModel = Instance.new("Model", workspace)
+EyesModel.Name = "Lookman"
+			local Eyes = Instance.new("Part", EyesModel)
 			Eyes.Transparency = 1
+EyesModel.PrimaryPart = Eyes
 			local Sound = Instance.new("Sound", Eyes)
 
 			local Attachment = Instance.new("Attachment", Eyes)
@@ -949,7 +951,7 @@ workspace.Ambience_Ambush.Pitch = 1
 			Sound3.SoundId = "rbxassetid://9126213993"
 			Sound3.PlaybackSpeed = 1.05
 
-			Eyes.Name = "Lookman"
+			Eyes.Name = "Core"
 
 			Eyes.Anchored = true
 			Eyes.CanCollide = false
