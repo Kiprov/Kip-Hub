@@ -708,6 +708,8 @@ workspace.Ambience_Ambush.Pitch = 0.8
 			
 			local Ambush = Instance.new("Model")
 			Ambush.Name = "A60Moving"
+Ambush:SetAttribute("IsCustomEntity", true)
+Ambush:SetAttribute("ClonedByCrucifix", false)
 
 			local RushNew = Create(loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Ambush.lua"))(), nil)
 			RushNew.Parent = Ambush
