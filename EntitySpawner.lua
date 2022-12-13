@@ -939,6 +939,14 @@ Angry.LifeTime = NumberRange.new(0.2, 0.4)
 Angry.Speed = NumberRange.new(5, 7)
 Angry.Rate = 2332
 Angry.Rotation = NumberRange.new(-360, 360)
+Angry.Size = NumberSequence.new{
+NumberSequenceKeypoint.new(0),
+NumberSequenceKeypoint.new(7.375),
+NumberSequenceKeypoint.new(0),
+NumberSequenceKeypoint.new(1),
+NumberSequenceKeypoint.new(10),
+NumberSequenceKeypoint.new(0),
+}
 
 			Sound.SoundId = "rbxassetid://1168009240"
 			Sound.PlaybackSpeed = 0.3
