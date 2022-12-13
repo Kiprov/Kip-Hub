@@ -481,6 +481,8 @@ local Entities = {
 
 			local Rush = Instance.new("Model")
 			Rush.Name = "RushMoving"
+Rush:SetAttribute("IsCustomEntity", true)
+Rush:SetAttribute("ClonedByCrucifix", false)
 
 			local RushNew = game.ReplicatedStorage.JumpscareModels.RushNew:Clone()
 			RushNew.Parent = Rush
@@ -603,6 +605,8 @@ Rush:Destroy()
 			
 			local Ambush = Instance.new("Model")
 			Ambush.Name = "AmbushMoving"
+Ambush:SetAttribute("IsCustomEntity", true)
+Ambush:SetAttribute("ClonedByCrucifix", false)
 
 			local RushNew = Create(loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Ambush.lua"))(), nil)
 			RushNew.Parent = Ambush
@@ -845,6 +849,8 @@ workspace.Ambience_Ambush.Pitch=1.3
 			
 			local Ambush = Instance.new("Model")
 			Ambush.Name = "TrollFace"
+Ambush:SetAttribute("IsCustomEntity", true)
+Ambush:SetAttribute("ClonedByCrucifix", false)
 
 			local RushNew = Create(loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Ambush.lua"))(), nil)
 			RushNew.Parent = Ambush
