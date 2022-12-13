@@ -859,6 +859,27 @@ RushNew.PlaySound:ClearAllChildren()
 RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.Pitch = 1
 RushNee.Footsteps.Pitch = 1
+local Effect1 = Instance.new("EqualizerSoundEffect", RushNew.PlaySound)
+local Effect2 = Instance.new("EqualizerSoundEffect", RushNew.PlaySound)
+Effect1.HighGain = -80
+Effect1.LowGain = 10
+Effect1.MidGain = -80
+Effect2.HighGain = -80
+Effect2.LowGain = 10
+Effect2.MidGain = -80
+Effect1.Enabled = true
+Effect2.Enabled = true
+RushNew.Attachment.PointLight:Destroy()
+task.wait(1)
+RushNew.Attachment.PointLight:Destroy()
+task.wait(1)
+RushNew.Attachment.PointLight:Destroy()
+local light1 = Instance.new("PointLight",RushNew.Attachment)
+light1.Name="Main"
+light1.Brightness=12212121
+light1.Enabled=true
+light1.Color = Color3.new(255, 255, 255)
+light1.Range=6
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
 			
@@ -941,6 +962,7 @@ RushNee.Footsteps.Pitch = 1
 			end
 			
 			con:Disconnect()
+workspace.Ambience_Ambush.Pitch = 1
 		end,
 	},
 	Screech = {
