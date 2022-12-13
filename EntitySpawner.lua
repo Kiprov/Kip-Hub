@@ -858,7 +858,7 @@ RushNew.Footsteps.SoundId = "rbxassetid://8389041427"
 RushNew.PlaySound:ClearAllChildren()
 RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.Pitch = 1
-RushNee.Footsteps.Pitch = 1
+RushNew.Footsteps.Pitch = 1
 local Effect1 = Instance.new("EqualizerSoundEffect", RushNew.PlaySound)
 local Effect2 = Instance.new("EqualizerSoundEffect", RushNew.PlaySound)
 Effect1.HighGain = -80
