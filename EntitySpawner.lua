@@ -317,6 +317,67 @@ SpawnerLibrary.Prepare({"It seems you are having trouble with A-60...","The ligh
 end
 Jumpscare()
 	end,
+Trollface = function()
+		local function Jumpscare()
+			u2.deathtick = tick() + 10;
+			game.SoundService.Main.Volume = 0;
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Play();
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://8389041427";
+			v1.Jumpscare_Ambush.Visible = true;
+v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://0";
+			local v72 = tick();
+			local v73 = math.random(5, 30) / 100;
+			local v74 = v73 + math.random(10, 60) / 100;
+			local v75 = 0.2;
+			for v76 = 1, 100000 do
+				task.wait(0.016666666666666666);
+				v1.Jumpscare_Ambush.ImageLabel.Position = UDim2.new(0.5, math.random(-15, 15), 0.5, math.random(-15, 15));
+				v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, math.random(4, 10) / 255, math.random(0, 3) / 255);
+				if v72 + v73 <= tick() then
+					v1.Jumpscare_Ambush.ImageLabel.Visible = true;
+					v73 = v73 + math.random(7, 44) / 100;
+					game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.Pitch = math.random(35, 155) / 100;
+					v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, math.random(4, 10) / 255, math.random(0, 3) / 255);
+					v1.Jumpscare_Ambush.ImageLabel.Position = UDim2.new(0.5, math.random(-25, 25), 0.5, math.random(-25, 25));
+					v75 = v75 + 0.05;
+					v1.Jumpscare_Ambush.ImageLabel.Size = UDim2.new(v75, 0, v75, 0);
+				end;
+				if v72 + v74 <= tick() then
+					break;
+				end;
+			end;
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2.SoundId = "rbxassetid://9125713501";
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2:Play();
+			v1.Jumpscare_Ambush.ImageLabel.Visible = true;
+			v1.Jumpscare_Ambush.ImageLabel:TweenSize(UDim2.new(9, 0, 9, 0), "In", "Quart", 0.3, true);
+			local v77 = tick();
+			for v78 = 1, 100 do
+				local v79 = math.random(0, 10) / 10;
+				v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(math.clamp(math.random(100, 250) / 50, v79, 1), math.clamp(math.random(100, 250) / 50, v79, 1), math.clamp(math.random(100, 250) / 50, v79, 1));
+				game["Run Service"].RenderStepped:wait();
+				if v77 + 0.3 <= tick() then
+					break;
+				end;
+			end;
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Stop();
+			v1.Jumpscare_Ambush.ImageLabel.Visible = false;
+			v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, 0, 0);
+			v1.Jumpscare_Ambush.Visible = false;
+			u2.deathtick = tick();
+			return;
+		end
+local Randomizer = math.random(1, 4)
+if Randomizer == 1 then
+		SpawnerLibrary.Prepare({"Uhh...","What just happened?","Okay... That was strange."}, "TrollFace")
+elseif Randomizer == 2 then
+SpawnerLibrary.Prepare({"You died to someone who you call Trolface...","It gets you when you least suspect it!","It has a unique music. Once you hear it, be prepared!"}, "TrollFace")
+elseif Randomizer == 3 then
+SpawnerLibrary.Prepare({"You died to Trollface.","You might need to hop in and out of your hiding spot a couple times."}, "TrollFace")
+elseif Randomizer == 4 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiprov/Kip-Hub/main/AC.lua"))()
+end
+Jumpscare()
+	end,
 }
 
 local function Event(Module, ...)
