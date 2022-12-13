@@ -370,7 +370,7 @@ local Randomizer = math.random(1, 4)
 if Randomizer == 1 then
 		SpawnerLibrary.Prepare({"Uhh...","What just happened?","Okay... That was strange."}, "TrollFace")
 elseif Randomizer == 2 then
-SpawnerLibrary.Prepare({"You died to someone who you call Trolface...","It gets you when you least suspect it!","It has a unique music. Once you hear it, be prepared!"}, "TrollFace")
+SpawnerLibrary.Prepare({"You died to someone who you call Trollface...","It gets you when you least suspect it!","It has a unique music. Once you hear it, be prepared!"}, "TrollFace")
 elseif Randomizer == 3 then
 SpawnerLibrary.Prepare({"You died to Trollface.","You might need to hop in and out of your hiding spot a couple times."}, "TrollFace")
 elseif Randomizer == 4 then
