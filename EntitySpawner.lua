@@ -1048,7 +1048,6 @@ Rush:SetAttribute("ClonedByCrucifix", false)
 RushNew.Attachment.BlackTrail.Enabled=false
 RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://10914798333"
 RushNew.Attachment.ParticleEmitter.Color = ColorSequence.new(Color3.new(255, 255, 255))
-RushNew.Attachment.ParticleEmitter.Transparency = NumberSequence.new(0)
 RushNew.PlaySound:ClearAllChildren()
 RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.Pitch = 0.96
@@ -1075,7 +1074,7 @@ Reverb.Diffusion = 1
 Reverb.DryLevel = -6
 local light1 = Instance.new("PointLight",RushNew.Attachment)
 light1.Name="Main"
-light1.Brightness=12212121
+light1.Brightness=10
 light1.Enabled=true
 light1.Color = Color3.new(255, 0, 0)
 light1.Range=6
