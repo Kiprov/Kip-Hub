@@ -1048,6 +1048,7 @@ Rush:SetAttribute("ClonedByCrucifix", false)
 RushNew.Attachment.BlackTrail.Enabled=false
 RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://10914798333"
 RushNew.Attachment.ParticleEmitter.Color = ColorSequence.new(Color3.new(255, 255, 255))
+RushNew.Attachment.ParticleEmitter.LightInfluence = 3
 RushNew.PlaySound:ClearAllChildren()
 RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.Pitch = 0.96
