@@ -380,10 +380,10 @@ Matcher = function()
 		local function Jumpscare()
 			u2.deathtick = tick() + 10;
 			game.SoundService.Main.Volume = 0;
-game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://241650934"
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://241650934";
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Play();
 			v1.Jumpscare_Ambush.Visible = true;
-v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914798333"
+v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914798333";
 			local v72 = tick();
 			local v73 = math.random(5, 30) / 100;
 			local v74 = v73 + math.random(10, 60) / 100;
@@ -405,7 +405,7 @@ v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914798333"
 					break;
 				end;
 			end;
-game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2.SoundId = "rbxassetid://5567523008"
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2.SoundId = "rbxassetid://5567523008";
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2:Play();
 			v1.Jumpscare_Ambush.ImageLabel.Visible = true;
 			v1.Jumpscare_Ambush.ImageLabel:TweenSize(UDim2.new(9, 0, 9, 0), "In", "Quart", 0.3, true);
@@ -427,7 +427,7 @@ game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jum
 		end
 local Randomizer = math.random(1, 3)
 if Randomizer == 1 then
-		SpawnerLibrary.Prepare({"You died to who you call Matcher...","He comes from another universe called "Endless Doors"!","Use what you have learned from Rush!"}, "Matcher")
+		SpawnerLibrary.Prepare({"You died to who you call Matcher...","He comes from another universe called Endless Doors!","Use what you have learned from Rush!"}, "Matcher")
 elseif Randomizer == 2 then
 SpawnerLibrary.Prepare({"You died to Matcher again...","Pay attention to the lights. They are related to its arrival!","It has a unique scream. Once you hear it, be prepared!"}, "Matcher")
 elseif Randomizer == 3 then
