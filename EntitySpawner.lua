@@ -380,7 +380,7 @@ Matcher = function()
 		local function Jumpscare()
 			u2.deathtick = tick() + 10;
 			game.SoundService.Main.Volume = 0;
-game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://241650934";
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://4860560167";
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Play();
 			v1.Jumpscare_Ambush.Visible = true;
 v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914798333";
@@ -1052,7 +1052,7 @@ RushNew.PlaySound:ClearAllChildren()
 RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.Pitch = 0.96
 RushNew.Footsteps.Pitch = 0
-RushNew.PlaySound.SoundId = "rbxassetid://241650934"
+RushNew.PlaySound.SoundId = "rbxassetid://4860560167"
 RushNew.PlaySound.Volume = 0.5
 local Distort = Instance.new("DistortionSoundEffect", RushNew.PlaySound)
 Distort.Level = 0.89
