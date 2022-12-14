@@ -1072,6 +1072,12 @@ Reverb.DecayTime = 1.5
 Reverb.Density = 1
 Reverb.Diffusion = 1
 Reverb.DryLevel = -6
+local light1 = Instance.new("PointLight",RushNew.Attachment)
+light1.Name="Main"
+light1.Brightness=12212121
+light1.Enabled=true
+light1.Color = Color3.new(255, 0, 0)
+light1.Range=6
 
 			Rush.Parent = workspace
 			Rush.PrimaryPart = RushNew
@@ -1107,7 +1113,7 @@ Reverb.DryLevel = -6
 					firesignal(game.ReplicatedStorage.Bricks.CamShakeRelative.OnClientEvent, RushNew.Position, 2, 15, 0.1, .2, Vector3.new(0,0,0))
 					if CanKill then
 						for i,v in pairs(game.Players:GetPlayers()) do
-							SpawnerLibrary.Raycast(v, RushNew, "Rush", 50)
+							SpawnerLibrary.Raycast(v, RushNew, "Matcher", 100)
 						end
 					end
 					task.wait()
