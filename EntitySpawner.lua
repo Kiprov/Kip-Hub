@@ -366,15 +366,13 @@ game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jum
 			u2.deathtick = tick();
 			return;
 		end
-local Randomizer = math.random(1, 4)
+local Randomizer = math.random(1, 3)
 if Randomizer == 1 then
 		SpawnerLibrary.Prepare({"Uhh...","What just happened?","Okay... That was strange."}, "TrollFace")
 elseif Randomizer == 2 then
 SpawnerLibrary.Prepare({"You died to someone who you call Trollface...","It gets you when you least suspect it!","It has a unique music. Once you hear it, be prepared!"}, "TrollFace")
 elseif Randomizer == 3 then
 SpawnerLibrary.Prepare({"You died to Trollface.","You might need to hop in and out of your hiding spot a couple times."}, "TrollFace")
-elseif Randomizer == 4 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiprov/Kip-Hub/main/AC.lua"))()
 end
 Jumpscare()
 	end,
