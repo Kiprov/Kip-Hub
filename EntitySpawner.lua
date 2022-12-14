@@ -704,7 +704,7 @@ A60 = {
 			local CanKill = (Args.Kill and Args.Kill) or false
 			local WaitTime = (Args.Time and Args.Time) or 3
 			
-			Event("flickerLights", game.ReplicatedStorage.GameData.LatestRoom.Value, .75)
+			Event("flickerLights", game.ReplicatedStorage.GameData.LatestRoom.Value, 1.5)
 			
 			task.wait(math.random(1,3))
 workspace.Ambience_Ambush.Pitch = 0.8
