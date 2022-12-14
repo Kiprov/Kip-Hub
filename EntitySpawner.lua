@@ -380,9 +380,10 @@ Matcher = function()
 		local function Jumpscare()
 			u2.deathtick = tick() + 10;
 			game.SoundService.Main.Volume = 0;
-game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://0"
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://241650934"
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Play();
 			v1.Jumpscare_Ambush.Visible = true;
+v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914798333"
 			local v72 = tick();
 			local v73 = math.random(5, 30) / 100;
 			local v74 = v73 + math.random(10, 60) / 100;
@@ -410,7 +411,7 @@ game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jum
 			local v77 = tick();
 			for v78 = 1, 100 do
 				local v79 = math.random(0, 10) / 10;
-				v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(v79, math.clamp(math.random(25, 50) / 50, v79, 1), math.clamp(math.random(25, 50) / 150, v79, 1));
+				v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(math.clamp(math.random(150, 255) / 50, v79, 1), v79, v79);
 				game["Run Service"].RenderStepped:wait();
 				if v77 + 0.3 <= tick() then
 					break;
