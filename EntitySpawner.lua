@@ -405,6 +405,7 @@ v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914798333"
 					break;
 				end;
 			end;
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2.SoundId = "rbxassetid://5567523008"
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2:Play();
 			v1.Jumpscare_Ambush.ImageLabel.Visible = true;
 			v1.Jumpscare_Ambush.ImageLabel:TweenSize(UDim2.new(9, 0, 9, 0), "In", "Quart", 0.3, true);
@@ -424,15 +425,13 @@ v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914798333"
 			u2.deathtick = tick();
 			return;
 		end
-local Randomizer = math.random(1, 4)
+local Randomizer = math.random(1, 3)
 if Randomizer == 1 then
-		SpawnerLibrary.Prepare({"You died to who you call Ambush...","It is a tricky one.","Use what you have learned from Rush!"}, "Ambush")
+		SpawnerLibrary.Prepare({"You died to who you call Matcher...","He comes from another universe called "Endless Doors"!","Use what you have learned from Rush!"}, "Matcher")
 elseif Randomizer == 2 then
-SpawnerLibrary.Prepare({"You died to Ambush again...","It gets you when you least suspect it!","It has a unique scream. Once you hear it, be prepared!"}, "Ambush")
+SpawnerLibrary.Prepare({"You died to Matcher again...","Pay attention to the lights. They are related to its arrival!","It has a unique scream. Once you hear it, be prepared!"}, "Matcher")
 elseif Randomizer == 3 then
-SpawnerLibrary.Prepare({"You died to Ambush.","You might need to hop in and out of your hiding spot a couple times."}, "Ambush")
-elseif Randomizer == 4 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiprov/Kip-Hub/main/AC.lua"))()
+SpawnerLibrary.Prepare({"It seems you are having trouble with Matcher.","The lights will always flicker and Matcher will scream when hes near.","Whenever this happens, quickly hide!"}, "Matcher")
 end
 Jumpscare()
 	end,
@@ -1029,6 +1028,135 @@ light1.Range=6
 			
 			con:Disconnect()
 workspace.Ambience_Ambush.Pitch = 1
+		end,
+	},
+Matcher = {
+		Func = function(Args)
+			local RushSpeed = (Args.Speed and Args.Speed) or 100
+			local CanKill = (Args.Kill and Args.Kill) or false
+			local WaitTime = (Args.Time and Args.Time) or 5
+			
+			Event("flickerLights", game.ReplicatedStorage.GameData.LatestRoom.Value, .85)
+
+			local Rush = Instance.new("Model")
+			Rush.Name = "Matcher"
+Rush:SetAttribute("IsCustomEntity", true)
+Rush:SetAttribute("ClonedByCrucifix", false)
+
+			local RushNew = game.ReplicatedStorage.JumpscareModels.RushNew:Clone()
+			RushNew.Parent = Rush
+RushNew.Attachment.BlackTrail.Enabled=false
+RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://10914798333"
+RushNew.Attachment.ParticleEmitter.Color = ColorSequence.new(Color3.new(255, 255, 255))
+RushNew.PlaySound:ClearAllChildren()
+RushNew.Footsteps:ClearAllChildren()
+RushNew.PlaySound.Pitch = 0.96
+RushNew.Footsteps.Pitch = 0
+RushNew.PlaySound.SoundId = "rbxassetid://241650934"
+
+			Rush.Parent = workspace
+			Rush.PrimaryPart = RushNew
+
+			for i,v in pairs(Rush:GetDescendants()) do
+				if v:IsA("Sound") then
+					v.SoundGroup = game.SoundService.Main
+
+					if v.Name == "Footsteps" or v.Name == "PlaySound" then
+						v:Play()
+					end
+				elseif v:IsA("ParticleEmitter") then
+					if v.Name == "ParticleEmitter" or v.Name == "BlackTrail" then
+						v.Enabled = true
+					end
+				end
+			end
+
+			local Earliest, Latest = SpawnerLibrary.Calculate2()
+			Rush:PivotTo(Earliest.PrimaryPart.CFrame)
+Rush.RushNew.PlaySound.DistortionSoundEffect.Enabled = true
+Rush.RushNew.PlaySound.DistortionSoundEffect.Priority = 1
+			task.wait(WaitTime)
+
+			local Rushing = true
+			local con
+			con = workspace.CurrentRooms.ChildAdded:Connect(function()
+				for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
+					v:SetAttribute("Possible", true)
+				end
+			end)
+
+			coroutine.wrap(function()
+				while Rushing do
+					firesignal(game.ReplicatedStorage.Bricks.CamShakeRelative.OnClientEvent, RushNew.Position, 2, 15, 0.1, .2, Vector3.new(0,0,0))
+					if CanKill then
+						for i,v in pairs(game.Players:GetPlayers()) do
+							SpawnerLibrary.Raycast(v, RushNew, "Rush", 50)
+						end
+					end
+					task.wait()
+				end
+			end)()
+
+			local Earliest, Latest = SpawnerLibrary.Calculate2()
+
+			for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
+				local IsPossible = true
+				local Last = workspace.CurrentRooms:FindFirstChild(tonumber(Room.Name) - 1)
+				
+				if Last then
+					if Last:FindFirstChild("Nodes") then
+						if Last:GetAttribute("Done") == true then
+							IsPossible = false
+						end
+					end
+				end
+				
+				if Room:GetAttribute("Possible") == false then
+					IsPossible = false
+				end
+				
+				-- Next room operations
+				local Next = workspace.CurrentRooms:FindFirstChild(tonumber(Room.Name) + 1)
+
+				if Next then
+					if tonumber(Room.Name) == tonumber(game.ReplicatedStorage.GameData.LatestRoom.Value) then
+						if Room:FindFirstChild("Door") and Room:FindFirstChild("Nodes") then
+							if Room.Door.Door.Anchored then
+								Next:SetAttribute("Possible", false)
+							end
+						end
+					end
+				end
+				
+				if Room:FindFirstChild("Nodes") and IsPossible then
+					Event("breakLights", Room, 0.416, 60)
+					for i,v in pairs(Room.Nodes:GetChildren()) do
+						SpawnerLibrary.Tween2(RushNew, v, RushSpeed, CFrame.new(0,4,0))
+					end
+					SpawnerLibrary.Tween2(RushNew, Room.RoomEnd, RushSpeed)
+				end
+			end
+
+			CanKill = false
+			
+			local Current = workspace.CurrentRooms:FindFirstChild(game.ReplicatedStorage.GameData.LatestRoom.Value)
+			
+			if Current:FindFirstChild("Door") then
+				Current.Door.ClientOpen:FireServer()
+			end
+			
+			Rushing = false
+
+			RushNew.CanCollide = false
+			RushNew.Anchored = false
+			
+			for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
+				v:SetAttribute("Possible", true)
+			end
+			
+			con:Disconnect()
+task.wait(10)
+Rush:Destroy()
 		end,
 	},
 	Screech = {
