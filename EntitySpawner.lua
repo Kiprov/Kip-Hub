@@ -1053,6 +1053,25 @@ RushNew.Footsteps:ClearAllChildren()
 RushNew.PlaySound.Pitch = 0.96
 RushNew.Footsteps.Pitch = 0
 RushNew.PlaySound.SoundId = "rbxassetid://241650934"
+RushNew.PlaySound.Volume = 0.5
+local Distort = Instance.new("DistortionSoundEffect", RushNew.PlaySound)
+Distort.Level = 0.89
+local Echo = Instance.new("EchoSoundEffect", RushNew.PlaySound)
+Echo.Delay = 1
+Echo.Feedback = 0.5
+local Equalizer = Instance.new("EqualizerSoundEffect", RushNew.PlaySound)
+Equalizer.HighGain = 10
+Equalizer.MidGain = 10
+Equalizer.LowGain = 10
+local Flange = Instance.new("FlangeSoundEffect", RushNew.PlaySound)
+Flange.Depth = 0.06
+Flange.Mix = 0.85
+Flange.Rate = 5
+local Reverb = Instance.new("ReverbSoundEffect", RushNew.PlaySound)
+Reverb.DecayTime = 1.5
+Reverb.Density = 1
+Reverb.Diffusion = 1
+Reverb.DryLevel = -6
 
 			Rush.Parent = workspace
 			Rush.PrimaryPart = RushNew
@@ -1065,7 +1084,7 @@ RushNew.PlaySound.SoundId = "rbxassetid://241650934"
 						v:Play()
 					end
 				elseif v:IsA("ParticleEmitter") then
-					if v.Name == "ParticleEmitter" or v.Name == "BlackTrail" then
+					if v.Name == "ParticleEmitter" then
 						v.Enabled = true
 					end
 				end
@@ -1073,8 +1092,6 @@ RushNew.PlaySound.SoundId = "rbxassetid://241650934"
 
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 			Rush:PivotTo(Earliest.PrimaryPart.CFrame)
-Rush.RushNew.PlaySound.DistortionSoundEffect.Enabled = true
-Rush.RushNew.PlaySound.DistortionSoundEffect.Priority = 1
 			task.wait(WaitTime)
 
 			local Rushing = true
