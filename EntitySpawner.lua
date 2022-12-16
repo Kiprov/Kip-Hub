@@ -1372,7 +1372,7 @@ for i = 1,math.random(2,20) do
 					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
 				end
 
-task.wait(match.random(1,3)
+task.wait(match.random(1,3))
 			end
 
 			CanKill = false
