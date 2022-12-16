@@ -1339,10 +1339,6 @@ light2.Range=6
 local ER
 			ER = game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
 local hasChanceRebound = math.random(1, 5)
-if hasChanceRebound == 5 then
-ER:Disconnect()
-Ambush:Destroy()
-end
 				local Nodes = {}
 				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
 					local IsPossible = true
@@ -1377,8 +1373,12 @@ end
 				for i,v in ipairs(Nodes) do
 					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
 				end
-				
-				task.wait(math.random(1,3))
+if hasChanceRebound == 5 then
+ER:Disconnect()
+Ambush:Destroy()
+Cue:Destroy()
+Cue2:Destroy()
+end
 			end)
 			CanKill = false
 			Rushing = false
