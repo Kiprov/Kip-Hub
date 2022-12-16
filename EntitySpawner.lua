@@ -1290,9 +1290,10 @@ task.wait(1)
 RushNew.Attachment.PointLight:Destroy()
 task.wait(1)
 RushNew.Attachment.PointLight:Destroy()
+task.wait(1)
 local light1 = Instance.new("PointLight",RushNew.Attachment)
 light1.Name="Main"
-light1.Brightness=10
+light1.Brightness=40
 light1.Enabled=true
 light1.Color = Color3.new(0, 255, 255)
 light1.Range=6
@@ -1372,7 +1373,7 @@ for i = 1,math.random(2,20) do
 					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
 				end
 
-task.wait(match.random(1,3))
+task.wait(math.random(1,3))
 			end
 
 			CanKill = false
