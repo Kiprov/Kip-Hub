@@ -1272,7 +1272,7 @@ Pitch3.Octave = 0.5
 Cue2:Play()
 			
 			local Ambush = Instance.new("Model")
-			Ambush.Name = "AmbushMoving"
+			Ambush.Name = "Rebound"
 Ambush:SetAttribute("IsCustomEntity", true)
 Ambush:SetAttribute("ClonedByCrucifix", false)
 
@@ -1336,9 +1336,7 @@ light2.Range=6
 			end)()
 
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
-local ER
-			ER = game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
-local hasChanceRebound = math.random(1, 5)
+for i = 1,math.random(2,20) do
 				local Nodes = {}
 				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
 					local IsPossible = true
@@ -1373,16 +1371,15 @@ local hasChanceRebound = math.random(1, 5)
 				for i,v in ipairs(Nodes) do
 					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
 				end
-if hasChanceRebound == 5 then
-ER:Disconnect()
-Ambush:Destroy()
-Cue:Destroy()
-Cue2:Destroy()
-end
-			end)
+
+task.wait(match.random(1,3)
+			end
+
 			CanKill = false
 			Rushing = false
-			
+			Ambush:Destroy()
+Cue:Destroy()
+Cue2:Destroy()
 			for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
 				v:SetAttribute("Possible", true)
 			end
