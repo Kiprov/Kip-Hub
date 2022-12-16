@@ -435,6 +435,65 @@ SpawnerLibrary.Prepare({"It seems you are having trouble with Matcher.","The lig
 end
 Jumpscare()
 	end,
+ReboundSG = function()
+		local function Jumpscare()
+			u2.deathtick = tick() + 10;
+			game.SoundService.Main.Volume = 0;
+v1.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://9114397505";
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Play();
+			v1.Jumpscare_Ambush.Visible = true;
+v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914800940";
+			local v72 = tick();
+			local v73 = math.random(5, 30) / 100;
+			local v74 = v73 + math.random(10, 60) / 100;
+			local v75 = 0.2;
+			for v76 = 1, 100000 do
+				task.wait(0.016666666666666666);
+				v1.Jumpscare_Ambush.ImageLabel.Position = UDim2.new(0.5, math.random(-15, 15), 0.5, math.random(-15, 15));
+				v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, math.random(4, 10) / 255, math.random(0, 3) / 255);
+				if v72 + v73 <= tick() then
+					v1.Jumpscare_Ambush.ImageLabel.Visible = true;
+					v73 = v73 + math.random(7, 44) / 100;
+					game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.Pitch = math.random(35, 155) / 100;
+					v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, math.random(4, 10) / 255, math.random(0, 3) / 255);
+					v1.Jumpscare_Ambush.ImageLabel.Position = UDim2.new(0.5, math.random(-25, 25), 0.5, math.random(-25, 25));
+					v75 = v75 + 0.05;
+					v1.Jumpscare_Ambush.ImageLabel.Size = UDim2.new(v75, 0, v75, 0);
+				end;
+				if v72 + v74 <= tick() then
+					break;
+				end;
+			end;
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2.SoundId = "rbxassetid://5567523008";
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush2:Play();
+			v1.Jumpscare_Ambush.ImageLabel.Visible = true;
+			v1.Jumpscare_Ambush.ImageLabel:TweenSize(UDim2.new(9, 0, 9, 0), "In", "Quart", 0.3, true);
+			local v77 = tick();
+			for v78 = 1, 100 do
+				local v79 = math.random(0, 10) / 10;
+				v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(v79, math.clamp(math.random(250, 255) / 50, v79, 1), math.clamp(math.random(250, 255) / 150, v79, 1));
+				game["Run Service"].RenderStepped:wait();
+				if v77 + 0.3 <= tick() then
+					break;
+				end;
+			end;
+			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Stop();
+			v1.Jumpscare_Ambush.ImageLabel.Visible = false;
+			v1.Jumpscare_Ambush.BackgroundColor3 = Color3.new(0, 0, 0);
+			v1.Jumpscare_Ambush.Visible = false;
+			u2.deathtick = tick();
+			return;
+		end
+local Randomizer = math.random(1, 3)
+if Randomizer == 1 then
+		SpawnerLibrary.Prepare({"You died to who you call Rebound...","It is a tricky one.","He might stay at the room hes in and go backwards or he might appear in the next room."}, "Rebound")
+elseif Randomizer == 2 then
+SpawnerLibrary.Prepare({"You died to Rebound again...","It gets you when you least suspect it!","It has a unique scream. Once you hear it, be prepared!"}, "Rebound")
+elseif Randomizer == 3 then
+SpawnerLibrary.Prepare({"You died to Rebound.","You might need to hop in and out of your hiding spot a couple times.","When Rebound stops screaming that means he disappeared!"}, "Rebound")
+end
+Jumpscare()
+	end,
 }
 
 local function Event(Module, ...)
@@ -1180,6 +1239,151 @@ light1.Range=6
 			con:Disconnect()
 task.wait(10)
 Rush:Destroy()
+		end,
+	},
+Rebound = {
+		Func = function(Args)
+			local AmbushSpeed = (Args.Speed and Args.Speed) or 250
+			local CanKill = (Args.Kill and Args.Kill) or false
+			local WaitTime = (Args.Time and Args.Time) or 3
+local Cue = Instance.new("Sound", workspace)
+local Cue2 = Instance.new("Sound",workspace)
+Cue.Name = "Rebound_Cue"
+Cue2.Name = "Rebound_Cue2"
+Cue.Volume = 3
+Cue2.Volume = 0.3
+Cue.SoundId = "rbxassetid://9114221327"
+Cue2.SoundId = "rbxassetid://9114397505"
+local Dis1 = Instance.new("DistortionSoundEffect",Cue2)
+local Dis2 = Instance.new("DistortionSoundEffect",Cue2)
+local Pitch1 = Instance.new("PitchShiftSoundEffect",Cue2)
+local Pitch2 = Instance.new("PitchShiftSoundEffect",Cue2)
+local Pitch3 = Instance.new("PitchShiftSoundEffect",Cue2)
+Dis1.Level = 1
+Dis2.Level = 1
+Pitch1.Octave = 0.5
+Pitch2.Octave = 0.5
+Pitch3.Octave = 0.5
+			
+			Event("flickerLights", game.ReplicatedStorage.GameData.LatestRoom.Value, 1.5)
+			
+			task.wait(math.random(1,3))
+			Cue:Play()
+Cue2:Play()
+			
+			local Ambush = Instance.new("Model")
+			Ambush.Name = "AmbushMoving"
+Ambush:SetAttribute("IsCustomEntity", true)
+Ambush:SetAttribute("ClonedByCrucifix", false)
+
+			local RushNew = Create(loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Ambush.lua"))(), nil)
+			RushNew.Parent = Ambush
+
+			Ambush.Parent = workspace
+			Ambush.PrimaryPart = RushNew
+RushNew.Attachment.ParticleEmitter.Texture = "rbxassetid://10914800940"
+RushNew.Attachment.ParticleEmitter.Color = ColorSequence.new(Color3.new(255, 255, 255))
+RushNew.PlaySound.Pitch = 0.25
+RushNew.Footsteps.Pitch = 0.3
+RushNew.Attachment.PointLight:Destroy()
+task.wait(1)
+RushNew.Attachment.PointLight:Destroy()
+task.wait(1)
+RushNew.Attachment.PointLight:Destroy()
+local light1 = Instance.new("PointLight",RushNew.Attachment)
+light1.Name="Main"
+light1.Brightness=10
+light1.Enabled=true
+light1.Color = Color3.new(0, 255, 255)
+light1.Range=6
+local light2 = Instance.new("PointLight",RushNew.Attachment)
+light2.Name="BlueEffect"
+light2.Brightness=40
+light2.Enabled=true
+light2.Color = Color3.new(72, 0, 255)
+light2.Range=6
+
+
+			local Earliest, Latest = SpawnerLibrary.Calculate2()
+			Ambush:PivotTo(Earliest.PrimaryPart.CFrame)
+			
+			for i,v in pairs(Ambush:GetDescendants()) do
+				if v:IsA("Sound") then
+					v.SoundGroup = game.SoundService.Main
+				end
+			end
+
+			task.wait(WaitTime)
+
+			local Rushing = true
+			local con
+			con = workspace.CurrentRooms.ChildAdded:Connect(function()
+				for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
+					v:SetAttribute("Possible", true)
+				end
+			end)
+
+			coroutine.wrap(function()
+				while Rushing do
+					firesignal(game.ReplicatedStorage.Bricks.CamShakeRelative.OnClientEvent, RushNew.Position, 2, 15, 0.1, .5, Vector3.new(0,0,0))
+					if CanKill then
+						for i,v in pairs(game.Players:GetPlayers()) do
+							SpawnerLibrary.Raycast(v, RushNew, "ReboundSG", 180)
+						end
+					end
+					task.wait()
+				end
+			end)()
+
+			local Earliest, Latest = SpawnerLibrary.Calculate2()
+local ER
+			ER = game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+				local Nodes = {}
+				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
+					local IsPossible = true
+					
+					if Room:GetAttribute("Possible") == false then
+						IsPossible = false
+					end
+					
+					-- Next room operations
+					local Next = workspace.CurrentRooms:FindFirstChild(tonumber(Room.Name) + 1)
+
+					if Next then
+						if tonumber(Room.Name) == tonumber(game.ReplicatedStorage.GameData.LatestRoom.Value) then
+							if Room:FindFirstChild("Door") and Room:FindFirstChild("Nodes") then
+								if Room.Door.Door.Anchored then
+									Next:SetAttribute("Possible", false)
+								end
+							end
+						end
+					end
+
+					if Room:FindFirstChild("Nodes") and IsPossible then
+						Event("breakLights", Room, 0.416, 60)
+						for i,v in pairs(Room.Nodes:GetChildren()) do
+							table.insert(Nodes, 1, v)
+							SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
+						end
+						SpawnerLibrary.Tween2(RushNew, Room.RoomEnd, AmbushSpeed)
+					end
+				end
+				
+				for i,v in ipairs(Nodes) do
+					SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
+				end
+				
+				task.wait(math.random(1,3))
+			end)
+
+			CanKill = false
+			Rushing = false
+			
+			for i,v in pairs(workspace.CurrentRooms:GetChildren()) do
+				v:SetAttribute("Possible", true)
+			end
+			
+			con:Disconnect()
 		end,
 	},
 	Screech = {
