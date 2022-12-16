@@ -1375,7 +1375,14 @@ local ER
 				
 				task.wait(math.random(1,3))
 			end)
-
+local function hasChance()
+local hasChanceRebound = math.random(1, 5)
+if hasChanceRebound == 5 then
+ER:Disconnect()
+Ambush:Destroy()
+end
+end
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(hasChance)
 			CanKill = false
 			Rushing = false
 			
