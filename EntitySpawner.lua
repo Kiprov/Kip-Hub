@@ -1300,7 +1300,7 @@ light1.Range=6
 local light2 = Instance.new("PointLight",RushNew.Attachment)
 light2.Name="BlueEffect"
 light2.Brightness=40
-light2.Enabled=true
+light2.Enabled=false
 light2.Color = Color3.new(72, 0, 255)
 light2.Range=6
 
