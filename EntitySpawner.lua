@@ -439,7 +439,7 @@ ReboundSG = function()
 		local function Jumpscare()
 			u2.deathtick = tick() + 10;
 			game.SoundService.Main.Volume = 0;
-v1.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://9114397505";
+v1.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://9114573657";
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Play();
 			v1.Jumpscare_Ambush.Visible = true;
 v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914800940";
