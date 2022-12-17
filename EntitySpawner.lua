@@ -441,6 +441,7 @@ ReboundSG = function()
 			game.SoundService.Main.Volume = 0;
 v1.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.SoundId = "rbxassetid://9114573657";
 v1.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.TimePosition = 2;
+v1.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush.Volume = 3;
 			game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Jumpscare_Ambush:Play();
 			v1.Jumpscare_Ambush.Visible = true;
 v1.Jumpscare_Ambush.ImageLabel.Image = "rbxassetid://10914800940";
