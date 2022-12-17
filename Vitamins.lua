@@ -1,4 +1,4 @@
-_G.VitaminsDurability = 50
+_G.VitaminsDurability = 100
 local Vitamins = game:GetObjects("rbxassetid://11685698403")[1]
 		local idle = Vitamins.Animations:FindFirstChild("idle")
 		local open = Vitamins.Animations:FindFirstChild("open")
