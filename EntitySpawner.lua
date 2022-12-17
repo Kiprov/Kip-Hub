@@ -901,7 +901,7 @@ light1.Range=6
 
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 
-			for i = 1,math.random(2,6) do
+			for i = 1,math.random(4,6) do
 				local Nodes = {}
 				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
 					local IsPossible = true
@@ -1039,7 +1039,7 @@ light1.Range=6
 
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
 
-			for i = 1,math.random(2,10) do
+			for i = 1,math.random(5,10) do
 				local Nodes = {}
 				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
 					local IsPossible = true
@@ -1339,7 +1339,7 @@ light2.Range=12
 			end)()
 
 			local Earliest, Latest = SpawnerLibrary.Calculate2()
-for i = 1,math.random(2,20) do
+for i = 1,math.random(15,20) do
 				local Nodes = {}
 				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
 					local IsPossible = true
