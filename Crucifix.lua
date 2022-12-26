@@ -315,7 +315,7 @@ CrucifixTool.TextureId = Configuration["CrucifixImage"][Configuration["CurrentCr
 				Price = 300,
 				Stack = 10,
 			})
-wait(2)
+wait(1)
 if Plr.PlayerGui.MainUI.ItemShop.Confirm.MouseButton1Click then
 SelfModules.Achievements.Get({
     Title = Configuration["CrucifixName"][Configuration["CurrentCrucifix"]],
