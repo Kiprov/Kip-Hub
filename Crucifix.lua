@@ -317,7 +317,7 @@ CrucifixTool.TextureId = Configuration["CrucifixImage"][Configuration["CurrentCr
 			})
 repeat
 wait()
-if Plr.PlayerGui.MainUI.ItemShop.Confirm.MouseButton1Click then
+if Plr.PlayerGui.MainUI.ItemShop.Confirm.MouseButton1Click:Wait() then
 SelfModules.Achievements.Get({
     Title = Configuration["CrucifixName"][Configuration["CurrentCrucifix"]],
     Desc = "Wait... The crucifix isnt released yet!",
