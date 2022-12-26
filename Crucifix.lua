@@ -311,6 +311,6 @@ CrucifixTool.TextureId = Configuration["CrucifixImage"][Configuration["CurrentCr
 				Desc = Configuration["CrucifixDescription"][Configuration["CurrentCrucifix"]],
 				Image = Configuration["CrucifixImage"][Configuration["CurrentCrucifix"]],
 				Price = 300,
-				Stack = 1,
+				Stack = 10,
 			})
 		end
