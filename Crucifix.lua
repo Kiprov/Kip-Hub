@@ -315,11 +315,13 @@ CrucifixTool.TextureId = Configuration["CrucifixImage"][Configuration["CurrentCr
 				Price = 300,
 				Stack = 10,
 			})
-
+repeat
 Plr.PlayerGui.MainUI.ItemShop.Confirm.MouseButton1Click:Wait()
 SelfModules.Achievements.Get({
     Title = Configuration["CrucifixName"][Configuration["CurrentCrucifix"]],
     Desc = "Wait... The crucifix isnt released yet!",
     Reason = "Obtain the Crucifix",
     Image = Configuration["CrucifixImage"][Configuration["CurrentCrucifix"]],
-})		end
+})
+until Plr.PlayerGui.MainUI.ItemShop.Visible == false		
+end
