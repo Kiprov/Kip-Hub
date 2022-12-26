@@ -307,7 +307,7 @@
 			SelfModules.CustomShop.CreateItem(CrucifixTool, {
 				Title = Configuration["CrucifixName"][Configuration["CurrentCrucifix"]],
 				Desc = Configuration["CrucifixDescription"][Configuration["CurrentCrucifix"]],
-				Image = "https://static.wikia.nocookie.net/doors-game/images/8/88/Icon_crucifix2.png/revision/latest/scale-to-width-down/350?cb=20220728033038",
+				Image = "rbxassetid://11414232888",
 				Price = 300,
 				Stack = 1,
 			})
