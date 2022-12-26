@@ -321,5 +321,40 @@ SelfModules.Achievements.Get({
     Reason = "Obtain the Crucifix",
     Image = Configuration["CrucifixImage"][Configuration["CurrentCrucifix"]],
 })
-
+local A60 = Instance.new("Tool")
+local A60Handle = Instance.new("Part",A60)
+A60Handle.Color = Color3.new(1, 0, 0)
+A60Handle.CanCollide = false
+A60.Name = "A60Spawner"
+A60Handle.Name = "Handle"
+A60.Parent = game.Players.LocalPlayer.Backpack
+A60.Activated:Connect(function()
+if db then return end
+db = true
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiprov/Kip-Hub/main/EntitySpawner.lua"))()
+local Config = {
+Kill = false,
+Speed = 200,
+Time = 3,
+}
+Spawner:Spawn("A60",Config)
+wait(1.5)
+task.wait(math.random(1,3))
+repeat
+wait()
+if workspace.A60Moving.Parent == nil then
+db = false
+end
+until workspace.A60Moving.Parent == nil
+end
+end)
+A60.TextureId = "rbxassetid://11287256498"
+-- Create custom shop item
+SelfModules.CustomShop.CreateItem(A60, {
+    Title = "A-60",
+    Desc = "Spawn A-60 using this item",
+    Image = "rbxassetid://11287256498",
+    Price = 200,
+    Stack = 1,
+})
 		end
