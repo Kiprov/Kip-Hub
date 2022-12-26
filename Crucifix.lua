@@ -22,7 +22,7 @@ CrucifixImage = {"rbxassetid://11414232888"}; -- The Crucifix Tool and shop imag
 				Color3.fromRGB(110, 153, 202),
 				"Neon"
 			}; -- If your crucifix has cracks, set their color and material here
-			Uses = 1;
+			Uses = 10;
 			Trapping = {
 				CustomEntities = {
 					Enabled = true;
