@@ -16,6 +16,7 @@
 			CrucifixTool = {
 				"rbxassetid://11822556646"
 			}; -- The tool of the crucifix
+CrucifixImage = {"rbxassetid://11414232888"}; -- The Crucifix Tool and shop image
 			CrucifixChains = {"rbxassetid://11584227521"}; -- The model of the chains
 			CrucifixCracks = {
 				Color3.fromRGB(110, 153, 202),
@@ -78,6 +79,7 @@
 		}
 		local CrucifixTool = game:GetObjects(Configuration["CrucifixTool"][Configuration["CurrentCrucifix"]])[1]
 		CrucifixTool.Name = Configuration["CrucifixName"][Configuration["CurrentCrucifix"]]
+CrucifixTool.TextureId = Configuration["CrucifixImage"][Configuration["CurrentCrucifix"]]
 		CrucifixTool.Equipped:Connect(function()
 			Equipped = true
 			Char:SetAttribute("Hiding", true)
@@ -307,7 +309,7 @@
 			SelfModules.CustomShop.CreateItem(CrucifixTool, {
 				Title = Configuration["CrucifixName"][Configuration["CurrentCrucifix"]],
 				Desc = Configuration["CrucifixDescription"][Configuration["CurrentCrucifix"]],
-				Image = "rbxassetid://11414232888",
+				Image = Configuration["CrucifixImage"][Configuration["CurrentCrucifix"]],
 				Price = 300,
 				Stack = 1,
 			})
