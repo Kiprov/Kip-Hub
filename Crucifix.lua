@@ -72,6 +72,8 @@ CrucifixImage = {"rbxassetid://11414232888"}; -- The Crucifix Tool and shop imag
                 "https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Shop%20Items/Source.lua"
             )
         )(),
+Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))(),
+
 		}
 		local ModuleScripts = {
 			MainGame = require(Plr.PlayerGui.MainUI.Initiator.Main_Game),
@@ -313,4 +315,11 @@ CrucifixTool.TextureId = Configuration["CrucifixImage"][Configuration["CurrentCr
 				Price = 300,
 				Stack = 10,
 			})
+SelfModules.Achievements.Get({
+    Title = Configuration["CrucifixName"][Configuration["CurrentCrucifix"]],
+    Desc = "Wait... The crucifix isnt released yet!",
+    Reason = "Obtain the Crucifix",
+    Image = Configuration["CrucifixImage"][Configuration["CurrentCrucifix"]],
+})
+
 		end
