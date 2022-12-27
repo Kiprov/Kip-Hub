@@ -25,8 +25,6 @@ local Vitamins = game:GetObjects("rbxassetid://11685698403")[1]
 			wait(Duration)
 			InTrans = false
 		end
-		function v1.SetupVitamins()
-			Vitamins.Parent = game.Players.LocalPlayer.Backpack
 			Vitamins.Name = "FakeVitamins"
 			for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 				if tool.Name == "FakeVitamins" then
@@ -67,8 +65,22 @@ local Vitamins = game:GetObjects("rbxassetid://11685698403")[1]
 			Vitamins.Unequipped:Connect(function()
 				idleTrack:Stop()
 			end)
-		end
-		v1.SetupVitamins()
+local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Shop%20Items/Source.lua"))()
+
+
+-- Create custom shop item
+if game.Players.LocalPlayer.PlayerGui.MainUI.ItemShop.Visible then
+CustomShop.CreateItem(Vitamins, {
+    Title = "Vitamins",
+    Desc = "Totally normal vitamins",
+    Image = "rbxassetid://10482863785",
+    Price = 200,
+    Stack = 3,
+})
+else
+Vitamins.Parent = game.Players.LocalPlayer.Backpack
+end
 		function v1.AddLoop()
 			while task.wait() do
 				if InTrans then
