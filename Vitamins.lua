@@ -1,5 +1,5 @@
 _G.VitaminsDurability = 100
-local Vitamins = game:GetObjects("rbxassetid://11685698403")[1]
+local Vitamins = LoadCustomInstance("rbxassetid://11685698403")
 		local idle = Vitamins.Animations:FindFirstChild("idle")
 		local open = Vitamins.Animations:FindFirstChild("open")
 		local tweenService = game:GetService("TweenService")
@@ -25,7 +25,7 @@ local Vitamins = game:GetObjects("rbxassetid://11685698403")[1]
 			wait(Duration)
 			InTrans = false
 		end
-			Vitamins.Name = "FakeVitamins"
+	        Vitamins.Name = "FakeVitamins"
 			for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 				if tool.Name == "FakeVitamins" then
 					local slot = game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUI").MainFrame.Hotbar:FindFirstChild(slotNum)
