@@ -75,7 +75,7 @@ local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/Re
 -- Create custom shop item
 if game.Players.LocalPlayer.PlayerGui.MainUI.ItemShop.Visible then
 CustomShop.CreateItem(Vitamins, {
-    Title = "Vitamins",
+    Title = "Normal Vitamins",
     Desc = "Totally normal vitamins",
     Image = "rbxassetid://10482863785",
     Price = 200,
