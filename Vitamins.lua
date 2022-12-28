@@ -25,6 +25,7 @@ local Vitamins = LoadCustomInstance("rbxassetid://11685698403")
 			wait(Duration)
 			InTrans = false
 		end
+function v1.SetupVitamins()
 	        Vitamins.Name = "FakeVitamins"
 			for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 				if tool.Name == "FakeVitamins" then
@@ -65,6 +66,7 @@ local Vitamins = LoadCustomInstance("rbxassetid://11685698403")
 			Vitamins.Unequipped:Connect(function()
 				idleTrack:Stop()
 			end)
+end
 local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Shop%20Items/Source.lua"))()
 
@@ -79,6 +81,7 @@ CustomShop.CreateItem(Vitamins, {
     Stack = 3,
 })
 else
+v1.SetupVitamins()
 Vitamins.Parent = game.Players.LocalPlayer.Backpack
 end
 		function v1.AddLoop()
