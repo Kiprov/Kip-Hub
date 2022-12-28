@@ -26,6 +26,7 @@ local Vitamins = LoadCustomInstance("rbxassetid://11685698403")
 			InTrans = false
 		end
 function v1.SetupVitamins()
+Vitamins.Parent = game.Players.LocalPlayer.Backpack
 	        Vitamins.Name = "FakeVitamins"
 			for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 				if tool.Name == "FakeVitamins" then
@@ -82,7 +83,6 @@ CustomShop.CreateItem(Vitamins, {
 })
 else
 v1.SetupVitamins()
-Vitamins.Parent = game.Players.LocalPlayer.Backpack
 end
 		function v1.AddLoop()
 			while task.wait() do
