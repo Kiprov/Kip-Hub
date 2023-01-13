@@ -607,7 +607,8 @@ Rush:SetAttribute("ClonedByCrucifix", false)
 
 			Rush.Parent = workspace
 			Rush.PrimaryPart = RushNew
-
+RushNew.PlaySound.SoundId = "rbxassetid://12122196180"
+RushNew.Footsteps.SoundId = RushNew.PlaySound.SoundId
 			for i,v in pairs(Rush:GetDescendants()) do
 				if v:IsA("Sound") then
 					v.SoundGroup = game.SoundService.Main
