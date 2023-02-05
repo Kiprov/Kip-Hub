@@ -56,7 +56,7 @@ local SpawnerLibrary = {
 
 		for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
 			t += 1
-			if Room:FindFirstChild("RoomStart") and tonumber(Room.Name) == game.ReplicatedStorage.GameData.LatestRoom.Value then
+			if Room:FindFirstChild("RoomEntrance") and tonumber(Room.Name) == game.ReplicatedStorage.GameData.LatestRoom.Value then
 				Earliest = tonumber(Room.Name)
 				break;
 			end
@@ -69,7 +69,7 @@ local SpawnerLibrary = {
 		local Latest = game.ReplicatedStorage.GameData.LatestRoom.Value
 
 		for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
-			if Room:FindFirstChild("RoomStart") then
+			if Room:FindFirstChild("RoomEntrance") then
 				Earliest = tonumber(Room.Name)
 				break;
 			end
@@ -527,7 +527,7 @@ local Entities = {
 
 			local early, latest = SpawnerLibrary.Calculate()
 
-			val.Value = early.Nodes["1"].CFrame + Vector3.new(0,5,0)
+			val.Value = early.PathfindNodes["1"].CFrame + Vector3.new(0,5,0)
 
 			local anim = Instance.new("Animation")
 			anim.AnimationId = "rbxassetid://9896641335"
@@ -567,10 +567,10 @@ local Entities = {
 				for i,v in ipairs(workspace.CurrentRooms:GetChildren()) do
 					if tonumber(v.Name) < tonumber(early.Name) then continue end
 					if v:GetAttribute("lol") then continue end
-					if v:FindFirstChild("Nodes") then
+					if v:FindFirstChild("PathfindNodes") then
 						v:SetAttribute("lol", true)
 						require(game:GetService("ReplicatedStorage").ClientModules.EntityModules.Seek).tease(nil, v, 14, 1665596753, true)
-						for i,v in ipairs(v.Nodes:GetChildren()) do
+						for i,v in ipairs(v.PathfindNodes:GetChildren()) do
 							SpawnerLibrary.Tween(val, v, 25, CFrame.new(0,5,0))
 						end
 					end
@@ -656,7 +656,7 @@ Rush.RushNew.PlaySound.DistortionSoundEffect.Priority = 1
 				local Last = workspace.CurrentRooms:FindFirstChild(tonumber(Room.Name) - 1)
 				
 				if Last then
-					if Last:FindFirstChild("Nodes") then
+					if Last:FindFirstChild("PathfindNodes") then
 						if Last:GetAttribute("Done") == true then
 							IsPossible = false
 						end
@@ -672,7 +672,7 @@ Rush.RushNew.PlaySound.DistortionSoundEffect.Priority = 1
 
 				if Next then
 					if tonumber(Room.Name) == tonumber(game.ReplicatedStorage.GameData.LatestRoom.Value) then
-						if Room:FindFirstChild("Door") and Room:FindFirstChild("Nodes") then
+						if Room:FindFirstChild("Door") and Room:FindFirstChild("PathfindNodes") then
 							if Room.Door.Door.Anchored then
 								Next:SetAttribute("Possible", false)
 							end
@@ -680,12 +680,12 @@ Rush.RushNew.PlaySound.DistortionSoundEffect.Priority = 1
 					end
 				end
 				
-				if Room:FindFirstChild("Nodes") and IsPossible then
+				if Room:FindFirstChild("PathfindNodes") and IsPossible then
 					Event("breakLights", Room, 0.416, 60)
-					for i,v in pairs(Room.Nodes:GetChildren()) do
+					for i,v in pairs(Room.PathfindNodes:GetChildren()) do
 						SpawnerLibrary.Tween2(RushNew, v, RushSpeed, CFrame.new(0,4,0))
 					end
-					SpawnerLibrary.Tween2(RushNew, Room.RoomEnd, RushSpeed)
+					SpawnerLibrary.Tween2(RushNew, Room.RoomExit, RushSpeed)
 				end
 			end
 
@@ -780,7 +780,7 @@ Ambush:SetAttribute("ClonedByCrucifix", false)
 
 					if Next then
 						if tonumber(Room.Name) == tonumber(game.ReplicatedStorage.GameData.LatestRoom.Value) then
-							if Room:FindFirstChild("Door") and Room:FindFirstChild("Nodes") then
+							if Room:FindFirstChild("Door") and Room:FindFirstChild("PathfindNodes") then
 								if Room.Door.Door.Anchored then
 									Next:SetAttribute("Possible", false)
 								end
@@ -788,13 +788,13 @@ Ambush:SetAttribute("ClonedByCrucifix", false)
 						end
 					end
 
-					if Room:FindFirstChild("Nodes") and IsPossible then
+					if Room:FindFirstChild("PathfindNodes") and IsPossible then
 						Event("breakLights", Room, 0.416, 60)
-						for i,v in pairs(Room.Nodes:GetChildren()) do
+						for i,v in pairs(Room.PathfindNodes:GetChildren()) do
 							table.insert(Nodes, 1, v)
 							SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
 						end
-						SpawnerLibrary.Tween2(RushNew, Room.RoomEnd, AmbushSpeed)
+						SpawnerLibrary.Tween2(RushNew, Room.RoomExit, AmbushSpeed)
 					end
 				end
 				
