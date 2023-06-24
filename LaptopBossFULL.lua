@@ -274,6 +274,7 @@ table.insert(cors,sandbox(Script9,function()
 	face = leppie.Screen.face
 	mouth = leppie.Screen.mouth
 	db = false
+	leppie:SetPrimaryPartCFrame(CFrame.new(0, -61.865, 0.475))
 	
 
 	local puddle = Instance.new("Part", workspace)
