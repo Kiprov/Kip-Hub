@@ -285,6 +285,8 @@ table.insert(cors,sandbox(Script9,function()
 	mouth = leppie.Screen.mouth
 	db = false
 	leppie:SetPrimaryPartCFrame(CFrame.new(0, -61.865, 0.475))
+	wait(0.5)
+	leppie:SetPrimaryPartCFrame(leppie:GetPrimaryPartCFrame() * CFrame.Angles(0, math.rad(180),0))
 	
 
 	local puddle = Instance.new("Part", workspace)
@@ -1141,9 +1143,18 @@ table.insert(cors3, sandbox(Script11, function()
 		puddle:Destroy()
 		db = false
 		wait(1)
-		while true do
-			game.Workspace.Baseplate.BrickColor = BrickColor.Random()
-			wait(0.3)
+		if workspace:FindFirstChild("Baseplate") then
+			while true do
+				game.Workspace.Baseplate.BrickColor = BrickColor.Random()
+				wait(0.3)
+			end
+		elseif workspace:FindFirstChild("Base") then
+			while true do
+				game.Workspace.Base.BrickColor = BrickColor.Random()
+				wait(0.3)
+			end
+		else
+			--return
 		end
 	end
 
@@ -1214,7 +1225,7 @@ Sound25.Name = "demawn"
 Sound25.Parent = Model0
 Sound25.SoundId = "rbxassetid://222213668"
 Sound25.Volume = 10
-Sound26.Name = "explosion"
+Sound26.Name = "eguspelosiawn"
 Sound26.Parent = Model0
 Sound26.SoundId = "rbxassetid://539294959"
 Sound26.Volume = 10
@@ -1226,7 +1237,7 @@ Sound28.Name = "fite3"
 Sound28.Parent = Model0
 Sound28.SoundId = "rbxassetid://1843397149"
 Sound28.Volume = 10
-Sound29.Name = "victory"
+Sound29.Name = "willreturnsound"
 Sound29.Parent = Model0
 Sound29.SoundId = "rbxassetid://1846368080"
 Sound29.Volume = 10
