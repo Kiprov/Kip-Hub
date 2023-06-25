@@ -150,7 +150,7 @@ do
 end
 
 --made by kiprovka26
-warn("made by kiprovka26. A fixed version of Laptop Boss + FULL edition.")
+warn("originally made by Dion(@Dionnooo) edited and fixed by kiprovka26. An edited version of Laptop Boss + FULL Edition.")
 function sandbox(var,func)
 	local env = getfenv(func)
 	local newenv = setmetatable({},{
@@ -3665,15 +3665,17 @@ table.insert(cors6, sandbox(Script14, function()
 			tween.Completed:Wait()
 			wait(1)
 			leppie.talk.Pitch = 1
-			typewrite(message, "Thank you for completing this fight.",0.1)
+			typewrite(message, "Thank you for completing this fight.",0.2)
 			wait(2)
-			typewrite(message, "Im so amazed you completed this boss fight script",0.1)
+			typewrite(message, "Im so amazed you completed this boss fight script",0.2)
 			wait(2)
 			typewrite(message, "Credits:Dion(@Dionnooo) for creating the original game. Seek for making this laptop boss edit.",0.2)
 			wait(2)
 			typewrite(message, "Again. Thanks for completing this boss fight.",0.2)
 			wait(2)
 			message:Destroy()
+			leppie:Destroy()
+			Model1:Destroy()
 		else
 			--return
 		end
