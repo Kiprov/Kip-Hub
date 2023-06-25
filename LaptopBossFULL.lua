@@ -150,7 +150,7 @@ do
 end
 
 --made by kiprovka26
-warn("made by kiprovka26. A fixed version of Laptop Boss + FULL edition.")
+warn("originally made by Dion(@Dionnooo) edited and fixed by kiprovka26. A fixed version of Laptop Boss + FULL edition.")
 function sandbox(var,func)
 	local env = getfenv(func)
 	local newenv = setmetatable({},{
@@ -168,6 +168,14 @@ end
 cors = {}
 cors2 = {}
 cors3 = {}
+local base = workspace:FindFirstChild("Baseplate") or workspace:FindFirstChild("Base")
+local originColor,originSize,originMaterial,originBottomSurface,originTopSurface,originPos = base.Color, base.Size, base.Material, base.BottomSurface, base.TopSurface, base.Position
+local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = Color3.new(0.388235, 0.372549, 0.384314), Size = Vector3.new(512,20,512), Position = Vector3.new(0,-10,0)})
+tween:Play()
+base.TopSurface = "Studs"
+base.BottomSurface = "Inlet"
+base.Material = "Plastic"
+tween.Completed:Wait()
 mas = Instance.new("Model",game:GetService("Lighting"))
 Model0 = Instance.new("Model")
 Model1 = Instance.new("Model")
@@ -1298,15 +1306,33 @@ table.insert(cors3, sandbox(Script11, function()
 		db = false
 		wait(1)
 		if workspace:FindFirstChild("Baseplate") then
-			while true do
+			while leppie.willreturnsound.IsPlaying == true do
 				game.Workspace.Baseplate.BrickColor = BrickColor.Random()
 				wait(0.3)
 			end
+			local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = originColor, Size = originSize, Position = originPos})
+			tween:Play()
+			base.TopSurface = originTopSurface
+			base.BottomSurface = originBottomSurface
+			base.Material = originMaterial
+			tween.Completed:Wait()
+			wait(1)
+			leppie:Destroy()
+			Model1:Destroy()
 		elseif workspace:FindFirstChild("Base") then
-			while true do
+			while leppie.willreturnsound.IsPlaying == true do
 				game.Workspace.Base.BrickColor = BrickColor.Random()
 				wait(0.3)
 			end
+			local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = originColor, Size = originSize, Position = originPos})
+			tween:Play()
+			base.TopSurface = originTopSurface
+			base.BottomSurface = originBottomSurface
+			base.Material = originMaterial
+			tween.Completed:Wait()
+			wait(1)
+			leppie:Destroy()
+			Model1:Destroy()
 		else
 			--return
 		end
