@@ -172,8 +172,8 @@ cors4 = {}
 cors5 = {}
 cors6 = {}
 local base = workspace:FindFirstChild("Baseplate") or workspace:FindFirstChild("Base")
-local originColor,originSize,originMaterial,originBottomSurface,originTopSurface = base.Color, base.Size, base.Material, base.BottomSurface, base.TopSurface
-local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = Color3.new(0.388235, 0.372549, 0.384314), Size = Vector3.new(512,20,512)})
+local originColor,originSize,originMaterial,originBottomSurface,originTopSurface,originPos = base.Color, base.Size, base.Material, base.BottomSurface, base.TopSurface, base.Position
+local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = Color3.new(0.388235, 0.372549, 0.384314), Size = Vector3.new(512,20,512), Position = base.Position + Vector3.new(0,-10,0)})
 tween:Play()
 base.TopSurface = "Studs"
 base.BottomSurface = "Inlet"
@@ -3635,7 +3635,7 @@ table.insert(cors6, sandbox(Script14, function()
 				game.Workspace.Baseplate.BrickColor = BrickColor.Random()
 				wait(0.3)
 			end
-			local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = originColor, Size = originSize})
+			local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = originColor, Size = originSize, Position = originPos})
 			tween:Play()
 			base.TopSurface = originTopSurface
 			base.BottomSurface = originBottomSurface
@@ -3657,7 +3657,7 @@ table.insert(cors6, sandbox(Script14, function()
 				game.Workspace.Base.BrickColor = BrickColor.Random()
 				wait(0.3)
 			end
-			local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = originColor, Size = originSize})
+			local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = originColor, Size = originSize, Position = originPos})
 			tween:Play()
 			base.TopSurface = originTopSurface
 			base.BottomSurface = originBottomSurface
