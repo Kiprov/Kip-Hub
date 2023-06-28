@@ -4,7 +4,7 @@ local RealPlayer = Player
 do
 	print("FE Compatibility code V2 by Mokiros")
 	local RealPlayer = RealPlayer
-	script.Parent = RealPlayer.Character
+	script.Parent = workspace
 
 	--Fake event to make stuff like Mouse.KeyDown work
 	local Disconnect_Function = function(this)
