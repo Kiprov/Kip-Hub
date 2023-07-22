@@ -679,7 +679,7 @@ wait(0.6)
 game.Workspace.Laptop.AGK:Play()
 shutdown.Texture = "rbxassetid://35417464"
 shutdown.Transparency = 0
-wait(5)
+wait(3)
 game.Workspace.Laptop.AGK:Stop()
 shutdown.Texture = "rbxassetid://186565366"
 wait(0.1)
@@ -1203,17 +1203,17 @@ Sound51.TimePosition = 0
 Sound51.Volume = 1
 Sound52.Name = "AGK"
 Sound52.Parent = Model0
-Sound52.SoundId = "rbxassetid://448909138"
+Sound52.SoundId = "rbxassetid://7293552098"
 Sound52.Volume = 10
 Sound53.Name = "Standby"
 Sound53.Parent = Model0
-Sound53.SoundId = "rbxassetid://169869850"
+Sound53.SoundId = "rbxassetid://1838935420"
 Sound54.Name = "EGUSPELOSIAWN"
 Sound54.Parent = Model0
-Sound54.SoundId = "rbxassetid://171515875"
+Sound54.SoundId = "rbxassetid://157878578"
 Sound55.Name = "Search"
 Sound55.Parent = Model0
-Sound55.SoundId = "rbxassetid://329492143"
+Sound55.SoundId = "rbxassetid://1846458016"
 Sound55.Volume = 10
 Sound56.Name = "Cresh"
 Sound56.Parent = Model0
