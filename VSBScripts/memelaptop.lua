@@ -1,15 +1,7 @@
-local function GetGitSound(GithubSnd,SoundName)
-				local url=GithubSnd
-				if not isfile(SoundName..".mp3") then
-					writefile(SoundName..".mp3", game:HttpGet(url))
-				end
-				local sound=Instance.new("Sound")
-				sound.SoundId=(getcustomasset or getsynasset)(SoundName..".mp3")
-				return sound
-			end
 --made by dionspion009 u stupid bazniggers.
 
-warn("made by dionspion009 kthxbai.")
+print("made by dionspion009 kthxbai.")
+warn("if you wanna hear audios join CORRUPTED ASSETS group.")
 
 function sandbox(var,func)
 	local env = getfenv(func)
@@ -38,7 +30,7 @@ TextLabel7 = Instance.new("TextLabel")
 Part8 = Instance.new("Part")
 Decal9 = Instance.new("Decal")
 Script10 = Instance.new("Script")
-Sound11 = GetGitSound("https://github.com/Kiprov/Kip-Hub/main/VSBScripts/Music/Chilled.mp3?raw=true","Chilled")
+Sound11 = Instance.new("Sound")
 Part12 = Instance.new("Part")
 Decal13 = Instance.new("Decal")
 Part14 = Instance.new("Part")
@@ -854,6 +846,8 @@ end
 
 
 end))
+Sound11.Name = "Chilled"
+Sound11.SoundId = "rbxassetid://14153842901"
 Sound11.Parent = Model0
 Sound11.Volume = 1
 Part12.Name = "Screen3"
