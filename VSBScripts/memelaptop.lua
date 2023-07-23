@@ -18,6 +18,8 @@ function sandbox(var,func)
 	return func
 end
 cors = {}
+player = owner
+char = player.Character
 mas = Instance.new("Model",game:GetService("Lighting"))
 Model0 = Instance.new("Model")
 Part1 = Instance.new("Part")
@@ -791,7 +793,7 @@ if Math == 2 then
 	end
 	end
 	workspace.Laptop.SELFDESTRUCT.Looped = false
-	local kablmaoXDXD = Instance.new("Sound", game.Players.LocalPlayer.Character)
+	local kablmaoXDXD = Instance.new("Sound", workspace)
 	kablmaoXDXD.SoundId = "rbxassetid://2248511"
 	kablmaoXDXD.Volume = 10
 	kablmaoXDXD:Play()
@@ -802,7 +804,7 @@ if Math == 2 then
 	boom.Position = game.Workspace.Laptop.BottomPart.Position
 	boom.Visible = false
 	boom.BlastRadius = 70
-	local ball1 = Instance.new("Part", game.Players.LocalPlayer.Character)
+	local ball1 = Instance.new("Part", workspace.Laptop)
 	ball1.Size = Vector3.new(1,1,1)
 	ball1.Material = "Neon"
 	ball1.Anchored = true
@@ -810,7 +812,7 @@ if Math == 2 then
 	ball1.BrickColor = BrickColor.new("New Yeller")
 	ball1.CanCollide = false
 	ball1.CFrame = game.Workspace.Laptop.BottomPart.CFrame
-	local ball11 = Instance.new("Part", game.Players.LocalPlayer.Character)
+	local ball11 = Instance.new("Part", workspace.Laptop)
 	ball11.Size = Vector3.new(1,1,1)
 	ball11.Material = "Neon"
 	ball11.Anchored = true
@@ -822,8 +824,9 @@ if Math == 2 then
 	ball1:BreakJoints()
 	local cfval = 0
 	local cfval1 = 0
+	local ogoffset = char.Humanoid.CameraOffset
 				for i = 1,260 do
-					game.Players.LocalPlayer.Character.Humanoid.CameraOffset = Vector3.new(math.random(-1,1),math.random(-1,1),math.random(-1,1))
+					char.Humanoid.CameraOffset = Vector3.new(math.random(-1,1),math.random(-1,1),math.random(-1,1))
 					cfval1 = cfval1 - 1
 					cfval = cfval + 1
 					ball1.Size = ball1.Size + Vector3.new(0.4,0.4,0.4)
@@ -834,7 +837,7 @@ if Math == 2 then
 					wait()
 				end
 				for i = 1,20 do
-					game.Players.LocalPlayer.Character.Humanoid.CameraOffset = Vector3.new(math.random(-1,1),math.random(-1,1),math.random(-1,1))
+					char.Humanoid.CameraOffset = Vector3.new(math.random(-1,1),math.random(-1,1),math.random(-1,1))
 					cfval1 = cfval1 - 1
 					cfval = cfval + 1
 					ball1.Transparency = ball1.Transparency + 0.05
@@ -846,6 +849,7 @@ if Math == 2 then
 					ball11.CFrame = cf * CFrame.fromEulerAnglesXYZ(0,cfval1,cfval1 + math.random(-1,1))
 					wait()
 				end
+				char.Humanoid.CameraOffset = ogoffset
 end
 
 
