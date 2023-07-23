@@ -768,8 +768,8 @@ if Math == 1 then
 	text.Text = " "
 	game.Workspace.Laptop.JABANANEN:Play()
 	wait()
-	scroon.Transparency = 0
-	scroon.Texture = "rbxassetid://9808349880"
+	--scroon.Transparency = 0
+	--scroon.Texture = "rbxassetid://9808349880"
 	
 	
 	
@@ -787,7 +787,7 @@ if Math == 2 then
 	if tick() - lastseconds >= 200 then
 	break
 	else
-	warn("You still have "..lastseconds.." left.")
+	warn("You still have "..tick() - lastseconds.." left.")
 	end
 	end
 	workspace.Laptop.SELFDESTRUCT.Looped = false
