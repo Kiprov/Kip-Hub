@@ -782,7 +782,15 @@ if Math == 2 then
 	wait(5)
 	game.Workspace.Laptop.SELFDESTRUCT:Play()
 	text.Text = "....And it has activated self destruct! RUN!"
-	wait(15)
+	local lastseconds = tick()
+	while wait(1) do
+	if tick() - lastseconds >= 200 then
+	break
+	else
+	warn("You still have "..lastseconds.." left.")
+	end
+	end
+	workspace.Laptop.SELFDESTRUCT.Looped = false
 	local kablmaoXDXD = Instance.new("Sound", game.Players.LocalPlayer.Character)
 	kablmaoXDXD.SoundId = "rbxassetid://2248511"
 	kablmaoXDXD.Volume = 10
@@ -1228,8 +1236,9 @@ Sound58.SoundId = "rbxassetid://620887707"
 Sound58.Volume = 10
 Sound59.Name = "SELFDESTRUCT"
 Sound59.Parent = Model0
-Sound59.SoundId = "rbxassetid://14155169115"
+Sound59.SoundId = "rbxassetid://9041745502"
 Sound59.Volume = 10
+Sound59.Looped = true
 Sound60.Name = "JABANANEN"
 Sound60.Parent = Model0
 Sound60.SoundId = "rbxassetid://133724225"
