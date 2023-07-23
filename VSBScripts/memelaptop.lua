@@ -769,7 +769,7 @@ if Math == 1 then
 	game.Workspace.Laptop.JABANANEN:Play()
 	wait()
 	scroon.Transparency = 0
-	scroon.Texture = "rbxassetid://271617784"
+	scroon.Texture = "rbxassetid://9808349880"
 	
 	
 	
@@ -1241,8 +1241,9 @@ Sound59.Volume = 10
 Sound59.Looped = true
 Sound60.Name = "JABANANEN"
 Sound60.Parent = Model0
-Sound60.SoundId = "rbxassetid://133724225"
+Sound60.SoundId = "rbxassetid://8437137294"
 Sound60.Volume = 10
+Sound60.Looped = true
 for i,v in pairs(mas:GetChildren()) do
 	v.Parent = workspace
 	pcall(function() v:MakeJoints() end)
