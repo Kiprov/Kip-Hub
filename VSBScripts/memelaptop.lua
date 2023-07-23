@@ -679,7 +679,7 @@ wait(0.6)
 game.Workspace.Laptop.AGK:Play()
 shutdown.Texture = "rbxassetid://35417464"
 shutdown.Transparency = 0
-wait(3)
+wait(5)
 game.Workspace.Laptop.AGK:Stop()
 shutdown.Texture = "rbxassetid://186565366"
 wait(0.1)
