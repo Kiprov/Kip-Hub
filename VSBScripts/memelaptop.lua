@@ -743,6 +743,8 @@ game.Workspace.Laptop.Cresh:Stop()
 wait(3)
 game.Workspace.Laptop.Search:Play()
 text.TextTransparency = 0
+text.Text = ""
+math.randomseed(tick())
 for i = 1,10 do
 	print(i)
 	text.Text = "SEARCHING FOR DATA."
@@ -770,7 +772,7 @@ if Math == 1 then
 	text.Text = " "
 	game.Workspace.Laptop.JABANANEN:Play()
 	wait()
-	--scroon.Transparency = 0
+	scroon.Transparency = 0
 	--scroon.Texture = "rbxassetid://9808349880"
 	
 	
