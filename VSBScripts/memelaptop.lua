@@ -19,6 +19,8 @@ function sandbox(var,func)
 end
 cors = {}
 player = owner
+--just for a test we'll print the player who ran this thing
+print(player.Name)
 char = player.Character
 mas = Instance.new("Model",game:GetService("Lighting"))
 Model0 = Instance.new("Model")
@@ -773,12 +775,7 @@ if Math == 1 then
 	game.Workspace.Laptop.JABANANEN:Play()
 	wait()
 	scroon.Transparency = 0
-	--scroon.Texture = "rbxassetid://9808349880"
-	
-	
-	
-	
-	
+	scroon.Texture = "rbxassetid://9808349880"
 end
 if Math == 2 then
 	game.Workspace.Laptop.Noh:Play()
