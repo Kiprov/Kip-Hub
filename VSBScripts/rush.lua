@@ -1,5 +1,5 @@
-local rush = game:GetObjects("rbxassetid://11218170101")[1]
-local target = game.Players:FindFirstChild("helpmeiseekhelp") --change this
+local rush = game:service("InsertService"):LoadAsset(11218170101)
+local target = game:service("Players"):FindFirstChild("helpmeiseekhelp") --change this
 local part = rush:FindFirstChild("Rush")
 part.PlaySound.SoundId = "rbxassetid://8028069841"
 part.PlaySound.Pitch = 0.5
