@@ -156,7 +156,7 @@ local function Deathscare()
       v1.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.Volume = 1;
       v1.Jumpscare.Jumpscare_Rush.ImageLabel.Image = "rbxassetid://11828342170";
 v1.Jumpscare.Jumpscare_Rush.ImageLabelBig.Image = "rbxassetid://11828342170";
-v1.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://5216480240";
+v1.Initiator.Main_Game.RemoteListener.Jumpscare_Rush.SoundId = "rbxassetid://2132024717";
 v1.Initiator.Main_Game.RemoteListener.Jumpscare_Rush2.SoundId = "rbxassetid://5537531920";
 			u2.deathtick = tick() + 10;
 			game.SoundService.Main.Volume = 0;
