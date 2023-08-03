@@ -46,7 +46,7 @@ local entity = Spawner.createEntity({
 
     Model = "https://github.com/Kiprov/Kip-Hub/raw/main/JeffTheKillerModel.rbxm", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
 
-    Speed = 32,
+    Speed = 100,
 
     MoveDelay = 1.5,
 
