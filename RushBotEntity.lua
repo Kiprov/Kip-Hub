@@ -49,6 +49,7 @@ end
 
 entity.Debug.OnEntityDespawned = function()
     print("Entity has despawned")
+	if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 if not game.ReplicatedStorage:FindFirstChild("UnlockedRushBot") then
 local unlockedThisAchievement = Instance.new("BoolValue", game.ReplicatedStorage)
 unlockedThisAchievement.Name = "UnlockedRushBot"
@@ -87,6 +88,9 @@ Achievements.Get({
 wait(2)
 unlockedThisAchievement.Value = true
 end
+end
+else
+warn("The player is dead, cannot give achievement")
 end
 end
 --The end
