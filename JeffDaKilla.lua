@@ -22,6 +22,8 @@ function sandbox(var,func)
 	return func
 end
 local jeff = GetGitModel("Jeff","https://github.com/Kiprov/Kip-Hub/blob/main/JeffTheKillerModel.rbxm?raw=true")
+jeff:SetAttribute("IsCustomEntity",true)
+jeff:SetAttribute("ClonedByCrucifix",false)
 local latestRoom = game:GetService("ReplicatedStorage").GameData.LatestRoom
 local Room = workspace:FindFirstChild("CurrentRooms")[latestRoom.Value]
 local ai = Instance.new("Script", jeff)
