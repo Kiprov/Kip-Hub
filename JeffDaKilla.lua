@@ -1,262 +1,194 @@
-local Death = nil
-
-		local randomDeath = math.random(1, 5)		if randomDeath == 1 then
-
-			Death = {"You keep your secret hidedðŸ”¥ðŸ”¥ðŸ”¥ðŸ”¥", "Keep it as a secretðŸ¤£ðŸ”¥ðŸ¤£ðŸ”¥ðŸ¤£ðŸ”¥ðŸ¤£ðŸ¤£ðŸ”¥ðŸ¤£ðŸ”¥ðŸ¤£ðŸ”¥ðŸ¤£ðŸ”¥ðŸ¤£"}
-
-		elseif randomDeath == 2 then
-
-			Death = {"average day in ohio ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€"}
-
-		elseif randomDeath == 3 then
-
-			Death = {"RONALDO IS BETTER THAN MESSIðŸ”¥ðŸ”¥ðŸ”¥ðŸ”¥ðŸ”¥ðŸ”¥ðŸ”¥ðŸ”¥ðŸ’¯ðŸ’¯ðŸ’¯ðŸ’¯ðŸ’¯", "MESSI SUCKS ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€"}
-
-		elseif randomDeath == 4 then
-
-			Death = {"It seems like YOUR MOM is causing quite the ruckus...", "GO DO YOUR HOMEWORK BOI. ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€ðŸ’€"}
-
-		elseif randomDeath == 5 then
-
-			Death = {"Whopper, whopper, whopper, whopper", "Junior, double, triple whopper.","Flame grilled taste with perfect toppers.","I rule this day!","Lettuce, mayo, pickle, ketchup.","Its okay if i dont want that.","Impossible, or Bacon Whopper, any Whopper my way!","You rule, youre seizing the day!","At BK... Have it your way!","You Rule!"}
-
-		end
-
-wait(0.5)
-
-local function a()
-
-if (workspace.Ambience_Seek.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_FigureIntense.Playing or workspace.Ambience_FigureEnd.Playing or workspace.CurrentRooms:FindFirstChild("50")) then
-
-				a()
-
-				return
-
-			end
-
----====== Define spawner ======---
-
-local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/Source.lua"))()
-
----====== Create entity ======---
-
-local entity = Spawner.createEntity({
-
-    CustomName = "Jeff the Killer",
-
-    Model = "https://github.com/Kiprov/Kip-Hub/raw/main/JeffTheKillerModel.rbxm", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
-
-    Speed = 100,
-
-    MoveDelay = 1.5,
-
-    HeightOffset = 0,
-
-    CanKill = true,
-
-    KillRange = 30,
-
-    SpawnInFront = false,
-
-    ShatterLights = false,
-
-    FlickerLights = {
-
-        Enabled = false,
-
-        Duration = 1
-
-    },
-
-    Cycles = {
-
-        Min = 1,
-
-        Max = 1,
-
-        Delay = 2
-
-    },
-
-    CamShake = {
-
-        Enabled = true,
-
-        Values = {3.5, 20, 0.1, 1},
-
-        Range = 100
-
-    },
-
-    ResistCrucifix = true,
-
-    BreakCrucifix = true,
-
-    DeathMessage = Death,
-
-    IsCuriousLight = false
-
-})
-
----====== Debug ======---
-
-entity.Debug.OnEntitySpawned = function()
-
-    print("Entity has spawned")
-
-    task.spawn(function()
-
-				while wait(3) do
-
-					local Jeff = workspace:FindFirstChild("Jeff")
-
-					if Jeff:FindFirstChildOfClass("Humanoid").Health ~= 0 then
-
-						Jeff.Head.ChatAttachment.Chat.Enabled = true
-
-						wait(3)
-
-						Jeff.Head.ChatAttachment.Chat.Enabled = false
-
-					end
-
-				end
-
-			end)
-
+local function GetGitModel(ModelName,ModelUrl)
+	local url=ModelUrl
+	if not isfile(ModelName..".rbxm") then
+		writefile(ModelName..".rbxm",game:HttpGetAsync(url))
+	end
+	local a = game:GetObjects((getcustomasset or getsynasset)(ModelName..".rbxm"))[1]
+	a.Name = ModelName
+	return a
 end
-
-entity.Debug.OnEntityDespawned = function()
-
-    print("Entity has despawned")
-	if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-    if not game.ReplicatedStorage:FindFirstChild("UnlockedJeff") then
-
-			local unlockedThisAchievement = Instance.new("BoolValue", game.ReplicatedStorage)
-
-			unlockedThisAchievement.Name = "UnlockedJeff"
-
-			if unlockedThisAchievement then
-
-				if unlockedThisAchievement.Value == true then
-
-					--Already achieved
-
-				else
-
-					local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
-
-					-- Creates and displays your custom achievement
-
-					Achievements.Get({
-
-						Title = "ITS PAST YOUR BED TIME.",
-
-						Desc = "GO TO SLEEP.",
-
-						Reason = "Encounter Jeff.",
-
-						Image = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/68a40625-080a-47c5-ad1b-ee8f01453dbd/d629rde-fc9dbdf2-5894-4eac-8351-9ba59d446f1d.png/v1/fill/w_900,h_720,q_80,strp/jeff_by_myhatisblue_d629rde-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvNjhhNDA2MjUtMDgwYS00N2M1LWFkMWItZWU4ZjAxNDUzZGJkXC9kNjI5cmRlLWZjOWRiZGYyLTU4OTQtNGVhYy04MzUxLTliYTU5ZDQ0NmYxZC5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.6C7ynO3GMP4RyjAW903SY6Jzenxt9hQJ_NkcelPGLTM",
-
-					})
-
-					wait(2)
-
-					unlockedThisAchievement.Value = true
-
-				end
-
-			end
-
-		elseif game.ReplicatedStorage:FindFirstChild("UnlockedJeff") then
-
-			local unlockedThisAchievement = game.ReplicatedStorage.UnlockedJeff
-
-			if unlockedThisAchievement then
-
-				if unlockedThisAchievement.Value == true then
-
-					--Already achieved
-
-				else
-
-					local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
-
-					-- Creates and displays your custom achievement
-
-					Achievements.Get({
-
-						Title = "ITS PAST YOUR BED TIME.",
-
-						Desc = "GO TO SLEEP.",
-
-						Reason = "Encounter Jeff.",
-
-						Image = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/68a40625-080a-47c5-ad1b-ee8f01453dbd/d629rde-fc9dbdf2-5894-4eac-8351-9ba59d446f1d.png/v1/fill/w_900,h_720,q_80,strp/jeff_by_myhatisblue_d629rde-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvNjhhNDA2MjUtMDgwYS00N2M1LWFkMWItZWU4ZjAxNDUzZGJkXC9kNjI5cmRlLWZjOWRiZGYyLTU4OTQtNGVhYy04MzUxLTliYTU5ZDQ0NmYxZC5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.6C7ynO3GMP4RyjAW903SY6Jzenxt9hQJ_NkcelPGLTM",
-
-					})
-
-					wait(2)
-
-					unlockedThisAchievement.Value = true
-
-				end
-
-			end
+function sandbox(var,func)
+	local env = getfenv(func)
+	local newenv = setmetatable({},{
+		__index = function(self,k)
+			if k=="script" then
+				return var
 			else
-			warn("The player is dead, cannot give achievement")
+				return env[k]
+			end
+		end,
+	})
+	setfenv(func,newenv)
+	return func
+end
+local jeff = GetGitModel("Jeff","https://github.com/Kiprov/Kip-Hub/blob/main/JeffTheKillerModel.rbxm?raw=true")
+local latestRoom = game:GetService("ReplicatedStorage").GameData.LatestRoom
+local Room = workspace:FindFirstChild("CurrentRooms")[latestRoom.Value]
+local ai = Instance.new("Script", jeff)
+local died = Instance.new("Script", jeff)
+local damage = Instance.new("Script", jeff)
+cors = {}
+cors2 = {}
+cors3 = {}
+ai.Enabled = true
+ai.Name = "AI"
+died.Name = "Died"
+died.Enabled = true
+damage.Name = "Attack"
+damage.Enabled = true
+jeff.Parent = workspace
+jeff:PivotTo(Room.Door.Door.CFrame * CFrame.new(0,0,-10))
+table.insert(cors,sandbox(ai,function()
+	--Variables
+local Pathfinding = game:GetService("PathfindingService")
+local players = game.Players
+local RunService = game:GetService("RunService")
+local path = Pathfinding:CreatePath({
+	AgentHeight = 6;
+	AgentRadius = 3;
+	AgentCanJump = false;
+	Costs = {
+		Water = 100;
+		DangerZone = math.huge
+	}
+})
+local Character = script.Parent
+local humanoid = Character:FindFirstChild("Humanoid")
+local waypoints
+local nextWaypointIndex
+local reachedConnection
+local blockedConnection
+local function findNearestChild()
+	local maxDistance = 500
+	local nearestChild
+	for i,p in pairs(players:GetChildren()) do
+		if p.Character then
+			local child = p.Character
+			local distance = (p.Character.HumanoidRootPart.Position - child.HumanoidRootPart.Position).Magnitude
+			if distance < maxDistance then
+				nearestChild = child
+				maxDistance = distance
+			end
+			if distance < 1 then
+				nearestChild.Humanoid:TakeDamage(0)
+			end
 		end
-
+	end
+	return nearestChild
+end
+local function followPath(destination)
+	local success, errorMessage = pcall(function()
+		path:ComputeAsync(Character.PrimaryPart.Position, destination)
+	end)
+	if success and path.Status == Enum.PathStatus.Success then
+		waypoints = path:GetWaypoints()
+		blockedConnection = path.Blocked:Connect(function(blockedWaypointIndex)
+			if blockedWaypointIndex >= nextWaypointIndex then
+				blockedWaypointIndex:Disconnect()
+				followPath(destination)
+			end
+		end)
+		if not reachedConnection then
+			reachedConnection = humanoid.MoveToFinished:Connect(function(reached)
+				if reached and nextWaypointIndex < #waypoints then
+					nextWaypointIndex += 1
+					humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
+				else
+					reachedConnection:Disconnect()
+					blockedConnection:Disconnect()
+				end
+			end)
 		end
-
+		nextWaypointIndex = 2
+		humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
+	else
+		--Path is not found
+	end
 end
-
-entity.Debug.OnEntityStartMoving = function()
-
-    print("Entity started moving")
-
+while wait(0.1) do
+	local child = findNearestChild()
+	if child then
+		followPath(child.HumanoidRootPart.Position)
+	end
 end
-
-entity.Debug.OnEntityFinishedRebound = function()
-
-    print("Entity finished rebound")
-
+end))
+table.insert(cors2, sandbox(died, function()
+	--Variables
+local npc = script.Parent --NPC
+local hum = npc:FindFirstChild("Humanoid") --Heart of the NPC
+--Functions
+local function death()
+	local Death = Instance.new("Sound", script)
+	Death.SoundId = "rbxassetid://6927884261"
+	Death.Volume = 1
+	Death.Loaded:Wait()
+	Death:Play()
+	wait(Death.TimeLength)
+	Death:Destroy()
 end
-
-entity.Debug.OnEntityEnteredRoom = function(room)
-
-    print("Entity entered room:", room)
-
+local function onDeath()
+	task.spawn(death)
+	wait(2) --Cooldown before deletion
+	npc:Destroy()
 end
-
-entity.Debug.OnLookAtEntity = function()
-
-    print("Player looking at entity")
-
+hum.Died:Connect(onDeath)
+end))
+table.insert(cors3, sandbox(damage, function()
+	--Variables
+local npc = script.Parent -- The NPC.
+local hrp = npc:FindFirstChild("HumanoidRootPart") -- The part that damages you.
+local knife = npc:FindFirstChild("Knife") -- The Knife
+local handle = knife:FindFirstChild("Handle") -- The Handle
+local dmg = 80 -- Number to give damage to player
+local db = false -- debounce
+--Functions
+local function Hit(hit)
+	local attack = handle.Attack
+	local dealdmg = handle.DeadSound
+	local plrdied = handle.DeadPlayer
+	if hit.Parent:FindFirstChild("Humanoid") then
+		if db then return end
+		db = true
+		firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to someone who you call, Jeff.","To survive him its easy. Just run away from him.","Hiding is pointless."}, "Blue")
+		coroutine.wrap(function()
+			for i,v in pairs(game.ReplicatedStorage.GameStats:GetDescendants()) do
+				if v.Name == "DeathCause" then
+					v.Value = npc.Name
+				end
+			end
+	end)()
+		hit.Parent:FindFirstChild("Humanoid").Died:Connect(function()
+			local death = plrdied:Clone()
+			death.Parent = hit.Parent
+			death:Play()
+		end)
+		attack:Play()
+		--local str = Instance.new("StringValue")
+		--str.Name = "toolanim"
+		--str.Value = "Slash"
+		--str.Parent = knife
+		task.wait(0.5)
+		hit.Parent:FindFirstChild("Humanoid"):TakeDamage(dmg)
+		dealdmg:Play()
+		task.wait(3)
+		db = false
+	end
 end
-
-entity.Debug.OnDeath = function()
-
-    print("Player has died")
-
+--Connections
+hrp.Touched:Connect(Hit)
+end))
+for aiindex,v in pairs(cors) do
+	spawn(function()
+		pcall(v)
+	end)
 end
-
---[[
-
-    NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
-
-    entity.Debug.OnUseCrucifix = function()
-
-        print("Custom crucifixion script here")
-
-    end
-
-]]--
-
----====== Run entity ======---
-
-Spawner.runEntity(entity)
-
+for diedindex,v in pairs(cors2) do
+	spawn(function()
+		pcall(v)
+	end)
 end
-
-a()
+for damageindex,v in pairs(cors3) do
+	spawn(function()
+		pcall(v)
+	end)
+end
