@@ -1,12 +1,9 @@
 local function a()
-
-		if (workspace.Ambience_Seek.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_FigureIntense.Playing or workspace.Ambience_FigureEnd.Playing or workspace.CurrentRooms:FindFirstChild("50")) then			a()
-
-			return
-
-		end
-
-	--1427189017--
+if (workspace.Ambience_Seek.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_FigureIntense.Playing or workspace.Ambience_FigureEnd.Playing or workspace.CurrentRooms:FindFirstChild("50")) then
+				a()
+				return
+			end
+			--1427189017--
 
 	--4458337219--
 
@@ -87,7 +84,7 @@ local function a()
 	entity.Debug.OnEntityDespawned = function()
 
 			print("Entity has despawned")
-
+			if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 			if not game.ReplicatedStorage:FindFirstChild("UnlockedEXE") then
 
 				local unlockedThisAchievement = Instance.new("BoolValue", game.ReplicatedStorage)
@@ -161,6 +158,9 @@ local function a()
 					end
 
 				end
+				else
+				warn("The player is dead, cannot give achievement")
+			end
 
 			end
 
@@ -168,7 +168,6 @@ local function a()
 
 		end
 
-	end
 
 	entity.Debug.OnEntityStartMoving = function()
 
@@ -273,5 +272,4 @@ local function a()
 		Spawner.runEntity(entity)
 
 end
-
 a()
