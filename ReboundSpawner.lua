@@ -95,6 +95,10 @@ wait(2.8)
 -- Create entity
 
 local function a()
+if (workspace.Ambience_Seek.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_FigureIntense.Playing or workspace.Ambience_FigureEnd.Playing or workspace.CurrentRooms:FindFirstChild("50")) then
+				a()
+				return
+			end
 
 local entity = Spawner.createEntity({
 
