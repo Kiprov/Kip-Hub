@@ -170,9 +170,9 @@ UIAspectRatioConstraint_6.AspectRatio = 1.352
 --Functions:
 local function typewrite(obj,text,length)
 	for i = 1,#text,1 do
-		local write = Write:Clone()
+		local write = Write
 		write.Parent = Main
-		write:Destroy()
+		write:Play()
 		obj.Text = string.sub(text,1,i)
 		wait(length)
 	end
@@ -189,19 +189,19 @@ Main:TweenPosition(UDim2.new(0.344, 0,0.265, 0),Enum.EasingDirection.Out,Enum.Ea
 wait(3)
 typewrite(Title,Text1,0.1)
 wait(2)
-typewrite(Description,Text4,0.1)
+typewrite(Description,Text4,0.01)
 wait(1)
-typewrite(Description2,Text5,0.1)
+typewrite(Description2,Text5,0.01)
 wait(2)
 local tween1 = TW:Create(EveryoneOnly,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundTransparency = 0.5})
 local tween2 = TW:Create(OwnerOnly,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundTransparency = 0.5})
 tween2:Play()
 tween2.Completed:Wait()
-typewrite(OwnerOnly,Text2,0.1)
+typewrite(OwnerOnly,Text2,0.01)
 wait(2)
 tween1:Play()
 tween1.Completed:Wait()
-typewrite(EveryoneOnly,Text3,0.1)
+typewrite(EveryoneOnly,Text3,0.01)
 wait(2)
 OwnerOnly.Active = true
 EveryoneOnly.Active = true
