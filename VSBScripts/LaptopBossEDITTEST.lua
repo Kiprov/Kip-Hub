@@ -264,7 +264,7 @@ EveryoneOnly.MouseButton1Click:Connect(function()
 	ExecutionMethod:Destroy()
 	EveryoneOnlySend:FireServer(self)
 end)
-]==], owner.PlayerScripts)
+]==], owner.PlayerGui)
 OwnerOnlyRemote.OnServerEvent:Connect(function(player:Player,type:string,cam:Camera,pivot:CFrame,obj:Instance)
 	if type == "LaunchBoss" then
 		
