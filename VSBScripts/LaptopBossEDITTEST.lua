@@ -206,7 +206,7 @@ wait(2)
 OwnerOnly.Active = true
 EveryoneOnly.Active = true
 NLS([==[
-OwnerOnlyRemote.OnClientEvent:Connect(function(type:string,pivot,obj)
+OwnerOnlyRemote.OnClientEvent:Connect(function(type,pivot,obj)
    print("sending this to owner")
    if type == "LaunchBoss" then
          OwnerOnlyRemote:FireServer(RealPlayer,"LaunchBoss")
@@ -219,7 +219,7 @@ OwnerOnlyRemote.OnClientEvent:Connect(function(type:string,pivot,obj)
    end
    print("done")
 end)
-EveryoneOnlyRemote.OnClientEvent:Connect(function(type:string,pivot,obj)
+EveryoneOnlyRemote.OnClientEvent:Connect(function(type,pivot,obj)
    print("sending this to others")
    if type == "LaunchBoss" then
          EveryoneOnlyRemote:FireServer(self,"LaunchBoss")
@@ -265,7 +265,7 @@ EveryoneOnly.MouseButton1Click:Connect(function()
 	EveryoneOnlySend:FireServer(self)
 end)
 ]==], owner.PlayerGui)
-OwnerOnlyRemote.OnServerEvent:Connect(function(player:Player,type:string,cam:Camera,pivot:CFrame,obj)
+OwnerOnlyRemote.OnServerEvent:Connect(function(player,type,cam,pivot,obj)
 	if type == "LaunchBoss" then
 		
 		cors = {}
@@ -3937,7 +3937,7 @@ OwnerOnlyRemote.OnServerEvent:Connect(function(player:Player,type:string,cam:Cam
 		end)
 	end
 end)
-EveryoneOnlyRemote.OnServerEvent:Connect(function(player:Player,type:string,cam:Camera,pivot:CFrame,obj:Instance)
+EveryoneOnlyRemote.OnServerEvent:Connect(function(player,type,cam,pivot,obj)
 	if type == "LaunchBoss" then
 
 		cors = {}
