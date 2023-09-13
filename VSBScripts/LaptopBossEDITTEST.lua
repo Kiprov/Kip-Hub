@@ -3979,7 +3979,8 @@ OwnerOnlySend.OnServerEvent:Connect(function(player)
 			spawn(function()
 				pcall(v)
 			end)
-end)
+		end
+	end)
 EveryoneOnlySend.OnServerEvent:Connect(function(player)
 	print("You know what? They say blue flame burns more")
 	
@@ -7629,4 +7630,5 @@ EveryoneOnlySend.OnServerEvent:Connect(function(player)
 			spawn(function()
 				pcall(v)
 			end)
-end)
+end
+	end)
