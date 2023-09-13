@@ -43,11 +43,17 @@ local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
 
 --Properties:
 
-OwnerOnlyRemote.Parent = game.ServerScriptService
-OwnerOnlySend.Parent = game.ServerScriptService
+OwnerOnlyRemote.Parent = game.ReplicatedStorage
+OwnerOnlyRemote.Name = "OwnerRemote"
+OwnerOnlySend.Parent = game.ReplicatedStorage
+OwnerOnlySend.Name = "OwnerSend"
+EveryoneOnlyRemote.Parent = game.ReplicatedStorage
+EveryoneOnlyRemote.Name = "EveryoneRemote"
+EveryoneOnlySend.Parent = game.ReplicatedStorage
+EveryoneOnlySend.Name = "EveryoneSend"
 
 ExecutionMethod.Name = "ExecutionMethod"
-ExecutionMethod.Parent = owner
+ExecutionMethod.Parent = owner.PlayerGui
 ExecutionMethod.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
@@ -206,19 +212,21 @@ wait(2)
 OwnerOnly.Active = true
 EveryoneOnly.Active = true
 NLS([==[
+local OwnerOnlyRemote,OwnerOnlySend,EveryoneOnlyRemote,EveryoneOnlySend = game.ReplicatedStorage.OwnerRemote,game.ReplicatedStorage.OwnerSend,game.ReplicatedStorage.EveryoneRemote,game.ReplicatedStorage.EveryoneSend
 OwnerOnlyRemote.OnClientEvent:Connect(function(type,pivot,obj)
    print("sending this to owner")
    if type == "LaunchBoss" then
-         OwnerOnlyRemote:FireServer(RealPlayer,"LaunchBoss")
+         OwnerOnlyRemote:FireServer(owner,"LaunchBoss")
      elseif type == "SwitchCam" then
-        OwnerOnlyRemote:FireServer(RealPlayer,"SwitchCam",workspace.CurrentCamera,pivot)
+        OwnerOnlyRemote:FireServer(owner,"SwitchCam",workspace.CurrentCamera,pivot)
      elseif type == "EndCam" then
-        OwnerOnlyRemote:FireServer(RealPlayer,"EndCam")
+        OwnerOnlyRemote:FireServer(owner,"EndCam")
      elseif type == "FollowObject" then
-        OwnerOnlyRemote:FireServer(RealPlayer,"FollowObject",workspace.CurrentCamera,pivot,obj)
+        OwnerOnlyRemote:FireServer(owner,"FollowObject",workspace.CurrentCamera,pivot,obj)
    end
    print("done")
 end)
+local self = owner
 EveryoneOnlyRemote.OnClientEvent:Connect(function(type,pivot,obj)
    print("sending this to others")
    if type == "LaunchBoss" then
