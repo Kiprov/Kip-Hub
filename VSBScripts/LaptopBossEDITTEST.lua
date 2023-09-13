@@ -196,7 +196,7 @@ OwnerOnlyRemote.Parent = game.ServerScriptService
 OwnerOnlySend.Parent = game.ServerScriptService
 
 ExecutionMethod.Name = "ExecutionMethod"
-ExecutionMethod.Parent = owner
+ExecutionMethod.Parent = RealPlayer
 ExecutionMethod.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
@@ -358,13 +358,13 @@ NLS([==[
 OwnerOnlyRemote.OnClientEvent:Connect(function(type:string,pivot:CFrame,obj:Instance)
    print("sending this to owner")
    if type == "LaunchBoss" then
-         OwnerOnlyRemote:FireServer(owner,"LaunchBoss")
+         OwnerOnlyRemote:FireServer(RealPlayer,"LaunchBoss")
      elseif type == "SwitchCam" then
-        OwnerOnlyRemote:FireServer(owner,"SwitchCam",workspace.CurrentCamera,pivot)
+        OwnerOnlyRemote:FireServer(RealPlayer,"SwitchCam",workspace.CurrentCamera,pivot)
      elseif type == "EndCam" then
-        OwnerOnlyRemote:FireServer(owner,"EndCam")
+        OwnerOnlyRemote:FireServer(RealPlayer,"EndCam")
      elseif type == "FollowObject" then
-        OwnerOnlyRemote:FireServer(owner,"FollowObject",workspace.CurrentCamera,pivot,obj)
+        OwnerOnlyRemote:FireServer(RealPlayer,"FollowObject",workspace.CurrentCamera,pivot,obj)
    end
    print("done")
 end)
