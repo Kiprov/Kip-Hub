@@ -285,8 +285,54 @@ EveryoneOnly.MouseButton1Click:Connect(function()
 end)
 ]==], owner.PlayerGui)
 OwnerOnlyRemote.OnServerEvent:Connect(function(player,type,cam,pivot,obj)
-	if type == "LaunchBoss" then
-		
+	if type == "SwitchCam" then
+		local cam = cam
+		cam.CameraType = Enum.CameraType.Scriptable
+		local tweenCam = TW:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = pivot})
+		tweenCam:Play()
+	elseif type == "EndCam" then
+		local cam = cam
+		cam.CameraType = Enum.CameraType.Custom
+		followObject:Disconnect()
+		task.spawn(function()
+			wait(0.5)
+			followObject = nil
+		end)
+		print("Ended cam")
+	elseif type == "FollowObject" then
+		local cam = cam
+		cam.CameraType = Enum.CameraType.Scriptable
+		followObject = game:GetService("RunService").Heartbeat:Connect(function()
+			cam.CFrame = obj.CFrame
+		end)
+	end
+end)
+EveryoneOnlyRemote.OnServerEvent:Connect(function(player,type,cam,pivot,obj)
+	if type == "SwitchCam" then
+		local cam = cam
+		cam.CameraType = Enum.CameraType.Scriptable
+		local tweenCam = TW:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = pivot})
+		tweenCam:Play()
+	elseif type == "EndCam" then
+		local cam = cam
+		cam.CameraType = Enum.CameraType.Custom
+		followObject:Disconnect()
+		task.spawn(function()
+			wait(0.5)
+			followObject = nil
+		end)
+		print("Ended cam")
+	elseif type == "FollowObject" then
+		local cam = cam
+		cam.CameraType = Enum.CameraType.Scriptable
+		followObject = game:GetService("RunService").Heartbeat:Connect(function()
+			cam.CFrame = obj.CFrame
+		end)
+	end
+end)
+OwnerOnlySend.OnServerEvent:Connect(function(player)
+	print("Goodies these days")
+	
 		cors = {}
 		cors2 = {}
 		cors3 = {}
@@ -3933,32 +3979,10 @@ OwnerOnlyRemote.OnServerEvent:Connect(function(player,type,cam,pivot,obj)
 			spawn(function()
 				pcall(v)
 			end)
-		end
-	elseif type == "SwitchCam" then
-		local cam = cam
-		cam.CameraType = Enum.CameraType.Scriptable
-		local tweenCam = TW:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = pivot})
-		tweenCam:Play()
-	elseif type == "EndCam" then
-		local cam = cam
-		cam.CameraType = Enum.CameraType.Custom
-		followObject:Disconnect()
-		task.spawn(function()
-			wait(0.5)
-			followObject = nil
-		end)
-		print("Ended cam")
-	elseif type == "FollowObject" then
-		local cam = cam
-		cam.CameraType = Enum.CameraType.Scriptable
-		followObject = game:GetService("RunService").Heartbeat:Connect(function()
-			cam.CFrame = obj.CFrame
-		end)
-	end
 end)
-EveryoneOnlyRemote.OnServerEvent:Connect(function(player,type,cam,pivot,obj)
-	if type == "LaunchBoss" then
-
+EveryoneOnlySend.OnServerEvent:Connect(function(player)
+	print("You know what? They say blue flame burns more")
+	
 		cors = {}
 		cors2 = {}
 		cors3 = {}
@@ -7605,34 +7629,4 @@ EveryoneOnlyRemote.OnServerEvent:Connect(function(player,type,cam,pivot,obj)
 			spawn(function()
 				pcall(v)
 			end)
-		end
-	elseif type == "SwitchCam" then
-		local cam = cam
-		cam.CameraType = Enum.CameraType.Scriptable
-		local tweenCam = TW:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = pivot})
-		tweenCam:Play()
-	elseif type == "EndCam" then
-		local cam = cam
-		cam.CameraType = Enum.CameraType.Custom
-		followObject:Disconnect()
-		task.spawn(function()
-			wait(0.5)
-			followObject = nil
-		end)
-		print("Ended cam")
-	elseif type == "FollowObject" then
-		local cam = cam
-		cam.CameraType = Enum.CameraType.Scriptable
-		followObject = game:GetService("RunService").Heartbeat:Connect(function()
-			cam.CFrame = obj.CFrame
-		end)
-	end
-end)
-OwnerOnlySend.OnServerEvent:Connect(function(player)
-	print("Goodies these days")
-	OwnerOnlyRemote:FireClient(player,"LaunchBoss")
-end)
-EveryoneOnlySend.OnServerEvent:Connect(function(player)
-	print("You know what? They say blue flame burns more")
-	EveryoneOnlyRemote:FireClient(player,"LaunchBoss")
 end)
