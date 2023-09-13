@@ -212,8 +212,18 @@ wait(2)
 OwnerOnly.Active = true
 EveryoneOnly.Active = true
 NLS([==[
-local OwnerOnly,EveryoneOnly = owner.PlayerGui.ExecutionMethod.Main.OwnerOnly,owner.PlayerGui.ExecutionMethod.Main.EveryoneOnly
+local OwnerOnly,EveryoneOnly,Title,Description,Description2,Main,ExecutionMethod = owner.PlayerGui.ExecutionMethod.Main.OwnerOnly,owner.PlayerGui.ExecutionMethod.Main.EveryoneOnly,owner.PlayerGui.ExecutionMethod.Main.Title,owner.PlayerGui.ExecutionMethod.Main.Description,owner.PlayerGui.ExecutionMethod.Main.Description2,owner.PlayerGui.ExecutionMethod.Main,owner.PlayerGui.ExecutionMethod
 local OwnerOnlyRemote,OwnerOnlySend,EveryoneOnlyRemote,EveryoneOnlySend = game.ReplicatedStorage.OwnerRemote,game.ReplicatedStorage.OwnerSend,game.ReplicatedStorage.EveryoneRemote,game.ReplicatedStorage.EveryoneSend
+local Write = Main.Write
+local function typewrite(obj,text,length)
+	for i = 1,#text,1 do
+		local write = Write
+		write.Parent = Main
+		write:Play()
+		obj.Text = string.sub(text,1,i)
+		wait(length)
+	end
+end
 OwnerOnlyRemote.OnClientEvent:Connect(function(type,pivot,obj)
    print("sending this to owner")
    if type == "LaunchBoss" then
