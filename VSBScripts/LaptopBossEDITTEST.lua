@@ -212,6 +212,7 @@ wait(2)
 OwnerOnly.Active = true
 EveryoneOnly.Active = true
 NLS([==[
+local OwnerOnly,EveryoneOnly = owner.PlayerGui.ExecutionMethod.Main.OwnerOnly,owner.PlayerGui.ExecutionMethod.Main.EveryoneOnly
 local OwnerOnlyRemote,OwnerOnlySend,EveryoneOnlyRemote,EveryoneOnlySend = game.ReplicatedStorage.OwnerRemote,game.ReplicatedStorage.OwnerSend,game.ReplicatedStorage.EveryoneRemote,game.ReplicatedStorage.EveryoneSend
 OwnerOnlyRemote.OnClientEvent:Connect(function(type,pivot,obj)
    print("sending this to owner")
