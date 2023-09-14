@@ -339,7 +339,13 @@ OwnerOnlySend.OnServerEvent:Connect(function(player)
 		cors4 = {}
 		cors5 = {}
 		cors6 = {}
-		local base = workspace:FindFirstChild("Baseplate") or workspace:FindFirstChild("Base")
+		local base
+		for childIndex,part in next, workspace:GetChildren() do
+			if part:IsA("BasePart") and part.Name:sub(1,4) == "Base" then
+				base = part
+				print("Changed variable base to "..part.Name)
+			end
+		end
 		local originColor,originSize,originMaterial,originBottomSurface,originTopSurface,originPos = base.Color, base.Size, base.Material, base.BottomSurface, base.TopSurface, base.Position
 		local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = Color3.new(0.388235, 0.372549, 0.384314), Size = Vector3.new(512,20,512), Position = Vector3.new(0,-10,0)})
 		tween:Play()
