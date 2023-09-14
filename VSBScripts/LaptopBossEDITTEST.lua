@@ -74,7 +74,8 @@ Write.Looped = false
 Write.Pitch = 1
 Write.Volume = 1
 
-local Write2 = Write:Clone()
+local Write1 = Write:Clone()
+local Write2 = Write1:Clone()
 local Write3 = Write2:Clone()
 
 OwnerOnly.Name = "OwnerOnly"
@@ -181,7 +182,7 @@ local function typewrite(obj,text,length)
 		local write
 		local randomType = math.random(1,3)
 		if randomType == 1 then
-			write = Write:Clone()
+			write = Write1:Clone()
 		elseif randomType == 2 then
 			write = Write2:Clone()
 		elseif randomType == 3 then
@@ -218,6 +219,7 @@ wait(2)
 tween1:Play()
 tween1.Completed:Wait()
 typewrite(EveryoneOnly,Text3,0.01)
+Write.Parent = Main
 wait(2)
 OwnerOnly.Active = true
 EveryoneOnly.Active = true
