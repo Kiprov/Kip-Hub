@@ -181,11 +181,11 @@ local function typewrite(obj,text,length)
 		local write
 		local randomType = math.random(1,3)
 		if randomType == 1 then
-			write = Write
+			write = Write:Clone()
 		elseif randomType == 2 then
-			write = Write2
+			write = Write2:Clone()
 		elseif randomType == 3 then
-			write = Write3
+			write = Write3:Clone()
 		end
 		write.Parent = Main
 		write:Destroy()
