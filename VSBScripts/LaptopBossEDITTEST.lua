@@ -74,6 +74,9 @@ Write.Looped = false
 Write.Pitch = 1
 Write.Volume = 1
 
+local Write2 = Write:Clone()
+local Write3 = Write2:Clone()
+
 OwnerOnly.Name = "OwnerOnly"
 OwnerOnly.Parent = Main
 OwnerOnly.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
@@ -175,9 +178,17 @@ UIAspectRatioConstraint_6.AspectRatio = 1.352
 --Functions:
 local function typewrite(obj,text,length)
 	for i = 1,#text,1 do
-		local write = Write
+		local write
+		local randomType = math.random(1,3)
+		if randomType == 1 then
+			write = Write
+		elseif randomType == 2 then
+			write = Write2
+		elseif randomType == 3 then
+			write = Write3
+		end
 		write.Parent = Main
-		write:Play()
+		write:Destroy()
 		obj.Text = string.sub(text,1,i)
 		wait(length)
 	end
@@ -229,10 +240,13 @@ OwnerOnlyRemote.OnClientEvent:Connect(function(type,pivot)
 	if type == "SwitchCam" then
 		local cam = workspace.CurrentCamera
 		cam.CameraType = Enum.CameraType.Scriptable
-		local tweenCam = TW:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = pivot.CFrame})
+		local tweenCam = game.TweenService:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = pivot.CFrame})
 		tweenCam:Play()
 	elseif type == "EndCam" then
 		local cam = workspace.CurrentCamera
+		local tweenCam = game.TweenService:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = owner.Character.Head.CFrame})
+		tweenCam:Play()
+		tweenCam.Completed:Wait()
 		cam.CameraType = Enum.CameraType.Custom
 		print("Ended cam")
 		end
@@ -243,7 +257,7 @@ EveryoneOnlyRemote.OnClientEvent:Connect(function(type,pivot)
 	if type == "SwitchCam" then
 		local cam = workspace.CurrentCamera
 		cam.CameraType = Enum.CameraType.Scriptable
-		local tweenCam = TW:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = pivot.CFrame})
+		local tweenCam = game.TweenService:Create(cam,TweenInfo.new(3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{CFrame = pivot.CFrame})
 		tweenCam:Play()
 	elseif type == "EndCam" then
 		local cam = workspace.CurrentCamera
