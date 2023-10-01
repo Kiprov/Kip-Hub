@@ -65,7 +65,7 @@ TextBox.TextWrapped = true
 
 HeckEvent.OnServerEvent:Connect(function(target)
 local coru = coroutine.wrap(function()
-print('elevatoring '..v.Name)
+print('elevatoring '..target.Name)
 local plr = target
 -- 1 - Model
 local obj1 = Instance.new("Model")
