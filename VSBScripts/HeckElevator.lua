@@ -670,13 +670,11 @@ if plr.Character then
 	wait(10)
 	if obj1 then
 		obj1:Destroy()
-	task.spawn(function()
 	if plr.Name == owner.Name then
 	    ScreenGui:Destroy()
 	wait(1)
 	HeckEvent:Destroy()
 	end
-	end)
 	end
 	local success, message = pcall(thatstuff)
 	if success == false then
