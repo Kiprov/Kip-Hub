@@ -637,8 +637,8 @@ if plr.Character then
 		wait()
 	end
 	ToHell(obj1)
-	if plr.Character:FindFirstChild('Torso') then
-		plr.Character.Torso.CFrame = plr.Character.Torso.CFrame + Vector3.new(5000,5000,5000)
+	if plr.Character:FindFirstChild("No Escape.") then
+		plr.Character.Torso:PivotTo(plr.Character.Torso.CFrame + Vector3.new(5000,5000,5000))
 		plr.Character.Torso.Anchored = false
 	end
 	local cf = thing.CFrame
