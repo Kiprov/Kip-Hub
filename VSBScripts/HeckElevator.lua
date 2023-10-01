@@ -670,17 +670,21 @@ if plr.Character then
 	wait(10)
 	if obj1 then
 		obj1:Destroy()
+	task.spawn(function()
 	if plr.Name == owner.Name then
 	ScreenGui:Destroy()
 	wait(1)
 	HeckEvent:Destroy()
 	end
+	end)
 	end
 	end
 	local success, message = pcall(thatstuff)
 	if success == false then
     		print("An error occurred: "..message..". Removing the elevator for this player.")
 		obj1:Destroy()
+	elseif success == true then
+	print("Successfully sent "..plr.Name.." to heck!")
 	end
 end
 
