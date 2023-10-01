@@ -638,7 +638,7 @@ if plr.Character then
 						end
 	if plr.Character:FindFirstChild("No Escape.") then
 		plr.Character.Torso:PivotTo(plr.Character.Torso.CFrame + Vector3.new(5000,5000,5000))
-
+		wait(1)
 		plr.Character.Torso.Anchored = false
 	end
 	ToHell(obj1)
@@ -675,6 +675,7 @@ if plr.Character then
 	ScreenGui:Destroy()
 	wait(1)
 	HeckEvent:Destroy()
+	script:Destroy()
 	end
 	end)
 	end
