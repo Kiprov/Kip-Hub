@@ -697,7 +697,7 @@ end)
 
 local Handler = NLS([[owner.PlayerGui.ScreenGui.TextBox.FocusLost:connect(function()
 for i,v in pairs(game.Players:GetChildren()) do
-if (string.sub(string.lower(v.Name),1,string.len(owner.PlayerGui.ScreenGui.TextBox.Text)) == string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "all" and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "others" and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "me") or string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "all" or (string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "others" and v ~= owner) or (string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "me" and v == owner) then
+if (string.sub(string.lower(v.Name),1,string.len(owner.PlayerGui.ScreenGui.TextBox.Text)) == string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "all" and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "others" and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "me") or string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "all" or (string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "others" and v.Name ~= owner.Name) or (string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "me" and v.Name == owner.Name) then
 game.ReplicatedStorage.Elevator:FireServer(v)
 end
 end
