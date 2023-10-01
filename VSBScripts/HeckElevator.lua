@@ -671,9 +671,10 @@ if plr.Character then
 	if obj1 then
 		obj1:Destroy()
 	if plr.Name == owner.Name then
-	    ScreenGui:Destroy()
+	ScreenGui:Destroy()
 	wait(1)
 	HeckEvent:Destroy()
+	end
 	end
 	end
 	local success, message = pcall(thatstuff)
