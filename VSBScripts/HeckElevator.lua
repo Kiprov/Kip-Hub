@@ -1,7 +1,7 @@
 -- Objects
 
 local ScreenGui = Instance.new("ScreenGui")
-local TextBox = Instance.new("TextBox")
+local TextBox = Instance.new("TextBox",ScreenGui)
 
 
 function MoveSpawn(obj1,PLAYER)
@@ -41,8 +41,6 @@ end
 
 ScreenGui.Parent = owner.PlayerGui
 ScreenGui.ResetOnSpawn = false
-
-TextBox.Parent = ScreenGui
 TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
 TextBox.BackgroundColor3 = Color3.new(0, 0, 0)
 TextBox.BorderColor3 = Color3.new(0.47451, 0, 0)
@@ -59,7 +57,7 @@ TextBox.TextWrapped = true
 
 TextBox.FocusLost:connect(function()
 for i,v in pairs(game.Players:GetChildren()) do
-if (string.sub(string.lower(v.Name),1,string.len(TextBox.Text)) == string.lower(TextBox.Text) and string.lower(TextBox.Text) ~= "all" and string.lower(TextBox.Text) ~= "others" and string.lower(TextBox.Text) ~= "me") or string.lower(TextBox.Text) == "all" or (string.lower(TextBox.Text) == "others" and v ~= game.Players.LocalPlayer) or (string.lower(TextBox.Text) == "me" and v == game.Players.LocalPlayer) then
+if (string.sub(string.lower(v.Name),1,string.len(TextBox.Text)) == string.lower(TextBox.Text) and string.lower(TextBox.Text) ~= "all" and string.lower(TextBox.Text) ~= "others" and string.lower(TextBox.Text) ~= "me") or string.lower(TextBox.Text) == "all" or (string.lower(TextBox.Text) == "others" and v ~= owner) or (string.lower(TextBox.Text) == "me" and v == owner) then
 local coru = coroutine.wrap(function()
 print('elevatoring '..v.Name)
 local plr = v
