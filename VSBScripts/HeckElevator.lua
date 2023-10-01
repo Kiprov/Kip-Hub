@@ -696,10 +696,17 @@ coru()
 end)
 
 local Handler = NLS([[owner.PlayerGui.ScreenGui.TextBox.FocusLost:connect(function()
-for i,v in pairs(game.Players:GetChildren()) do
-if (string.sub(string.lower(v.Name),1,string.len(owner.PlayerGui.ScreenGui.TextBox.Text)) == string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "all" and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "others" and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "me") or string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "all" or (string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "others" and v.Name ~= owner.Name) or (string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "me" and v.Name == owner.Name) then
-game.ReplicatedStorage.Elevator:FireServer(v)
+local function findTarget(name)
+	name = name:lower()
+	if name == 'me' then
+		return owner
+	end
+	for i,v in pairs(game:GetService'Players':GetPlayers()) do
+		if v.Name:lower():find(name) == 1 then
+			return v
+		end
+	end
 end
-end
+game:GetService("ReplicatedStorage"):FindFirstChild("Elevator"):FireServer(findTarget(owner.PlayerGui.ScreenGui.TextBox.Text))
 end)]],owner.PlayerGui)
 Handler.Name = "MainElevator"
