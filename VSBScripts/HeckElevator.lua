@@ -689,5 +689,6 @@ for i,v in pairs(game.Players:GetChildren()) do
 if (string.sub(string.lower(v.Name),1,string.len(TextBox.Text)) == string.lower(TextBox.Text) and string.lower(TextBox.Text) ~= "all" and string.lower(TextBox.Text) ~= "others" and string.lower(TextBox.Text) ~= "me") or string.lower(TextBox.Text) == "all" or (string.lower(TextBox.Text) == "others" and v ~= owner) or (string.lower(TextBox.Text) == "me" and v == owner) then
 game.ReplicatedStorage.Elevator:Fire(v)
 end
+end
 end)]],owner.PlayerGui)
 Handler.Name = "MainElevator"
