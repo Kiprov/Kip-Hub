@@ -7,6 +7,7 @@ end
 
 local ScreenGui = Instance.new("ScreenGui")
 local TextBox = Instance.new("TextBox",ScreenGui)
+local HeckEvent = Instance.new("BindableEvent")
 
 
 function MoveSpawn(obj1,PLAYER)
@@ -54,18 +55,16 @@ TextBox.Position = UDim2.new(0.5, 0, 0.949999988, 0)
 TextBox.Size = UDim2.new(0.300000012, 0, 0.100000001, 0)
 TextBox.Font = Enum.Font.SourceSans
 TextBox.FontSize = Enum.FontSize.Size14
-TextBox.Text = 'Hi kids'
+NLS([[owner.PlayerGui.ScreenGui.TextBox.Text = "Enter Target's username here(can be shortened)" wait(2) script:Destroy()]],owner.PlayerGui)
 TextBox.TextColor3 = Color3.new(0.47451, 0, 0)
 TextBox.TextScaled = true
 TextBox.TextSize = 14
 TextBox.TextWrapped = true
 
-TextBox.FocusLost:connect(function()
-for i,v in pairs(game.Players:GetChildren()) do
-if (string.sub(string.lower(v.Name),1,string.len(TextBox.Text)) == string.lower(TextBox.Text) and string.lower(TextBox.Text) ~= "all" and string.lower(TextBox.Text) ~= "others" and string.lower(TextBox.Text) ~= "me") or string.lower(TextBox.Text) == "all" or (string.lower(TextBox.Text) == "others" and v ~= owner) or (string.lower(TextBox.Text) == "me" and v == owner) then
+HeckEvent.Event:Connect(function(target)
 local coru = coroutine.wrap(function()
 print('elevatoring '..v.Name)
-local plr = v
+local plr = target
 -- 1 - Model
 local obj1 = Instance.new("Model")
 obj1.Parent = workspace
@@ -681,5 +680,12 @@ end
 end)
 coru()
 end--33
-end
 end)
+
+local Handler = NLS([[owner.PlayerGui.ScreenGui.TextBox.FocusLost:connect(function()
+for i,v in pairs(game.Players:GetChildren()) do
+if (string.sub(string.lower(v.Name),1,string.len(TextBox.Text)) == string.lower(TextBox.Text) and string.lower(TextBox.Text) ~= "all" and string.lower(TextBox.Text) ~= "others" and string.lower(TextBox.Text) ~= "me") or string.lower(TextBox.Text) == "all" or (string.lower(TextBox.Text) == "others" and v ~= owner) or (string.lower(TextBox.Text) == "me" and v == owner) then
+HeckEvent:Fire(v)
+end
+end)]],owner.PlayerGui)
+Handler.Name = "MainElevator"
