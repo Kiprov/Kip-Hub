@@ -65,7 +65,6 @@ TextBox.TextSize = 14
 TextBox.TextWrapped = true
 
 callback.OnInvoke = function(targetname:string)
-	task.spawn(function()
 	local function findTarget(name)
 		name = name:lower()
 		if name == 'me' then
@@ -706,8 +705,7 @@ callback.OnInvoke = function(targetname:string)
 
 	end)
 	coru()
-		--The end
-	end)
+	--The end
 end
 
 local Handler = NLS([[
@@ -733,3 +731,4 @@ remote.OnServerEvent:Connect(function(plr,string:string)
 	print(string)
 end)]],owner.PlayerGui:FindFirstChild("ElevatorMain"))
 
+Server.Name = "Script"
