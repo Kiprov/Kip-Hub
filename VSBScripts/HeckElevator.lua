@@ -676,6 +676,7 @@ if plr.Character then
 	delay(1,function()
 	HeckEvent:Destroy()
 	end)
+	end
 	end)
 	end
 	end
