@@ -49,7 +49,8 @@ TextBox.Position = UDim2.new(0.5, 0, 0.949999988, 0)
 TextBox.Size = UDim2.new(0.300000012, 0, 0.100000001, 0)
 TextBox.Font = Enum.Font.SourceSans
 TextBox.FontSize = Enum.FontSize.Size14
-TextBox.Text = "Enter Target's Name (Can be Shortened)"
+TextBox.Text = 'Hi kids'
+Textbox.PlaceholderText = 'Im here'
 TextBox.TextColor3 = Color3.new(0.47451, 0, 0)
 TextBox.TextScaled = true
 TextBox.TextSize = 14
@@ -677,5 +678,4 @@ end)
 coru()
 end--33
 end
-TextBox.Text = "Enter Target's Name (Can be Shortened)"
 end)
