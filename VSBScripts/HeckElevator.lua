@@ -635,12 +635,13 @@ if plr.Character then
 			MovePartBy(plr.Character.Torso,Vector3.new(0,-0.4,0))
 		end
 		wait()
-	end
-	ToHell(obj1)
+						end
 	if plr.Character:FindFirstChild("No Escape.") then
 		plr.Character.Torso:PivotTo(plr.Character.Torso.CFrame + Vector3.new(5000,5000,5000))
+		wait(2)
 		plr.Character.Torso.Anchored = false
 	end
+	ToHell(obj1)
 	local cf = thing.CFrame
 	for i=1,120 do
 		if thing then
