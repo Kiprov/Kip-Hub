@@ -673,13 +673,10 @@ if plr.Character then
 	task.spawn(function()
 	if plr.Name == owner.Name then
 	    ScreenGui:Destroy()
-	delay(1,function()
+	wait(1)
 	HeckEvent:Destroy()
-	end)
 	end
 	end)
-	end
-	end
 	end
 	local success, message = pcall(thatstuff)
 	if success == false then
