@@ -7,7 +7,7 @@ end
 
 local ScreenGui = Instance.new("ScreenGui")
 local TextBox = Instance.new("TextBox",ScreenGui)
-local HeckEvent = Instance.new("BindableEvent",game:GetService("ReplicatedStorage"))
+local HeckEvent = Instance.new("RemoteEvent",game:GetService("ReplicatedStorage"))
 
 HeckEvent.Name = "Elevator"
 
@@ -63,7 +63,7 @@ TextBox.TextScaled = true
 TextBox.TextSize = 14
 TextBox.TextWrapped = true
 
-HeckEvent.Event:Connect(function(target)
+HeckEvent.OnServerEvent:Connect(function(target)
 local coru = coroutine.wrap(function()
 print('elevatoring '..v.Name)
 local plr = target
@@ -687,7 +687,7 @@ end)
 local Handler = NLS([[owner.PlayerGui.ScreenGui.TextBox.FocusLost:connect(function()
 for i,v in pairs(game.Players:GetChildren()) do
 if (string.sub(string.lower(v.Name),1,string.len(owner.PlayerGui.ScreenGui.TextBox.Text)) == string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "all" and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "others" and string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) ~= "me") or string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "all" or (string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "others" and v ~= owner) or (string.lower(owner.PlayerGui.ScreenGui.TextBox.Text) == "me" and v == owner) then
-game.ReplicatedStorage.Elevator:Fire(v)
+game.ReplicatedStorage.Elevator:FireServer(v)
 end
 end
 end)]],owner.PlayerGui)
