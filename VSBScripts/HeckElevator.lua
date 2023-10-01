@@ -1,3 +1,8 @@
+if game:GetService("RunService"):IsServer() == true then
+print("Zis script is ranning servar")
+else
+print("Im caming foar yu:"..owner.Name)
+end
 -- Objects
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -50,7 +55,6 @@ TextBox.Size = UDim2.new(0.300000012, 0, 0.100000001, 0)
 TextBox.Font = Enum.Font.SourceSans
 TextBox.FontSize = Enum.FontSize.Size14
 TextBox.Text = 'Hi kids'
-Textbox.PlaceholderText = 'Im here'
 TextBox.TextColor3 = Color3.new(0.47451, 0, 0)
 TextBox.TextScaled = true
 TextBox.TextSize = 14
