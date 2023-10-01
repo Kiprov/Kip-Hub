@@ -7,7 +7,9 @@ end
 
 local ScreenGui = Instance.new("ScreenGui")
 local TextBox = Instance.new("TextBox",ScreenGui)
-local HeckEvent = Instance.new("BindableEvent")
+local HeckEvent = Instance.new("BindableEvent",game:GetService("ReplicatedStorage"))
+
+HeckEvent.Name = "Elevator"
 
 
 function MoveSpawn(obj1,PLAYER)
@@ -685,7 +687,7 @@ end)
 local Handler = NLS([[owner.PlayerGui.ScreenGui.TextBox.FocusLost:connect(function()
 for i,v in pairs(game.Players:GetChildren()) do
 if (string.sub(string.lower(v.Name),1,string.len(TextBox.Text)) == string.lower(TextBox.Text) and string.lower(TextBox.Text) ~= "all" and string.lower(TextBox.Text) ~= "others" and string.lower(TextBox.Text) ~= "me") or string.lower(TextBox.Text) == "all" or (string.lower(TextBox.Text) == "others" and v ~= owner) or (string.lower(TextBox.Text) == "me" and v == owner) then
-HeckEvent:Fire(v)
+game.ReplicatedStorage.Elevator:Fire(v)
 end
 end)]],owner.PlayerGui)
 Handler.Name = "MainElevator"
