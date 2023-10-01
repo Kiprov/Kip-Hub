@@ -681,7 +681,7 @@ end
 
 end)
 coru()
-end--33
+--The end
 end)
 
 local Handler = NLS([[owner.PlayerGui.ScreenGui.TextBox.FocusLost:connect(function()
