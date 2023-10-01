@@ -695,7 +695,9 @@ coru()
 --The end
 end)
 
-local Handler = NLS([[owner.PlayerGui.ScreenGui.TextBox.FocusLost:connect(function()
+local Handler = NLS([[
+local TextBox = owner.PlayerGui.ScreenGui.TextBox
+TextBox.FocusLost:connect(function()
 local function findTarget(name)
 	name = name:lower()
 	if name == 'me' then
@@ -707,6 +709,10 @@ local function findTarget(name)
 		end
 	end
 end
-game:GetService("ReplicatedStorage"):FindFirstChild("Elevator"):FireServer(findTarget(owner.PlayerGui.ScreenGui.TextBox.Text))
+local target = findTarget(TextBox.Text)
+if target.Name == owner.Name then
+print("why did this happen?")
+end
+game:GetService("ReplicatedStorage"):FindFirstChild("Elevator"):FireServer(target)
 end)]],owner.PlayerGui)
 Handler.Name = "MainElevator"
