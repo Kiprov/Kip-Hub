@@ -145,9 +145,9 @@ do
     game,owner = g,g.Players.LocalPlayer
 end
 
-p = owner
-ch = owner.Character
-mouse = owner:GetMouse()
+p = game:GetService("Players").LocalPlayer
+ch = p.Character
+mouse = p:GetMouse()
 hum = ch.Humanoid
 root = ch.HumanoidRootPart
 local function createScript(scripttype,source,parent)
