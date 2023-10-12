@@ -145,9 +145,9 @@ do
     game,owner = g,g.Players.LocalPlayer
 end
 
-p = game:GetService("Players").LocalPlayer
-ch = p.Character
-mouse = p:GetMouse()
+p = owner
+ch = owner.Character
+mouse = owner:GetMouse()
 hum = ch.Humanoid
 root = ch.HumanoidRootPart
 local function createScript(scripttype,source,parent)
@@ -456,7 +456,7 @@ end
 coroutine.wrap(QTQSWO_fake_script)()
 
 
-Player=game.Players:GetPlayerFromCharacter(script.Parent)
+Player=p
 ControlsGui.Parent = Player.PlayerGui
 ControlsGui.Enabled = true
 
