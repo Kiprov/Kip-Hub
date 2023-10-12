@@ -227,7 +227,7 @@ local Control_9 = Instance.new("TextLabel")
 --Properties:
 
 ControlsGui.Name = "ControlsGui"
-ControlsGui.Parent = owner:WaitForChild("PlayerGui")
+ControlsGui.Parent = p.PlayerGui
 ControlsGui.Enabled = false
 ControlsGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
