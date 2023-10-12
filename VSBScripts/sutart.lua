@@ -2853,7 +2853,9 @@ wings:Destroy()
 armstuff.LArm.Parent = ch["Left Arm"]
 armstuff.RArm.Parent = ch["Right Arm"]
 
-armstuff:Destroy()
+delay(2,function()
+    armstuff:Destroy()
+end)
 
 local newcolor = Instance.new("BodyColors",ch)
 newcolor.HeadColor = BrickColor.new("Institutional white")
