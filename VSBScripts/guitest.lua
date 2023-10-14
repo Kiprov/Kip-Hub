@@ -8,6 +8,7 @@ if not game:GetService("RunService"):IsServer() then
 
 local Scripts = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
+local Click = Instance.new("Sound")
 local UICorner = Instance.new("UICorner")
 local Title = Instance.new("TextLabel")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
@@ -32,6 +33,15 @@ local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
 Scripts.Name = "Scripts"
 Scripts.Parent = owner:WaitForChild("PlayerGui")
 Scripts.ResetOnSpawn = false
+
+Click.Name = "Click"
+Click.Volume = 2
+Click.SoundId = "rbxassetid://4601634016"
+Click.Pitch = 0.7
+Click.Parent = Close
+
+local Click2 = Click:Clone()
+Click2.Parent = Template
 
 Main.Name = "Main"
 Main.Parent = Scripts
