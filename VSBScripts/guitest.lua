@@ -1,5 +1,5 @@
 if not game:GetService("RunService"):IsServer() then
-  error("Script must be ran on serverside. Use h/ instead of hl/!)
+  error("Script must be ran on serverside. Use h/ instead of hl/!")
   else
     -- Gui to Lua
 -- Version: 3.2
