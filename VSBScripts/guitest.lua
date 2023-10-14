@@ -170,10 +170,9 @@ UIAspectRatioConstraint_7.Parent = Open
 UIAspectRatioConstraint_7.AspectRatio = 2.460
 
 -- Scripts:
-
-local function TUGNV_fake_script() -- Main.Dragify 
-	local script = Instance.new('LocalScript', Main)
-
+	
+	local script = NLS([[
+		
 	local UserInputService = game:GetService("UserInputService")
 	local runService = (game:GetService("RunService"));
 	
@@ -227,8 +226,8 @@ local function TUGNV_fake_script() -- Main.Dragify
 	end)
 	
 	runService.Heartbeat:Connect(Update)
-end
-coroutine.wrap(TUGNV_fake_script)()
+	]],Main)
+	script.Name = "Dragify"
 local function XLJK_fake_script() -- Main.Main 
 	local script = Instance.new('Script', Main)
 
@@ -279,7 +278,7 @@ local function XLJK_fake_script() -- Main.Main
 		mainsizenew = TS:Create(main,TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Size = sizes.New})
 	}
 	--Functions
-	local function calculateScripts(data:any)
+	local function calculateScripts(data)
 		print("SETUP.EXE HAS BEEN EXECUTED!")
 		wait(1)
 		for i, scriptneed in pairs(data.Scripts) do
