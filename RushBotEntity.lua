@@ -1,6 +1,6 @@
 local function a()
 	if (workspace.Ambience_Seek.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_FigureIntense.Playing or workspace.Ambience_FigureEnd.Playing or workspace.CurrentRooms:FindFirstChild("50")) then
-				a()
+		print("Aww man i cant spawn :(")
 				return
 			end
 			--1427189017--
