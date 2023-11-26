@@ -96,7 +96,7 @@ wait(2.8)
 
 local function a()
 if (workspace.Ambience_Seek.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_FigureIntense.Playing or workspace.Ambience_FigureEnd.Playing or workspace.CurrentRooms:FindFirstChild("50")) then
-				a()
+				print("Aww man i cant spawn :(")
 				return
 			end
 
@@ -254,11 +254,6 @@ PlaySound = {
 
 entity.Debug.OnEntityMoving = function(Invincible,Hiding,plrCollisionPoint)
 
-print("Invincible: "..tostring(Invincible))
-
-print("Player to Entity Collision (None hiding Point): "..tostring(plrCollisionPoint))
-
-print("Hiding: "..tostring(Hiding))
 
 end
 
@@ -314,20 +309,17 @@ end
 
 entity.Debug.OnEntityFinishedRebound = function()
 
-    print("Entity has finished rebound:")
-
+    
 end
 
 entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
 
-    print("Entity:", "has entered room:",room)
-
+    
 end
 
 entity.Debug.OnLookAtEntity = function()
 
-    print("Player has looked at entity:")
-
+    
 end
 
 entity.Debug.OnDeath = function()
