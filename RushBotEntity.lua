@@ -101,15 +101,15 @@ entity.Debug.OnEntityStartMoving = function()
 end
 
 entity.Debug.OnEntityFinishedRebound = function()
-    print("Entity finished rebound")
+    
 end
 
 entity.Debug.OnEntityEnteredRoom = function(room)
-    print("Entity entered room:", room)
+		
 end
 
 entity.Debug.OnLookAtEntity = function()
-    print("Player looking at entity")
+
 end
 
 entity.Debug.OnDeath = function()
