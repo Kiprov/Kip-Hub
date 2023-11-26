@@ -14,7 +14,7 @@ local Death = nil
 wait(0.5)
 local function a()
 if (workspace.Ambience_Seek.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_FigureIntense.Playing or workspace.Ambience_FigureEnd.Playing or workspace.CurrentRooms:FindFirstChild("50")) then
-				a()
+				print("Aww man i cant spawn :(")
 				return
 			end
 ---====== Define spawner ======---
@@ -132,15 +132,15 @@ entity.Debug.OnEntityStartMoving = function()
 end
 
 entity.Debug.OnEntityFinishedRebound = function()
-    print("Entity finished rebound")
+		
 end
 
 entity.Debug.OnEntityEnteredRoom = function(room)
-    print("Entity entered room:", room)
+    
 end
 
 entity.Debug.OnLookAtEntity = function()
-    print("Player looking at entity")
+    
 end
 
 entity.Debug.OnDeath = function()
