@@ -525,7 +525,7 @@ local Entities = {
 				firgur.SeekRig:PivotTo(val.Value)
 			end)
 
-			local early, latest = SpawnerLibrary.Calculate()
+			local early, latest = SpawnerLibrary.Calculate2()
 
 			val.Value = early.PathfindNodes["1"].CFrame + Vector3.new(0,5,0)
 
