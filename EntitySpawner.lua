@@ -525,7 +525,7 @@ local Entities = {
 				firgur.SeekRig:PivotTo(val.Value)
 			end)
 
-			local early, latest = SpawnerLibrary.Calculate2()
+			local early, latest = SpawnerLibrary.Calculate()
 
 			val.Value = early.PrimaryPart.CFrame + Vector3.new(0,5,0)
 
@@ -536,8 +536,7 @@ local Entities = {
 
 			local orig = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
-
-			require(game:GetService("Players").LocalPlayer.PlayerGui.MainUI.Initiator["Main_Game"].RemoteListener.Cutscenes.SeekIntro)(u2)
+			
 			firgur.Figure.Footsteps:Play()
 			firgur.Figure.FootstepsFar:Play()
 
