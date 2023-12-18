@@ -551,7 +551,7 @@ local Entities = {
 			coroutine.wrap(function()
 				while task.wait() do
 					if chase then
-						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
 						if math.random(1,100) == 95 then
 							firgur.Figure.Scream:Play()
 						end
