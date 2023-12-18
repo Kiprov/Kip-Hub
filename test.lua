@@ -15,3 +15,17 @@ for orbsi,gearModel in next, orbs:GetChildren() do
     ClaimGear(gearModel)
   end
 end
+
+print("Claimed all orb gears!")
+wait(3)
+for geari,gearBox in next, gears:GetChildren() do
+  if gearBox:IsA("Model") then
+    for boxi,gearModel in next, gearBox:GetChildren() do
+      if gearModel:IsA("Model") then
+        ClaimGear(gearModel)
+      end
+    end
+  end
+end
+
+print("Claimed all gears!")
