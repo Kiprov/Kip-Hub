@@ -2,6 +2,7 @@ print("hey ik ur there redskull")
 local brightLoop = nil
 local espParts = {}
 local partEspTrigger = nil
+local Lighting = game.Lighting
 function partAdded(part)
 	if #espParts > 0 then
 		if table.find(espParts,part.Name:lower()) then
