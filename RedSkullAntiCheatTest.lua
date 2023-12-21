@@ -39,11 +39,6 @@ local espTransparency = 0
 function partAdded(part)
 	if #espParts > 0 then
 		if table.find(espParts,part.Name:lower()) then
-			game.StarterGui:SetCore("SendNotification", {
-                        Title = "Monster Spawned ⚠️",
-                        Text = "Hide quick",
-                        Duration = 5
-                        })
 			local a = Instance.new("BoxHandleAdornment")
 			a.Name = part.Name:lower().."_PESP"
 			a.Parent = part
