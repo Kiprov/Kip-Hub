@@ -1,5 +1,6 @@
 print("hey ik ur there redskull")
-local brightLoop = nillocal espParts = {}
+local brightLoop = nil
+local espParts = {}
 local partEspTrigger = nil
 function partAdded(part)
 	if #espParts > 0 then
