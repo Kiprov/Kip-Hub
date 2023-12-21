@@ -1,7 +1,24 @@
 print("hey ik ur there redskull")
-local brightLoop = nil
-local espParts = {}
+local brightLoop = nillocal espParts = {}
 local partEspTrigger = nil
+function partAdded(part)
+	if #espParts > 0 then
+		if table.find(espParts,part.Name:lower()) then
+			local a = Instance.new("BoxHandleAdornment")
+			a.Name = part.Name:lower().."_PESP"
+			a.Parent = part
+			a.Adornee = part
+			a.AlwaysOnTop = true
+			a.ZIndex = 0
+			a.Size = part.Size
+			a.Transparency = 0
+			a.Color = BrickColor.new("Lime green")
+		end
+	else
+		partEspTrigger:Disconnect()
+		partEspTrigger = nil
+	end
+end
 if brightLoop then
 		brightLoop:Disconnect()
 	end
