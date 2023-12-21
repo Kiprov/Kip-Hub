@@ -1,6 +1,7 @@
 print("hey ik ur there redskull")
 local brightLoop = nil
 local Lighting = game.Lighting
+local RunService = game:GetService("RunService")
 if brightLoop ~= nil then
 		brightLoop:Disconnect()
 	end
