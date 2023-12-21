@@ -28,7 +28,7 @@ local partEspName = "monster"
 				a.AlwaysOnTop = true
 				a.ZIndex = 0
 				a.Size = v.Size
-				a.Transparency = espTransparency
+				a.Transparency = 0
 				a.Color = BrickColor.new("Lime green")
 			end
 		end
