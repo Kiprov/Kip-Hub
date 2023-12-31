@@ -554,7 +554,8 @@ local Entities = {
 			coroutine.wrap(function()
 				while task.wait() do
 					if chase then
-						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
+						game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoost",5)
+						game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoostExtra",5)
 						if math.random(1,100) == 95 then
 							firgur.Figure.Scream:Play()
 						end
@@ -585,7 +586,8 @@ local Entities = {
 
 			firgur:Destroy()
 
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = orig
+			game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoost",0)
+			game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoostExtra",0)
 			workspace.Ambience_Seek.TimePosition = 92.5
 
 			task.wait(4)
