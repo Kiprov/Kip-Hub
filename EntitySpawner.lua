@@ -514,7 +514,9 @@ local Entities = {
 			workspace.Ambience_Seek.TimePosition = 0
 			workspace["Ambience_Seek"]:Play()
 
-			local firgur = game:GetObjects("rbxassetid://10829142080")[1]
+			local firgur = game:GetObjects("rbxassetid://12821898703")[1]
+
+			firgur:FindFirstChild("Note from MrFunny (READ!)"):Destroy()
 
 			firgur.Figure.Anchored = true
 			firgur.Parent = workspace
@@ -530,7 +532,7 @@ local Entities = {
 			val.Value = early.PrimaryPart.CFrame + Vector3.new(0,5,0)
 
 			local anim = Instance.new("Animation")
-			anim.AnimationId = "rbxassetid://9896641335"
+			anim.AnimationId = "rbxassetid://10954733643"
 
 			firgur.SeekRig.AnimationController:LoadAnimation(anim):Play()
 
@@ -541,7 +543,7 @@ local Entities = {
 			firgur.Figure.FootstepsFar:Play()
 
 			local anim = Instance.new("Animation")
-			anim.AnimationId = "rbxassetid://7758895278"
+			anim.AnimationId = "rbxassetid://10729087054"
 
 			firgur.SeekRig.AnimationController:LoadAnimation(anim):Play()
 
