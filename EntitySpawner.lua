@@ -773,7 +773,7 @@ Ambush:SetAttribute("ClonedByCrucifix", false)
 
 			for i = 1,math.random(2,4) do
 				local Nodes = {}
-				for _,Room in ipairs(workspace.CurrentRooms:GetChildren()) do
+				for _,Room in pairs(workspace.CurrentRooms:GetChildren()) do
 					local IsPossible = true
 					
 					if Room:GetAttribute("Possible") == false then
@@ -796,7 +796,7 @@ Ambush:SetAttribute("ClonedByCrucifix", false)
 					if Room:FindFirstChild("PathfindNodes") and IsPossible then
 						Event("breakLights", Room, 0.416, 60)
 						for i,v in pairs(Room.PathfindNodes:GetChildren()) do
-							table.insert(Nodes, 1, v)
+							table.insert(Nodes,v)
 							SpawnerLibrary.Tween2(RushNew, v, AmbushSpeed, CFrame.new(0,4,0))
 						end
 						SpawnerLibrary.Tween2(RushNew, Room.RoomExit, AmbushSpeed)
