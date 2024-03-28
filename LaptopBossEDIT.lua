@@ -173,7 +173,7 @@ cors5 = {}
 cors6 = {}
 local base = workspace:FindFirstChild("Baseplate") or workspace:FindFirstChild("Base")
 local originColor,originSize,originMaterial,originBottomSurface,originTopSurface,originPos = base.Color, base.Size, base.Material, base.BottomSurface, base.TopSurface, base.Position
-local tween = game.TweenService:Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = Color3.new(0.388235, 0.372549, 0.384314), Size = Vector3.new(512,20,512), Position = Vector3.new(0,-10,0)})
+local tween = game:GetService("TweenService"):Create(base, TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{Color = Color3.new(0.388235, 0.372549, 0.384314), Size = Vector3.new(512,20,512), Position = Vector3.new(0,-10,0)})
 tween:Play()
 base.TopSurface = "Studs"
 base.BottomSurface = "Inlet"
