@@ -4,6 +4,7 @@ local charactercreator = loadstring(game:GetService("HttpService"):GetAsync("htt
 local person = charactercreator:Make("R15")
 person:SetPrimaryPartCFrame(CFrame.new(0,5,10))
 person.Parent = script
+
 local ReplayAnimator = {} do
     --[[
       _____  ______ _____  _           __     __
@@ -479,7 +480,7 @@ local Animations = {
 }
 local function Idle()
     local dud = ReplayAnimator.new(person,"Motor6D")
-    local IdleAnim = ReplayAnimator:LoadAnimation(Animations.Idle)
+    local IdleAnim = dud:LoadAnimation(Animations.Idle)
     IdleAnim.Looped = true
     IdleAnim:Play(1)
 end
