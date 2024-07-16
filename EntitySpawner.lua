@@ -571,7 +571,6 @@ local Entities = {
 					if tonumber(v.Name) < tonumber(early.Name) then continue end
 					if v:GetAttribute("lol") then continue end
 					if v:FindFirstChild("PathfindNodes") then
-						v:SetAttribute("lol", true)
 						require(game:GetService("ReplicatedStorage").ClientModules.EntityModules.Seek).tease(nil, v, 14, 1665596753, true)
 					for _,node in next, v:FindFirstChild("PathfindNodes"):GetChildren() do
 						nodes[#nodes + 1] = node
@@ -585,7 +584,6 @@ local Entities = {
 					if tonumber(v.Name) < tonumber(early.Name) then continue end
 					if v:GetAttribute("lol") then continue end
 					if v:FindFirstChild("PathfindNodes") then
-						v:SetAttribute("lol", true)
 						require(game:GetService("ReplicatedStorage").ClientModules.EntityModules.Seek).tease(nil, v, 14, 1665596753, true)
 					for _,node in next, v:FindFirstChild("PathfindNodes"):GetChildren() do
 						nodes[#nodes + 1] = node
