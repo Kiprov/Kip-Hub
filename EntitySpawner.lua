@@ -511,9 +511,7 @@ local Entities = {
 			
 			local u2 = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
 
-			workspace.Ambience_Seek.TimePosition = 0
-			workspace["Ambience_Seek"]:Play()
-
+			
 			local firgur = game:GetObjects("rbxassetid://12821898703")[1]
 
 			firgur:FindFirstChild("Note from MrFunny (READ!)"):Destroy()
@@ -613,8 +611,7 @@ local Entities = {
 
 			game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoost",0)
 			game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoostExtra",0)
-			workspace.Ambience_Seek.TimePosition = 92.5
-
+			
 			task.wait(4)
 			u2.hideplayers = 0
 		end,
