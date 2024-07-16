@@ -566,8 +566,35 @@ local Entities = {
 			if Kill then
 				-- Not coded in yet
 			end
+			local nodes = {}
+			for i,v in ipairs(workspace.CurrentRooms:GetChildren()) do
+					if tonumber(v.Name) < tonumber(early.Name) then continue end
+					if v:GetAttribute("lol") then continue end
+					if v:FindFirstChild("PathfindNodes") then
+						v:SetAttribute("lol", true)
+						require(game:GetService("ReplicatedStorage").ClientModules.EntityModules.Seek).tease(nil, v, 14, 1665596753, true)
+					for _,node in next, v:FindFirstChild("PathfindNodes"):GetChildren() do
+						nodes[#nodes + 1] = node
+					end
+					end
+			end
 
-			for i = 1,15 do
+			local con = workspace.CurrentRooms.ChildAdded:Connect(function(room)
+			nodes = {}
+			for i,v in ipairs(workspace.CurrentRooms:GetChildren()) do
+					if tonumber(v.Name) < tonumber(early.Name) then continue end
+					if v:GetAttribute("lol") then continue end
+					if v:FindFirstChild("PathfindNodes") then
+						v:SetAttribute("lol", true)
+						require(game:GetService("ReplicatedStorage").ClientModules.EntityModules.Seek).tease(nil, v, 14, 1665596753, true)
+					for _,node in next, v:FindFirstChild("PathfindNodes"):GetChildren() do
+						nodes[#nodes + 1] = node
+					end
+					end
+					end
+			end)
+
+			for i = 1,#nodes do
 				for i,v in ipairs(workspace.CurrentRooms:GetChildren()) do
 					if tonumber(v.Name) < tonumber(early.Name) then continue end
 					if v:GetAttribute("lol") then continue end
