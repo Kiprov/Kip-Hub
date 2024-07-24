@@ -1224,9 +1224,6 @@ Spawner.Create = function(config)
 						if entityModel.Parent and not entityModel:GetAttribute("NoAI") and entityTable.Config.Rebounding.Type ~= "Blitz" and entityModel:GetAttribute("BeingCrucifixed") ~= true and entityModel:GetAttribute("BeingCrucifixedFail") ~= true or entityModel.Parent and not entityModel:GetAttribute("NoAI") and entityTable.Config.Rebounding.Type == "Blitz" and entityModel:GetAttribute("BeingCrucifixed") ~= true and entityModel:GetAttribute("BeingCrucifixedFail") ~= true or entityModel.Parent and entityModel:GetAttribute("NoAI") and entityTable.Config.Rebounding.Type == "Blitz" and entityModel:GetAttribute("BeingCrucifixed") ~= true and entityModel:GetAttribute("BeingCrucifixedFail") ~= true then
 							local entityPos = entityModel.PrimaryPart.Position
 							local ignoreTable = {}
-							for _,v in next, workspace.CurrentRooms:GetChildren() do
-							table.insert(ignoreTable,v)
-							end
 							table.insert(ignoreTable,entityModel)
 							local floorRay = FindPartOnRayWithIgnoreList(workspace, Ray.new(entityPos, Vector3.new(0, -10, 0)), ignoreTable)
 							if entityTable.Config.Damage.Enabled == true then
