@@ -733,7 +733,7 @@ function hellfail(oldentity,entity)
 end
 
 local SelfModules = {
-	DefaultConfig = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiprov/tempassets/main/DefaultConfig.lua"))(),
+	DefaultConfig = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kiprov/Kip-Hub/main/Entity/DefaultConfig.lua"))(),
 	Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))(),
 }
 local ModuleScripts = {
