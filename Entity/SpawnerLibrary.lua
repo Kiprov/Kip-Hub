@@ -761,7 +761,8 @@ Raycast = function(Player,Part,Distance,entityTable)
 				if Player.Character:FindFirstChild("Crucifix") then
 					if entityTable.Config.Crucifixion.Enabled == true then
 					ToolHandle = Player.Character:FindFirstChild("Crucifix").Handle
-					task.spawn(entityTable.Debug.CrucifixionOverwrite)
+					entityTable.Debug.CrucifixionOverwrite()
+					ToolHandle = nil
 					end
 				else
 				local func, setupval, getinfo, typeof, getgc, next = nil, debug.setupvalue or setupvalue, debug.getinfo or getinfo, typeof, getgc, next
