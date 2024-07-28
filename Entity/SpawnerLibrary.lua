@@ -1055,6 +1055,40 @@ Spawner.Create = function(config)
 						end
 					end
 
+					
+					if entityTable.Config.Movement.Reversed then
+						local inverseNodes = {}
+						local backNodes = {}
+						for i,v in next, workspace.CurrentRooms:GetChildren() do
+							local room = v
+							local pathfindNodes = room:FindFirstChild("PathfindNodes")
+
+							if pathfindNodes then
+								pathfindNodes = pathfindNodes:GetChildren()
+							else
+								local fakeNode = Instance.new("Part")
+								fakeNode.Name = "1"
+								fakeNode.CFrame = room:WaitForChild("RoomExit").CFrame - Vector3.new(0, room.RoomExit.Size.Y / 2, 0)
+
+								pathfindNodes = {fakeNode}
+							end
+
+							table.sort(pathfindNodes, function(a, b)
+								return tonumber(a.Name) < tonumber(b.Name)
+							end)
+
+							for _, node in next, pathfindNodes do
+								backNodes[#backNodes + 1] = node
+							end
+						end
+
+						for nodeIdx = #backNodes, 1, -1 do
+							inverseNodes[#inverseNodes + 1] = backNodes[nodeIdx]
+						end
+
+						nodes = inverseNodes
+					end
+
 					-- Spawn
 
 					local entityModel = entityTable.Model
@@ -1062,7 +1096,7 @@ Spawner.Create = function(config)
 					if entityModel:FindFirstChild("Humanoid") then
 						humanoidEntity = true
 					end
-					local startNodeIndex = entityTable.Config.Movement.Reversed and #nodes or 1
+					local startNodeIndex = entityTable.Config.Movement.Reversed and 1 or 1
 					local startNodeOffset = entityTable.Config.Movement.Reversed and -50 or 50
 					local startNode = nodes[startNodeIndex]
 
@@ -1296,40 +1330,6 @@ Spawner.Create = function(config)
 					-- Cycles
 
 					local cyclesConfig = entityTable.Config.Rebounding
-
-					if entityTable.Config.Movement.Reversed then
-						local inverseNodes = {}
-						local backNodes = {}
-						for i,v in next, workspace.CurrentRooms:GetChildren() do
-							local room = v
-							local pathfindNodes = room:FindFirstChild("PathfindNodes")
-
-							if pathfindNodes then
-								pathfindNodes = pathfindNodes:GetChildren()
-							else
-								local fakeNode = Instance.new("Part")
-								fakeNode.Name = "1"
-								fakeNode.CFrame = room:WaitForChild("RoomExit").CFrame - Vector3.new(0, room.RoomExit.Size.Y / 2, 0)
-
-								pathfindNodes = {fakeNode}
-							end
-
-							table.sort(pathfindNodes, function(a, b)
-								return tonumber(a.Name) < tonumber(b.Name)
-							end)
-
-							for _, node in next, pathfindNodes do
-								backNodes[#backNodes + 1] = node
-							end
-						end
-
-						for nodeIdx = #backNodes, 1, -1 do
-							inverseNodes[#inverseNodes + 1] = backNodes[nodeIdx]
-						end
-
-						nodes = inverseNodes
-					end
-					startNodeIndex = entityTable.Config.Movement.Reversed and #nodes or 1
 
 					--for cycle = 1, math.max(math.random(cyclesConfig.Min, cyclesConfig.Max), 1) do
 					--	for nodeIdx = 1, #nodes, 1 do
