@@ -1063,7 +1063,7 @@ Spawner.Create = function(config)
 						humanoidEntity = true
 					end
 					local startNodeIndex = entityTable.Config.Movement.Reversed and #nodes or 1
-					local startNodeOffset = entityTable.Config.Movement.Reversed and 0 or 50
+					local startNodeOffset = entityTable.Config.Movement.Reversed and -50 or 50
 					local startNode = nodes[startNodeIndex]
 
 					EntityConnections[entityModel] = {}
@@ -1329,6 +1329,7 @@ Spawner.Create = function(config)
 
 						nodes = inverseNodes
 					end
+					startNodeIndex = entityTable.Config.Movement.Reversed and #nodes or 1
 
 					--for cycle = 1, math.max(math.random(cyclesConfig.Min, cyclesConfig.Max), 1) do
 					--	for nodeIdx = 1, #nodes, 1 do
