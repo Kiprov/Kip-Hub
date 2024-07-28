@@ -947,7 +947,7 @@ end
 
 local function GetClosetsInRoom(room)
 	if room:FindFirstChild("Assets") then
-		if room.Assets:FindFirstChild("Wardrobe") then
+		if room.Assets:FindFirstChild("Wardrobe") or room.Assets:FindFirstChild("Toolshed") then
 			return true
 		else
 			return false
