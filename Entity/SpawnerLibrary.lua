@@ -807,7 +807,7 @@ end
 
 function loadSound(entityModel)
 	for _,snd in next, entityModel:GetDescendants() do
-		if snd:IsA("Sound") and snd:GetAttribute("CanPlay") == true then
+		if snd:IsA("Sound") then
 			task.spawn(function()
 				local sndorigvolume = snd.Volume
 				snd:Play()
@@ -825,7 +825,7 @@ end
 
 function unloadSound(entityModel)
 	for _,snd in next, entityModel:GetDescendants() do
-		if snd:IsA("Sound") and snd:GetAttribute("CanPlay") == true then
+		if snd:IsA("Sound") then
 			local tween = game.TweenService:Create(snd,TweenInfo.new(1),{Volume = 0})
 			tween:Play()
 			tween.Completed:Connect(function()
@@ -836,11 +836,10 @@ function unloadSound(entityModel)
 	end
 end
 
-function unloadEntity(entityConnections,con,entityTable)
+function unloadEntity(entityConnections,entityTable)
 	for _, v in next, entityConnections do
 		v:Disconnect()
 	end
-	con:Disconnect()
 	task.spawn(entityTable.Debug.OnDespawned)
 end
 
@@ -1123,16 +1122,14 @@ Spawner.Create = function(config)
 						entityModel.PrimaryPart:FindFirstChildOfClass("BodyGyro"):Destroy()
 					end
 					task.spawn(entityTable.Debug.OnSpawned,entityModel)
-
-					local con
-					local con2
-					con = workspace.CurrentRooms.ChildAdded:Connect(function(room)
-						if room:IsA("Model") then
-							print("Updating nodes for the entity!")
+										local updatingNodes = true
+					spawn(function()
+						repeat
+							wait(0.1)
 							for i = 1,10 do
 								nodes = {}
 
-								for i = 1,game.ReplicatedStorage.GameData.LatestRoom.Value + 1 do
+								for i = 1,game.ReplicatedStorage.GameData.LatestRoom.Value do
 									if workspace.CurrentRooms:FindFirstChild(i) then
 										local room = workspace.CurrentRooms[i]
 
@@ -1192,9 +1189,7 @@ Spawner.Create = function(config)
 									nodes = inverseNodes
 								end
 							end
-						else
-							print("The object is not a room!")
-						end
+						until updatingNodes == false
 					end)
 
 					-- Mute entity on spawn
@@ -1289,7 +1284,7 @@ Spawner.Create = function(config)
 								end
 							end
 						elseif entityModel.Parent and entityModel:GetAttribute("NoAI") == true and entityModel:GetAttribute("BeingCrucifixed") == true and entityModel:GetAttribute("BeingCrucifixedFail") ~= true then
-							unloadEntity(entityConnections,con,entityTable)
+							unloadEntity(entityConnections,entityTable)
 						end
 					end)
 
@@ -1503,7 +1498,6 @@ Spawner.Create = function(config)
 						for _, v in next, entityConnections do
 							v:Disconnect()
 						end
-						con:Disconnect()
 
 						if cyclesConfig.Max ~= 1 then
 							entityModel:SetAttribute("Despawned",true)
