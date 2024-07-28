@@ -1221,6 +1221,7 @@ Spawner.Create = function(config)
 							local entityPos = entityModel.PrimaryPart.Position
 							local ignoreTable = {}
 							table.insert(ignoreTable,entityModel)
+							local floors = {"Floor","Carpet","CarpetLight"}
 							local floorRay = FindPartOnRayWithIgnoreList(workspace, Ray.new(entityPos, Vector3.new(0, -10, 0)), ignoreTable)
 							if entityTable.Config.Damage.Enabled == true then
 								for _,plr in next, Players:GetChildren() do
@@ -1230,7 +1231,7 @@ Spawner.Create = function(config)
 
 							-- Entered room
 
-							if floorRay ~= nil and floorRay.Name == "Floor" then
+							if floorRay ~= nil and table.find(floors,floorRay.Name) then
 								for _, room in next, workspace.CurrentRooms:GetChildren() do
 									if floorRay:IsDescendantOf(room) and not table.find(enteredRooms, room) then
 										enteredRooms[#enteredRooms + 1] = room
