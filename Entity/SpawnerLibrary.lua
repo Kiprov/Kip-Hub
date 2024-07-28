@@ -344,6 +344,7 @@ function hell(oldentity,entity)
 		gate_spin:Disconnect()
 	end)
 	Entity:Destroy()
+	ToolHandle = nil
 end
 
 function hellfail(oldentity,entity)
@@ -731,6 +732,7 @@ function hellfail(oldentity,entity)
 	task.wait(10)
 	entity:Resume()
 	Entity:SetAttribute("BeingCrucifixedFail",false)
+	ToolHandle = nil
 end
 
 local SelfModules = {
@@ -761,8 +763,7 @@ Raycast = function(Player,Part,Distance,entityTable)
 				if Player.Character:FindFirstChild("Crucifix") then
 					if entityTable.Config.Crucifixion.Enabled == true then
 					ToolHandle = Player.Character:FindFirstChild("Crucifix").Handle
-					entityTable.Debug.CrucifixionOverwrite()
-					ToolHandle = nil
+					task.spawn(entityTable.Debug.CrucifixionOverwrite)
 					end
 				else
 				local func, setupval, getinfo, typeof, getgc, next = nil, debug.setupvalue or setupvalue, debug.getinfo or getinfo, typeof, getgc, next
