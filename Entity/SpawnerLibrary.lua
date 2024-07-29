@@ -1289,7 +1289,7 @@ Spawner.Create = function(config)
 								end
 							end
 							
-							if IsScreen(entityModel) then
+							--[[if IsScreen(entityModel) then
 								delay(1,function()
 								task.spawn(entityTable.Debug.OnLookAt,true)
 								end)
@@ -1297,7 +1297,7 @@ Spawner.Create = function(config)
 								delay(1,function()
 								task.spawn(entityTable.Debug.OnLookAt,false)
 								end)
-							end
+							end]]--
 
 							-- Camera shaking
 							local shakeConfig = entityTable.Config.CameraShake
