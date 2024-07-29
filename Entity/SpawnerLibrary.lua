@@ -1570,6 +1570,8 @@ Spawner.Create = function(config)
 			
 			function entityTable:Despawn()
 				entityModel:SetAttribute("NoAI",true)
+				task.spawn(entityTable.Debug.OnDespawning,room)
+			        task.spawn(entityTable.Debug.OnDespawned,room)
 				entityModel:Destroy()
 			end
 
