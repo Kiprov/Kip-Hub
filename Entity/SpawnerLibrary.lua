@@ -1543,6 +1543,8 @@ Spawner.Create = function(config)
 					end
 				else
 					print("Entity cannot spawn due to the lack of closets.")
+				task.spawn(entityTable.Debug.OnDespawning,room)
+				task.spawn(entityTable.Debug.OnDespawned,room)
 				end
 			end
 			
@@ -1568,6 +1570,8 @@ Spawner.Create = function(config)
 			
 			function entityTable:Despawn()
 				entityModel:SetAttribute("NoAI",true)
+				task.spawn(entityTable.Debug.OnDespawning,room)
+				task.spawn(entityTable.Debug.OnDespawned,room)
 				entityModel:Destroy()
 			end
 
