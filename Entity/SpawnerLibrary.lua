@@ -1283,16 +1283,20 @@ Spawner.Create = function(config)
 
 										break
 									elseif floorRay:IsDescendantOf(room) and table.find(enteredRooms, room) then
-										task.spawn(entityTable.Debug.OnEnterRoom, room, false)
+										--task.spawn(entityTable.Debug.OnEnterRoom, room, false)
 										break
 									end
 								end
 							end
 							
 							if IsScreen(entityModel) then
+								delay(1,function()
 								task.spawn(entityTable.Debug.OnLookAt,true)
+								end)
 							else
+								delay(1,function()
 								task.spawn(entityTable.Debug.OnLookAt,false)
+								end)
 							end
 
 							-- Camera shaking
